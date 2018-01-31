@@ -6,6 +6,7 @@ import * as goodsListActions from '../goodList/goodsListAction'
 import { Button } from 'antd-mobile';
 import "../goodList/goodsList.scss"
 // import '../../sass/iconfont.css';
+import PublicMenu from '../publicMenu/publicMenuComponent'
 
 // const { Header, Footer, Content } = Layout;
 class goodsListComponent extends React.Component{
@@ -18,8 +19,9 @@ class goodsListComponent extends React.Component{
         return (
             <div>
                 <Button className="btn" type="primary">primary 按钮</Button>
-                <i className="iconfont icon-liwu"></i>
+                <i className="iconfont icon-fangzi01-copy"></i>
                 <p>haha</p>
+                <PublicMenu></PublicMenu>
             </div>
         )
     }

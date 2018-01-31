@@ -4,7 +4,7 @@ import goodslistComponent from "../components/goodList/goodsListComponent"
 
 export default (
         <div>
-        <Route path="/" component={goodslistComponent}>                
+            <Route path="/" component={goodslistComponent}>                
             </Route>
         </div>
 )
