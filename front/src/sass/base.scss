@@ -37,15 +37,15 @@ a:hover{
 
 
 @font-face {font-family: "iconfont";
-  src: url('../assets/iconfont/iconfont.eot?t=1517314994905'); /* IE9*/
-  src: url('../assets/iconfont/iconfont.eot?t=1517314994905#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../assets/iconfont/iconfont.ttf?t=1517314994905') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('../assets/iconfont/iconfont.svg?t=1517314994905#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('../assets/iconfont/iconfont.eot?t=1517396928098'); /* IE9*/
+  src: url('../assets/iconfont/iconfont.eot?t=1517396928098#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../assets/iconfont/iconfont.ttf?t=1517396928098') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../assets/iconfont/iconfont.svg?t=1517396928098#iconfont') format('svg');
 }
 
 .iconfont {
   font-family:"iconfont" !important;
-  font-size:0.24rem;
+  font-size:16px;
   font-style:normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -79,9 +79,17 @@ a:hover{
 
 .icon-viewlist:before { content: "\e6b5"; }
 
+.icon-toys:before { content: "\e6e1"; }
+
+.icon-link:before { content: "\e6f7"; }
+
 .icon-pingjia:before { content: "\e61e"; }
 
 .icon-gutou2:before { content: "\e635"; }
+
+.icon-bad:before { content: "\e716"; }
+
+.icon-good:before { content: "\e717"; }
 
 .icon-ui:before { content: "\e600"; }
 
@@ -109,6 +117,8 @@ a:hover{
 
 .icon-guojijipiao:before { content: "\e653"; }
 
+.icon-fangzi01-copy:before { content: "\e63e"; }
+
 .icon-gouxiao1:before { content: "\e6dd"; }
 
 .icon-evaluate:before { content: "\e61d"; }
@@ -128,6 +138,14 @@ a:hover{
 .icon-icon-test2:before { content: "\e60d"; }
 
 .icon-sousuo:before { content: "\e7b7"; }
+
+.icon-wenhao-yuankuang:before { content: "\e8e9"; }
+
+.icon-gantanhao-yuankuang:before { content: "\e8ec"; }
+
+.icon-dianpu:before { content: "\e90e"; }
+
+.icon-dianpu-xianxing:before { content: "\e90f"; }
 
 .icon-yiliao1:before { content: "\e61c"; }
 
