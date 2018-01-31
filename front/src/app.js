@@ -5,7 +5,7 @@ import configStore from './redux/configStore';
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import router from './router/index';
 import './sass/base.scss';
-import 'antd-mobile/dist/antd-mobile.css';
+import './sass/reAntd.css';
 import rem from "./utils/getRem.js";
 rem.rem();
 
