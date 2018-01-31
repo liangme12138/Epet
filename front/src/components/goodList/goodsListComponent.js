@@ -19,6 +19,7 @@ class goodsListComponent extends React.Component{
             <div>
                 <Button className="btn" type="primary">primary 按钮</Button>
                 <i className="iconfont icon-liwu"></i>
+                <p>haha</p>
             </div>
         )
     }
