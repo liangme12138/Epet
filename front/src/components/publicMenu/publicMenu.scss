@@ -1,0 +1,22 @@
+.menus_cen {
+    height: 0.67rem;
+    display: flex;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    // flex-direction: column;
+    li {
+        flex: 1;
+        height: 0.67rem;
+        padding-top: 0.05rem;
+        // padding-left: 20px;
+        text-align: center;
+        i,span{
+            display: block;
+        }
+        i{
+            font-size: 0.32rem;
+        }
+    }
+}
