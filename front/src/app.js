@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import configStore from './redux/configStore';
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import router from './router/index';
-import './sass/iconfont.css';
+import './sass/base.scss';
 import 'antd-mobile/dist/antd-mobile.css';
 import rem from "./utils/getRem.js";
 rem.rem();

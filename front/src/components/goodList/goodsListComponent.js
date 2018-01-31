@@ -5,6 +5,7 @@ import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router'
 import * as goodsListActions from '../goodList/goodsListAction'
 import { Button } from 'antd-mobile';
 import "../goodList/goodsList.scss"
+// import '../../sass/iconfont.css';
 
 // const { Header, Footer, Content } = Layout;
 class goodsListComponent extends React.Component{
@@ -15,9 +16,10 @@ class goodsListComponent extends React.Component{
     render(){
       
         return (
-    <div>
+            <div>
                 <Button className="btn" type="primary">primary 按钮</Button>
-    </div>
+                <i className="iconfont icon-liwu"></i>
+            </div>
         )
     }
 }
