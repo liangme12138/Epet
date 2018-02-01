@@ -7,17 +7,21 @@ import { Button } from 'antd-mobile';
 import "../goodList/goodsList.scss"
 // import '../../sass/iconfont.css';
 import PublicMenu from '../publicMenu/publicMenuComponent'
-
+import spinner from '../spinner/spinner'
 // const { Header, Footer, Content } = Layout;
+import { Toast} from 'antd-mobile';
 class goodsListComponent extends React.Component{
     componentDidMount(){
-      
+        //显示loading
+        spinner.loadSpinner();
+        //隐藏loading
+        // spinner.closeSpinner();
     }
     
     render(){
       
         return (
-            <div>
+            <div>  
                 <Button className="btn" type="primary">primary 按钮</Button>
                 <i className="iconfont icon-fangzi01-copy"></i>
                 <p>haha</p>
