@@ -1,7 +1,7 @@
 import http from '../utils/reqAjax'
 
  // types:['beforeRequest','Requested','RequestedError'],
-export function ajaxMiddleWare(MiddleWareAPI){
+export function ajaxMiddleware(MiddleWareAPI){
     return function(dispatch){
         return function(action){
             const {types, url, method = 'get', params} = action;        
