@@ -18,14 +18,23 @@ export default class publicSearchComponent extends React.Component{
     SearchBtn(){
         // 获取搜索框的值
         var searchName = this.refs.searchName.value;
-        this.refs.searchName.value = '';
-        var arr =  this.state.historySearch;
-        arr.push(searchName);
-        // 添加到搜索历史
-        Cookie.set('historySearch', JSON.stringify(this.state.historySearch), '', '/');
-        this.setState({ historySearch: arr});
-        // 发起搜索的ajax请求
-        // 。。。
+        if (searchName != ''){
+            this.refs.searchName.value = '';
+           
+            var arr =  this.state.historySearch;
+            if (arr.indexOf(searchName) < 0){
+                arr.push(searchName);
+            }
+            // console.log(arr)
+            // 添加到搜索历史
+            Cookie.set('historySearch', JSON.stringify(this.state.historySearch), '', '/');
+            this.setState({ historySearch: arr});
+            // 发起搜索的ajax请求
+            // 。。。
+        } else {
+            alert('aaa')
+        }
+        
     }
     ClearHistory(){
         // 移除历史记录
@@ -70,7 +79,7 @@ export default class publicSearchComponent extends React.Component{
                 </div>
                 <div className="history_search">
                     <h2><span>最近搜索</span><span onClick={this.ClearHistory.bind(this)}><i className="iconfont icon-delete"></i>清除历史</span></h2>
-                    <ul>
+                    <ul onClick={this.hotSearch.bind(this)}>
                         {
                             this.state.historySearch.map(function(item,idx){
                                 return <li key={idx}>{item}</li>
