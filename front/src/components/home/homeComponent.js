@@ -11,7 +11,6 @@ export default class HomeComponent extends React.Component{
         this.props.router.push(path)
     }
     focuse(){
-        console.log(666)
         hashHistory.push('search')
         // this.props.route.push('search')
     }
