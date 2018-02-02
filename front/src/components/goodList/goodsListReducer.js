@@ -2,7 +2,7 @@ import * as ajaxConstants from '../../constants/ajaxConstants'
 
 export default function goodListReducer(state = {}, action){
     let newState = JSON.parse(JSON.stringify(state));
-    console.log(action)
+    // console.log(action)
     switch (action.type) {
         case ajaxConstants.AJAX_REQUESTING:
             newState.status = 0;
