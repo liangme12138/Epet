@@ -5,6 +5,7 @@ import configStore from './redux/configStore';
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import router from './router/index';
 import './sass/base.scss';
+import './sass/iconfont.css'
 import './sass/reAntd.css';
 import rem from "./utils/getRem.js";
 rem.rem();

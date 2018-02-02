@@ -4,7 +4,7 @@ import './publicMenu.scss'
 export default class publicMenu extends React.Component{
     render(){
         return(
-            <div>
+            <div className="publicMenu">
                 <ul className="menus_cen">
                     <li><i className="iconfont icon-dianpu-xianxing"></i><span>首页</span></li>
                         <li><i className="iconfont icon-fenlei"></i><span>分类</span></li>

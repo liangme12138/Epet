@@ -5,12 +5,11 @@ import { connect } from 'react-redux';
 import * as IndexAction  from './indexAction';
 import '../../sass/base.scss'
 import './index.scss';
-import rem from '../../utils/getRem.js'
+import rem from '../../utils/getRem.js';
 // 下拉刷新
 // import { RefreshControl, ListView } from 'antd-mobile';
 rem.rem();
 
-import PublicMenu from '../publicMenu/publicMenuComponent';
 // import IndexSurpriseComponent from '../indexSurprise/indexSurpriseComponent';
 class IndexComponent extends React.Component{
 
@@ -21,6 +20,7 @@ class IndexComponent extends React.Component{
     render(){
         return (
            <div id="index-1">
+                
                 <div className="banner-item-1">
                     <img src="https://img2.epetbar.com/nowater/2018-01/29/14/a745927376b596c2cb4685686af4d2ad.jpg@!water" />
                 </div>
@@ -177,7 +177,6 @@ class IndexComponent extends React.Component{
                     <img src={require('../../assets/img/navList/foot.jpg')}/>
                     </div>
                 </div>
-                <PublicMenu />
            </div>
         )
     }

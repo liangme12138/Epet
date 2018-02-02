@@ -11,9 +11,10 @@ import { Toast} from 'antd-mobile';
 class GoodsListComponent extends React.Component{
     componentWillMount(){
         //显示loading
-        spinner.loadSpinner();
-        
-
+        // spinner.loadSpinner();
+        this.props.getCategory().then(res=>{
+            spinner.closeSpinner();
+        });
     }
     
     check(event){
@@ -21,7 +22,7 @@ class GoodsListComponent extends React.Component{
             $('header span').removeClass();
             event.target.classList.toggle('active');
         } else if (event.target.tagName == "I"){
-            this.props.router.push('/search');
+            this.props.router.push('search');
         }
     }
     render(){
@@ -36,6 +37,16 @@ class GoodsListComponent extends React.Component{
                     </div>
                     <i className="iconfont icon-sousuo"></i>
                 </header>
+                <div>
+                    <div className="category">
+                        {
+                            
+                        }
+                    </div>
+                    <div className="brand">
+
+                    </div>
+                </div>
                 <PublicMenu></PublicMenu>
             </div>
         )
@@ -45,7 +56,8 @@ class GoodsListComponent extends React.Component{
 //DataModel => m
 const mapToState = function(state){
     return {
-        
+        ajaxStatus: state.goodslist.status,
+        ajaxResult: state.goodslist.result || []
     }
 }
 
