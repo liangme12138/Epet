@@ -11,9 +11,10 @@ import { Toast} from 'antd-mobile';
 class GoodsListComponent extends React.Component{
     componentWillMount(){
         //显示loading
-        spinner.loadSpinner();
-        
-
+        // spinner.loadSpinner();
+        // this.props.getCategory().then(res=>{
+        //     spinner.closeSpinner();
+        // });
     }
     
     check(event){
