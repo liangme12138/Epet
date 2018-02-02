@@ -8,10 +8,12 @@ import DogFoodIndexComponent from '../components/dogFoodIndex/dogFoodIndexCompon
  
 export default (
     <div>
-        <Route path="/" component={IndexComponent}></Route>
+        <Route path="/" component={HomeComponent}>
+            <IndexRoute component={IndexComponent} />  
+            <Route path="/" component={IndexComponent}></Route>
+            <Route path="dogfoodindex" component={DogFoodIndexComponent}></Route>
+        </Route> 
         <Route path="/search" component={PublicSearchComponent}></Route>
-        <Route path="/dogfoodindex" component={DogFoodIndexComponent}></Route>
-        {/* <Route path="/index" component={IndexComponent}></Route>             */}
         <Route path="goodslist" component={GoodslistComponent}></Route>
         <Route path="search" component={PublicSearchComponent}></Route>
     </div>
