@@ -12,28 +12,18 @@ export function ajaxMiddleware(MiddleWareAPI){
                 type: types[0],
             })
 
-            if(method =='post'){
-                http[method]({url:url,params}).then(res => {
-                    MiddleWareAPI.dispatch({
-                        type:types[1],
-                        respones:res.data
-                    })
-                }).catch(error => {
-                    MiddleWareAPI.dispatch({
-                        type: types[2],
-                        error,
-                    })
-                })
-            }else if(method == 'get'){
-                http[method]({url:url,params}).then(res => {
-                    MiddleWareAPI.dispatch({
-                        type:types[1],
-                        respones:res.data
-                    })
-                }).catch(error => {
-                    MiddleWareAPI.dispatch({
-                        type: types[2],
-                        error,
+            if(url){
+                return new Promise ((resolve,reject) => {
+                    http[method]({ url: url, 'params': params}).then(res => {
+                        MiddleWareAPI.dispatch({
+                            type:types[1],
+                            respones:res.data
+                        })
+                    }).catch(error => {
+                        MiddleWareAPI.dispatch({
+                            type: types[2],
+                            error,
+                        })
                     })
                 })
             }

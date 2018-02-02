@@ -1,0 +1,23 @@
+.surprise-day {
+    display: flex; // height: 1.2rem;
+    width: 100%;
+    .surprise-top {
+        width: 100%;
+        height: 0.3467rem;
+        .sur-top-left {
+            height: 100%;
+            img{
+                display: inline-block;
+                float: left;
+                height: 100%;
+            }
+            span{
+                font-size: 0.2133rem;
+                line-height: 0.3467rem;
+            }
+            .surCountdown{
+                
+            }
+        }
+    }
+}
