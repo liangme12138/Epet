@@ -1,18 +1,19 @@
+import * as ajaxConstants from '../../constants/ajaxConstants'
+
 export default function goodListReducer(state = {}, action){
-    var newState = JSON.parse(JSON.stringify(state));
-    console.log(action)
-    switch(action.type){
-        case 'beforeRequest':
-            newState.type = action.type;
+    let newState = JSON.parse(JSON.stringify(state));
+    switch (action.type) {
+        case ajaxConstants.AJAX_REQUESTING:
+            newState.status = 0;
             break;
-        case 'goodslistRequested':
-            newState.type = action.type;
-            newState.body = action.response
-         case 'requestError':
+        case ajaxConstants.AJAX_REQUESTED:
+            newState.status = 1;
+            newState.result = action.result.results[0];
+            break;
+        case ajaxConstants.AJAX_REQUESTERROR:
             newState.status = -1;
-            newState.error = action.error
+            newState.result = action.result.data;
             break;
     }
-    console.log(newState)
     return newState;
 }
