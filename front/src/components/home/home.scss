@@ -1,0 +1,60 @@
+.home {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    .top_home {
+        height: 0.67rem;
+        display: flex;
+        background: pink; // border-bottom: 0.01rem solid #eee;
+        .top_left {
+            flex: 1;
+            text-align: center;
+            line-height: 0.67rem;
+        }
+        .top_center {
+            flex: 3;
+            background: rgb(253, 251, 251);
+            margin: 0.08rem;
+            border-radius: 0.08rem;
+            padding-left: 0.13rem;
+            .icon-icon-test2 {
+                line-height: 0.53rem;
+            }
+            input {
+                margin-left: 0.13rem;
+                width: 86%;
+                height: 80%;
+                background: rgb(253, 251, 251);
+                border: none;
+            }
+        }
+        .top_right {
+            flex: 0.7;
+            line-height: 0.67rem;
+            text-align: center;
+        }
+    }
+    .home_Menus {
+        height: 0.47rem;
+        background: #fff;
+        >ul {
+            width: 100%;
+            display: inline;
+            white-space: nowrap;
+            overflow-x: scroll;
+            float: left;
+            border-bottom: 0.01rem solid #eee;
+            li {
+                display: inline-block;
+                padding: 0 0.17rem;
+                height: 0.47rem;
+                line-height: 0.47rem;
+            }
+            li:first-child {
+                color: rgb(2, 105, 2);
+                border-bottom: 2px solid rgb(2, 105, 2);
+            }
+        }
+    }
+}

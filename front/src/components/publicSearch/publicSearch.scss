@@ -6,7 +6,7 @@
     .top_cen {
         height: 0.67rem;
         border-bottom: 0.01rem solid #eee;
-        background: #fff;
+        background: pink;
         display: flex;
         .search {
             flex: 5;
@@ -30,11 +30,13 @@
             font-size: 0.45rem;
             line-height: 0.67rem;
             padding-left: 0.1rem;
+            // color:#fff;
         }
         .searchBtn {
             flex: 1;
             line-height: 0.67rem;
             font-size: 0.21rem;
+            // color:#fff;
         }
     }
     .hot_search {
