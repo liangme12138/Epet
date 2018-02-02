@@ -24,8 +24,8 @@ export default class homeComponent extends React.Component{
                 </div>
                 <div className="home_Menus">
                     <ul onClick={this.ToComponent}>
-                        <li>首页</li>
-                        <li>狗狗主粮</li>
+                        <li><Link to="/">首页</Link></li>
+                        <li><Link to="/">狗狗主粮</Link></li>
                         <li>服饰城</li>
                         <li>医疗保健</li>
                         <li>零食玩具</li>
