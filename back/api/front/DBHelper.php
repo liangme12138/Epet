@@ -3,11 +3,11 @@
         // 配置参数
 
         // $servername = '10.3.136.49';
-        $servername = 'localhost';
+        $servername = '10.3.136.55';
 
         $username = 'root';
-        $password = '';
-        $database = 'supermarket';
+        $password = 'root';
+        $database = 'pet';
         header('Access-Control-Allow-Origin:*');
         //连接数据库
         $conn = new mysqli($servername, $username, $password, $database);
