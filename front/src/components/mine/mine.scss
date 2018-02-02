@@ -1,0 +1,67 @@
+#sm_mine{
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    background:#fff;
+    .header{
+        height:3.1rem;
+        position:relative;
+         .qian{      
+           position:absolute;
+           right:0;
+           bottom:0.07rem;
+           img{
+              display:block;
+                width:0.8rem;
+                height:1.13rem; 
+           }
+       }
+       .top{
+           padding:0.13rem 0.17rem;
+           >p{
+            height: 0.37rem;
+            margin:0.13rem 0;
+            span{
+                float:right;
+                display:block;
+                width: 0.37rem;
+                height: 0.37rem;
+                margin:0 0.13rem ;
+            }
+           }
+       }
+       .status{
+           height: 1.04rem;
+           .headimg{
+                float:left;
+                margin:0 0.2rem;
+              img{
+                height:0.96rem; 
+                width: 0.96rem;
+                display:block;
+                border-radius:50%;  
+              }          
+           }
+           .users{
+                float:left;
+                p{
+                    color:#fff;
+                    line-height: 0.45rem;
+                    font-size:0.27rem;
+                }
+           }
+       }
+    } 
+    .nav{
+        height: 2.33rem;
+    }
+    .pit{
+        height: 1.23rem;
+    }
+    .lis{
+        height: 4.91rem;
+    }
+    
+   
+   
+}

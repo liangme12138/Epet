@@ -1,16 +1,15 @@
 import React from 'react'
 
 import { List, InputItem, WhiteSpace, Button } from 'antd-mobile';
-import { createForm } from 'rc-form';
+import baseUrl from '../../utils/baseUrl'
 import http from "../../utils/reqAjax.js"
-import md5 from 'js-md5';
 import './login.scss'
 export default class Login extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
             show:true,
-            mobile:'',
+            phone:'',
             checkcode: '',
             user:'',
             pwd:'',
@@ -40,9 +39,9 @@ export default class Login extends React.Component{
             this.setState({ pwd: $.trim(e)});
         }          
     }
-    getMobile=(e)=>{
+    getPhone=(e)=>{
         if (e.length > 0) {
-            this.setState({ mobile: $.trim(e) });
+            this.setState({ phone: $.trim(e) });
         } 
     }
     login1=(e)=>{
@@ -57,43 +56,38 @@ export default class Login extends React.Component{
         return parseInt(Math.random() * (max - min + 1) + min);
     }
     getCode=(e)=>{
-        var date = new Date();
-        var year = date.getFullYear();
-        var mon = date.getMonth() + 1;
-        var dates = date.getDate();
-        var hour = date.getHours();
-        var min = date.getMinutes();
-        var sec = date.getSeconds();
-        var accountSid = '30dab484763a4258b94702c640bb4399';
-        var token = 'ae71c06c71714f2a9a9170f7ebd445ae';
-        var times = year + mon + dates + hour + min + sec;
-        var md55 = accountSid + token + times;
         var codes = this.randomNumber(999999, 100000);
         this.setState({ checkcode: codes });
-        var data ={
-                accountSid: accountSid,
-                to:this.state.mobile,
-                timestamp: times,
-                sig: md5(md55),
-                smscontent: '【萌宠商场】您的验证码为' + codes + '，请于3分钟内正确输入，如非本人操作，请忽略此短信。'
-            };
-        http.post({url: 'https://api.miaodiyun.com/20150822/industrySMS/sendSMS', parmas:data}).then(res=>{
-                console.log(res)
-            });
-        var timer = setInterval(function () {
-            this.setState({count:this.state.count-1});
-            if (this.state.count <= 0) {
-                clearInterval(timer);
-                this.setSrtate({count:300});
-                this.setState({ obj:'获取动态密码'});
-                return;
-            }
-            this.setState({ obj: this.state.count});
-        }.bind(this), 1000)
+        $.ajax({
+            type: 'POST',
+            url: baseUrl.Url + "smsyzm.php",
+            data: { yzm:codes, yzmtel: this.state.phone},
+            success: function (res) {
+                res = eval('(' + res + ')');
+                if (res.msg =="OK") {
+                    // 设置倒计时
+                    var timer = setInterval(()=>{
+                        this.setState({ count: this.state.count - 1 });
+                        if (this.state.count <= 0) {
+                            clearInterval(timer);
+                            this.setState({ obj: '获取动态密码' });
+                            return;
+                        }
+                        this.setState({ obj: this.state.count });
+                    }, 1000)
+                    
+                }
+            }.bind(this)
+        })
+     
+       
     }
     goBack=(e)=>{
         // this.props.router.goBack(-1);
         this.props.router.push("/");
+    }
+    skipTo = (e) => {
+        this.props.router.push("register");
     }
     render(){
         return (
@@ -101,7 +95,7 @@ export default class Login extends React.Component{
                 <div id="top" style={{ background: "url('../../src/assets/img/login/loginBg.png') no-repeat", backgroundSize: "100% 100%"}}>
                      <p className="header">
                         <span><i className="iconfont icon-back" onClick={this.goBack}></i></span>
-                        <span>注册</span>
+                        <span onClick={this.skipTo}>注册</span>
                      </p>
                     <div className="logo"> <img src="" alt="" /></div>
                     <ul className="tab" onClick={this.changeTab}>
@@ -114,12 +108,12 @@ export default class Login extends React.Component{
                                 placeholder="手机号/邮箱/用户名"
                                 autoFocus
                             >
-                                <div className="iconfont icon-gouxiao1"/>
+                                <div className="iconfont icon-ren"/>
                             </InputItem>
                             <InputItem onBlur={this.getPwd}
                                 placeholder="输入密码"
                             >
-                                <div className="iconfont icon-evaluate"/>
+                                <div className="iconfont icon-mima"/>
                             </InputItem>
                             <WhiteSpace />
                             <p className="mima"><span>新用户注册</span><span>忘记密码？</span></p>  
@@ -127,15 +121,15 @@ export default class Login extends React.Component{
                                 <Button className="btn" type="primary" onClick={this.login1}>登录</Button>
                             </div>
                         </div>:<div className="login2">
-                                <InputItem onBlur={this.getMobile}
+                                <InputItem onBlur={this.getPhone}
                                     placeholder="已注册的手机号"
                                 >
-                                    <div className="iconfont icon-gouxiao1" />
+                                    <div className="iconfont icon-ren" />
                                 </InputItem>
                                 <InputItem
                                     placeholder="动态密码"
                                 >
-                                    <div className="iconfont icon-evaluate" />
+                                    <div className="iconfont icon-mima" />
                                     <Button type="ghost" inline size="small" style={{ marginRight: '0.08rem' }} onClick={this.getCode}>{this.state.obj}</Button>
                                 </InputItem>
                                
