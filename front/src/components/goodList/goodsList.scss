@@ -1,5 +1,41 @@
-// div{
-//     .am-button{
-//        height:1rem;
-//    }
-// }
+#goodslist{
+    height: 100%;
+    header{
+        background: pink;
+        position: relative;
+        height: .67rem;
+        border-bottom: .01rem solid #ccc;
+        display: flex;
+        div{
+            height: 0.67rem;
+            flex:1;
+            span{
+                display: inline-block;
+                margin:0 auto;
+                height: 0.67rem;
+                line-height: 0.67rem;
+                margin-left: .23rem;
+                font-weight: bold;
+                font-size:.21rem;
+                padding:0 .13rem;
+            }
+            &:first-of-type{
+                text-align: right;
+                span{
+                    margin-right: 0.23rem;
+                    margin-left:0;
+                }
+            }
+            .active{
+                color:#58bc58;
+                border-bottom: .03rem solid #58bc58;
+            }
+        }
+        i{
+            position: absolute;
+            right: .27rem;
+            top:.19rem;
+        }
+    }
+    
+}
