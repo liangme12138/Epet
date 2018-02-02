@@ -5,7 +5,7 @@ import PublicSearchComponent from "../components/publicSearch/publicSearchCompon
 
 export default (
     <div>
-        <Route path="/" component={GoodslistComponent}></Route>
+        <Route path="goodslist" component={GoodslistComponent}></Route>
         <Route path="search" component={PublicSearchComponent}></Route>
     </div>
 )
