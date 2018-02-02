@@ -12,7 +12,7 @@ var baseUrl = baseurl.Url;
 
 
 var fliterUrl = function(url){
-    if(url.startsWith('http')){
+    if (url.startsWith('http') || url.startsWith('https')){
         return url;
     }
     return baseUrl + url;

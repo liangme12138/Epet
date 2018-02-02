@@ -13,7 +13,7 @@ import { Toast} from 'antd-mobile';
 class goodsListComponent extends React.Component{
     componentDidMount(){
         //显示loading
-        spinner.loadSpinner();
+        // spinner.loadSpinner();
         //隐藏loading
         // spinner.closeSpinner();
     }
