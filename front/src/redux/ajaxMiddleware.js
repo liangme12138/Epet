@@ -10,7 +10,7 @@ export function ajaxMiddleware(MiddleWareAPI){
                 return dispatch(action);
             }
 
-            let defaultConstants = [ajaxContants.AJAX_REQUESTING, ajaxContants.AJAX_REQUESTED, AJAX_REQUESTERROR];
+            let defaultConstants = [ajaxContants.AJAX_REQUESTING, ajaxContants.AJAX_REQUESTED, ajaxContants.AJAX_REQUESTERROR];
             let [requesting, requested, requesterror] = types ? types : defaultConstants;
 
             MiddleWareAPI.dispatch({
@@ -20,6 +20,7 @@ export function ajaxMiddleware(MiddleWareAPI){
             if(url){
                 return new Promise ((resolve,reject) => {
                     http[method]({ url: url, 'params': params}).then(res => {
+                        console.log(res)
                         MiddleWareAPI.dispatch({
                             type: requested,
                             respones:res.data
@@ -28,7 +29,7 @@ export function ajaxMiddleware(MiddleWareAPI){
                     }).catch(error => {
                         MiddleWareAPI.dispatch({
                             type: requesterror,
-                            error,
+                            respones:error,
                         })
                         reject(error);
                     })

@@ -14,7 +14,7 @@ export default (
             <Route path="dogfoodindex" component={DogFoodIndexComponent}></Route>
         </Route> 
         <Route path="/search" component={PublicSearchComponent}></Route>
-        <Route path="goodslist" component={GoodslistComponent}></Route>
+        <Route path="category" component={GoodslistComponent}></Route>
         <Route path="search" component={PublicSearchComponent}></Route>
     </div>
 )
