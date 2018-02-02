@@ -1,6 +1,7 @@
 import React from 'react';
 import { Router, Route, Link, hashHistory,browserHistory, IndexRoute } from 'react-router';
 import './home.scss';
+import PublicMenu from '../publicMenu/publicMenuComponent';
 export default class HomeComponent extends React.Component{
     ToComponent(event){
         // console.log(event.target.getAttribute('data-path'))
@@ -39,7 +40,8 @@ export default class HomeComponent extends React.Component{
                         <li>美容香波</li>
                     </ul>
                 </div>
-                {this.props.children}
+                <div className="components">{this.props.children}</div>
+                <PublicMenu/>
             </div>
         )
     }

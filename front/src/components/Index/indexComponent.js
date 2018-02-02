@@ -10,7 +10,6 @@ import rem from '../../utils/getRem.js';
 // import { RefreshControl, ListView } from 'antd-mobile';
 rem.rem();
 
-import PublicMenu from '../publicMenu/publicMenuComponent';
 import IndexSurpriseComponent from '../indexSurprise/indexSurpriseComponent';
 class IndexComponent extends React.Component{
     render(){
@@ -83,7 +82,6 @@ class IndexComponent extends React.Component{
                     </div>
                     <IndexSurpriseComponent/>
                 </div>
-                <PublicMenu />
            </div>
         )
     }
