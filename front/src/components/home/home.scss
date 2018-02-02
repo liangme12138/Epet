@@ -47,9 +47,13 @@
             border-bottom: 0.01rem solid #eee;
             li {
                 display: inline-block;
-                padding: 0 0.17rem;
                 height: 0.47rem;
                 line-height: 0.47rem;
+                padding: 0 0.17rem;
+                a {           
+                    color: #333;
+                    display: inline-block;
+                }
             }
             li:first-child {
                 color: rgb(2, 105, 2);

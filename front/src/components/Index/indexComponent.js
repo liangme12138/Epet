@@ -6,7 +6,6 @@ import * as IndexAction  from './indexAction';
 import '../../sass/base.scss'
 import './index.scss';
 import rem from '../../utils/getRem.js';
-import Home from '../home/homeComponent';
 // 下拉刷新
 // import { RefreshControl, ListView } from 'antd-mobile';
 rem.rem();
@@ -17,7 +16,7 @@ class IndexComponent extends React.Component{
     render(){
         return (
            <div id="index-1">
-                <Home/>
+                
                 <div className="banner-item-1">
                     <img src="https://img2.epetbar.com/nowater/2018-01/29/14/a745927376b596c2cb4685686af4d2ad.jpg@!water" />
                 </div>
