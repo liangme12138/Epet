@@ -3,7 +3,7 @@ import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router';
 import './home.scss';
 export default class homeComponent extends React.Component{
     ToComponent(event){
-        console.log(666);
+        // console.log(666);
         if (event.target.tagName == 'LI'){
             $(event.target).css({ 'border-bottom': '1px solid rgb(2, 105, 2)', color:'rgb(2, 105, 2)'}).siblings('li').css({border:'none',color:'#333'})
         }
@@ -25,7 +25,7 @@ export default class homeComponent extends React.Component{
                 <div className="home_Menus">
                     <ul onClick={this.ToComponent}>
                         <li>首页</li>
-                        <li>狗狗主梁</li>
+                        <li>狗狗主粮</li>
                         <li>服饰城</li>
                         <li>医疗保健</li>
                         <li>零食玩具</li>
