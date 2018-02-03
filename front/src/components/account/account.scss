@@ -1,0 +1,59 @@
+#sm_account{
+    height: 100%;
+    .header{ 
+        background:#fff;
+         padding:0 0.13rem;
+         border-bottom:1px solid #f3f3f3;
+        p{
+            text-align:center;
+            height: 0.67rem;
+            line-height: 0.67rem;
+            font-size:0.24rem;
+            position:relative;
+            i{
+                position:absolute;
+                font-size:0.32rem;
+            }
+            i:nth-child(1){
+                left:0;
+            }
+            i:nth-child(2){
+                right:0;
+            }
+        }
+    }
+    .btn-container{
+        margin-top:0.27rem;
+        // .btn{
+        //     background-color:pink;
+        // }
+        
+    }
+    .headImgs{
+        height:1.13rem;
+        font-size:0.23rem;
+        color:#000;
+        position:relative;
+       .headimg{
+                position:absolute;
+                // float:right;
+                right:0;
+                height: 1.07rem;
+                width: 1.07rem;
+                padding:0.07rem;
+                border-radius:50%;
+                margin:0 0.2rem;
+                background:#EBEBEB;
+              img{
+                height:0.93rem; 
+                width: 0.93rem;
+                display:block;
+                border-radius:50%;  
+              }          
+           }
+    }
+
+}
+.picker-list .am-list-item .am-list-line .am-list-extra {
+  flex-basis: initial;
+}
