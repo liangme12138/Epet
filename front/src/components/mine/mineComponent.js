@@ -1,6 +1,7 @@
 import React from 'react'
 // import { connect } from 'react-redux';
 import { List, InputItem, WhiteSpace, Button } from 'antd-mobile';
+import PublicMenu from '../publicMenu/publicMenuComponent'
 import './mine.scss'
 export default class Mine extends React.Component {
     constructor(props) {
@@ -32,7 +33,7 @@ export default class Mine extends React.Component {
                 <div className="btn-container">
                     <Button className="btn" type="primary" onClick={this.login1}>退出</Button>
                 </div>
-                
+                <PublicMenu></PublicMenu>
             </div>
         )
     }

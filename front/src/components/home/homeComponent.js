@@ -2,7 +2,9 @@ import React from 'react';
 import { Router, Route, Link, hashHistory,browserHistory, IndexRoute } from 'react-router';
 import './home.scss';
 import PublicMenu from '../publicMenu/publicMenuComponent';
-export default class HomeComponent extends React.Component{
+import * as HomeAction from './homeAction';
+import { connect } from 'react-redux';
+class HomeComponent extends React.Component{
     ToComponent(event){
         // console.log(event.target.getAttribute('data-path'))
         if (event.target.tagName == 'LI'){
@@ -15,9 +17,13 @@ export default class HomeComponent extends React.Component{
         hashHistory.push('search')
         // this.props.route.push('search')
     }
+    componentWillMount() {
+
+    }
     render(){
         return (
             <div className="home">
+            
                 <div className="top_home">
                     <div className="top_left">
                         <span>北京</span>
@@ -46,3 +52,13 @@ export default class HomeComponent extends React.Component{
         )
     }
 }
+
+const mapToState = function (state) {
+    // console.log(state.MenuReducer.result)
+    return {
+        // AjaxMenutate: state.MenuReducer.status,
+        // MenuDate: state.MenuReducer.result || []
+    }
+}
+
+export default connect(mapToState, HomeAction)(HomeComponent);

@@ -2,33 +2,33 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    .banner-item-1{
+    .banner-item-1 {
         height: 2rem;
-        img{
+        img {
             display: block;
             width: 100%;
             height: 2rem;
         }
     }
-    .video-img{
+    .video-img {
         height: 1.6rem;
-        img{
+        img {
             width: 100%;
             height: 100%;
         }
     }
-    .index-1-main{
+    .index-1-main {
         width: 100%;
-        .icon-navList{
+        .icon-navList {
             background: #fff;
             height: 2.4667rem;
-            ul{
+            ul {
                 width: 100%;
-                li{
+                li {
                     display: inline-block;
                     width: 20%;
-                    i{
-                        img{
+                    i {
+                        img {
                             display: block;
                             margin: 0;
                         }
@@ -36,12 +36,115 @@
                 }
             }
         }
-        .new-people{
+        .new-people {
             height: 1rem;
-            img{
+            img {
                 width: 100%;
                 height: 100%;
             }
+            .surCountdown{
+                width: 30%;
+            }
         }
+
+        .currency_ad{
+            // height: 1.6667rem;
+            margin-top: 0.1333rem;
+            background: #ffff;
+            .currency-box{
+                // height: 1.6667rem;
+                .currency-box-left{
+                    float: left;
+                }
+            }
+        }
+        .eTeam{
+            height: 2.4667rem;
+            margin-top: 0.1333rem;
+            background: #ffff;
+            img{
+                width: 100%;
+            }
+        }
+        .shopVideo{
+            padding-left: 0.1333rem;
+            height: 0.7333rem;
+            background: #ffff;
+            .videoImg {
+                display: block;
+                float: left;
+            }
+            .videoMore{
+                float: right;
+                display: block;
+                height: 100%;
+            }
+        }
+        .shopVideoImg{
+            text-align: center;
+            ul{
+                li{
+                    background: #fff;
+                    p{
+                        color: #000;
+                        font-weight: bold;
+                    }
+                }
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        .brandScale{
+            padding-left: 0.1333rem;
+            height: 0.7333rem;
+            background: #ffff;
+            .brandImg{
+                display: block;
+                float: left;
+            }
+            .brandMore{
+                float: right;
+                display: block;
+                height: 100%;
+            }
+        }
+        .brandDetails-img{
+            ul{
+                li{
+                    margin-bottom: 0.1333rem;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .tiYanGuanLogo {
+            padding-left: 0.1333rem;
+            height: 0.7333rem;
+            background: #ffff;
+            .tiYanGuanImg {
+                display: block;
+                float: left;
+            }
+            .tiYanGuanMore {
+                float: right;
+                display: block;
+                height: 100%;
+            }
+        }
+        .tiYanGuanDetails{
+            margin-bottom: 0.2667rem;
+            .tygdImg{
+                width: 100%;
+            }
+        }
+        .indexFoot{
+            margin-bottom: 0.8rem;
+            img{
+                width: 100%;
+            }
+        }
+        
     }
 }

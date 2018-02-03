@@ -17,9 +17,9 @@ export default (
         </Route> 
         <Route path="/search" component={PublicSearchComponent}></Route>
         <Route path="category" component={GoodslistComponent}></Route>
-        <Route path="search" component={PublicSearchComponent}></Route>
         <Route path="login" component={Login}></Route>
         <Route path="register" component={Register}></Route>
         <Route path="mine" component={Mine}></Route>
+        
     </div>
 )
