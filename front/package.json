@@ -49,6 +49,7 @@
     "antd": "^2.13.9",
     "antd-init": "^2.0.4",
     "antd-mobile": "^2.1.5",
+    "antd-mobile-demo-data": "^0.2.0",
     "axios": "^0.17.1",
     "browser-sync": "^2.18.13",
     "events": "^1.1.1",
@@ -56,6 +57,7 @@
     "jquery": "^3.2.1",
     "js-md5": "^0.7.3",
     "merge": "^1.2.0",
-    "qs": "^6.5.1"
+    "qs": "^6.5.1",
+    "rc-form": "^2.1.7"
   }
 }
