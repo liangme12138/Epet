@@ -66,3 +66,22 @@
         overflow-x: hidden;
     }
 }
+.currency_ad {
+    // height: 1.6667rem;
+    margin-top: 0.1333rem;
+    background: #ffff;
+    .currency-box {
+        // height: 1.6667rem;
+        .currency-box-left {
+            float: left;
+        }
+        .currency-box-right{
+            float: right;
+            i{
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

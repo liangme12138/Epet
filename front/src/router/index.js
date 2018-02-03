@@ -6,6 +6,7 @@ import PublicSearchComponent from "../components/publicSearch/publicSearchCompon
 import Login from '../components/login/loginComponent'
 import HomeComponent from '../components/home/homeComponent';
 import DogFoodIndexComponent from '../components/dogFoodIndex/dogFoodIndexComponent'; 
+import EpetTeamComponent from '../components/ePetTeam/ePetTeamComponent'
 export default (
     <div>
         <Route path="/" component={HomeComponent}>
@@ -17,6 +18,7 @@ export default (
         <Route path="category" component={GoodslistComponent}></Route>
         <Route path="search" component={PublicSearchComponent}></Route>
         <Route path="/login" component={Login}></Route>
+        <Route path="/epetteam" component={EpetTeamComponent}></Route>
         
     </div>
 )
