@@ -2,33 +2,33 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    .banner-item-1{
+    .banner-item-1 {
         height: 2rem;
-        img{
+        img {
             display: block;
             width: 100%;
             height: 2rem;
         }
     }
-    .video-img{
+    .video-img {
         height: 1.6rem;
-        img{
+        img {
             width: 100%;
             height: 100%;
         }
     }
-    .index-1-main{
+    .index-1-main {
         width: 100%;
-        .icon-navList{
+        .icon-navList {
             background: #fff;
             height: 2.4667rem;
-            ul{
+            ul {
                 width: 100%;
-                li{
+                li {
                     display: inline-block;
                     width: 20%;
-                    i{
-                        img{
+                    i {
+                        img {
                             display: block;
                             margin: 0;
                         }
@@ -36,9 +36,9 @@
                 }
             }
         }
-        .new-people{
+        .new-people {
             height: 1rem;
-            img{
+            img {
                 width: 100%;
                 height: 100%;
             }
