@@ -1,0 +1,13 @@
+.dogCostume {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .banner-item-3 {
+        height: 2rem;
+        img {
+            display: block;
+            width: 100%;
+            height: 2rem;
+        }
+    }
+}

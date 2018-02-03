@@ -9,12 +9,12 @@ import rem from '../../utils/getRem.js';
 // 下拉刷新
 // import { RefreshControl, ListView } from 'antd-mobile';
 rem.rem();
-
 // import IndexSurpriseComponent from '../indexSurprise/indexSurpriseComponent';
+import HomeBastComponent from '../home/homeBestComponent'
 class IndexComponent extends React.Component{
 
     componentDidMount() {
-        console.log(666)
+        
     }
 
     render(){
@@ -85,24 +85,7 @@ class IndexComponent extends React.Component{
                     <div className="new-people">
                             <img src={require('../../assets/img/navList/newPeople.gif')}/>
                     </div>
-
-                    <div className="currency_ad">
-                        <div className="currency-box">
-                            <div className="currency-box-left">
-                                <i>
-                                    <img src={require('../../assets/img/navList/11.jpg')}/>
-                                </i>
-                            </div>
-                            <div className="currency-box-right">
-                                <i>
-                                    <img src={require('../../assets/img/navList/12.jpg')}/>
-                                </i>
-                                <i>
-                                    <img src={require('../../assets/img/navList/13.jpg')}/>
-                                </i>
-                            </div>      
-                        </div>
-                    </div>
+                    <HomeBastComponent />
                     <div className="eTeam">
                         <img src={require('../../assets/img/navList/14.jpg')}/>
                     </div>
