@@ -6,6 +6,7 @@ import PublicSearchComponent from "../components/publicSearch/publicSearchCompon
 import Login from '../components/login/loginComponent'
 import HomeComponent from '../components/home/homeComponent';
 import DogFoodIndexComponent from '../components/dogFoodIndex/dogFoodIndexComponent'; 
+import DogCostumeIndexComponent from '../components/dogCostumeIndex/dogCostumeIndexComponent';
 import EpetTeamComponent from '../components/ePetTeam/ePetTeamComponent'
 import Register from '../components/register/registerComponent'
 import Mine from '../components/mine/mineComponent'
@@ -15,6 +16,7 @@ export default (
             <IndexRoute component={IndexComponent} />  
             <Route path="/" component={IndexComponent}></Route>
             <Route path="dogfoodindex" component={DogFoodIndexComponent}></Route>
+            <Route path="dogcostumeindex" component={DogCostumeIndexComponent}></Route>
         </Route> 
         <Route path="/search" component={PublicSearchComponent}></Route>
         <Route path="category" component={GoodslistComponent}></Route>

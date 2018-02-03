@@ -39,7 +39,7 @@ class HomeComponent extends React.Component{
                     <ul onClick={this.ToComponent.bind(this)}>
                         <li data-path="/">首页</li>
                         <li data-path="/dogfoodindex">狗狗主粮</li>
-                        <li>服饰城</li>
+                        <li data-path="/dogcostumeindex">服饰城</li>
                         <li>医疗保健</li>
                         <li>零食玩具</li>
                         <li>日用外出</li>
