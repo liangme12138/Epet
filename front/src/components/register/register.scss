@@ -1,0 +1,62 @@
+#sm_reg{
+    height: 100%;
+    .header{
+        height: 0.67rem;
+        background:#fff;
+        border-bottom:1PX solid #ddd;
+        >p{
+            font-size:0.24rem;
+            text-align:center;
+            line-height: 0.67rem;
+            position:relative;
+            i{
+                position:absolute;
+                line-height: 0.67rem;    
+                font-size:0.32rem;
+                left:0.27rem;
+                
+            }
+        }
+    }
+    .main{
+        background:#fff;
+        .am-list-item{
+            height: 0.61rem;
+             position:relative;
+            .am-button-small{
+                position:absolute;
+                right:0.13rem;
+                top:0.11rem;
+            }
+            .am-list-line{
+            border-bottom:1PX solid #ddd;
+            height: 0.61rem;
+            .am-input-label{
+               width:0.4rem;
+            }
+            i{
+                font-size:24px;
+            }
+         }
+        }
+          .btn-container{
+            .btn{
+                background-color:rgb(70, 134, 238);
+                margin:0.13rem 0.27rem;
+                height: 0.53rem;
+                line-height: 0.53rem;  
+                
+            }
+           
+        }
+        .bott{
+            text-align:center;
+            font-size:0.16rem;
+            line-height: 0.67rem;
+            color:#898989;
+            >span{
+                color:rgb(70, 134, 238);
+            }
+        }
+    }
+}

@@ -1,4 +1,5 @@
 <?php
+    header('Access-Control-Allow-Origin:*');
     include 'DBHelper.php';
     $tabItem = isset($_GET['tabItem']) ? $_GET['tabItem'] : '';
     

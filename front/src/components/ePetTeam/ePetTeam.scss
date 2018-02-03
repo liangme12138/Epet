@@ -1,0 +1,16 @@
+.ePetTeam {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .titleTop{
+        height: 0.6667rem;
+        background: #ffff;
+        text-align: center;
+
+        h2{
+            
+            line-height: 0.6667rem;
+            
+        }
+    }
+}
