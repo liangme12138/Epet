@@ -34,9 +34,7 @@ export default {
                 method: 'post',
                 respDataType:JSON,
                 headers: {   
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                   'Access-Control-Allow-Origin':'*'
-                    
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 }
             }).then((response) => {
                 reslove(response);
