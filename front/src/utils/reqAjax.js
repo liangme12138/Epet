@@ -9,8 +9,8 @@ import qs from 'qs';
 import baseurl from './baseUrl'
 var baseUrl = baseurl.Url;
 
-var fliterUrl = function (url) {
-    if (url.startsWith('http')) {
+var fliterUrl = function(url){
+    if (url.startsWith('http')){
         return url;
     }
     return baseUrl + url;

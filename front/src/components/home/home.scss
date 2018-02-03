@@ -61,7 +61,8 @@
             }
         }
     }
-    .components {
+    .components{
+        flex: 1;
         overflow-x: hidden;
     }
     .publicMenu {

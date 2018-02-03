@@ -10,8 +10,13 @@ import rem from '../../utils/getRem.js';
 // import { RefreshControl, ListView } from 'antd-mobile';
 rem.rem();
 
-import IndexSurpriseComponent from '../indexSurprise/indexSurpriseComponent';
+// import IndexSurpriseComponent from '../indexSurprise/indexSurpriseComponent';
 class IndexComponent extends React.Component{
+
+    componentDidMount() {
+        console.log(666)
+    }
+
     render(){
         return (
            <div id="index-1">
@@ -80,7 +85,97 @@ class IndexComponent extends React.Component{
                     <div className="new-people">
                             <img src={require('../../assets/img/navList/newPeople.gif')}/>
                     </div>
-                    <IndexSurpriseComponent/>
+
+                    <div className="currency_ad">
+                        <div className="currency-box">
+                            <div className="currency-box-left">
+                                <i>
+                                    <img src={require('../../assets/img/navList/11.jpg')}/>
+                                </i>
+                            </div>
+                            <div className="currency-box-right">
+                                <i>
+                                    <img src={require('../../assets/img/navList/12.jpg')}/>
+                                </i>
+                                <i>
+                                    <img src={require('../../assets/img/navList/13.jpg')}/>
+                                </i>
+                            </div>      
+                        </div>
+                    </div>
+                    <div className="eTeam">
+                        <img src={require('../../assets/img/navList/14.jpg')}/>
+                    </div>
+                    <div className="shopVideo">
+                        <img src={require('../../assets/img/navList/16.jpg')} className
+                        ="videoImg"/>
+                        <img src={require('../../assets/img/navList/more.png')} className="videoMore"/>
+                    </div>
+                    <div className="shopVideoImg">
+                        <ul>
+                            <li>
+                                <img src={require('../../assets/img/navList/15.jpg')}/>
+                                <p>安蔻儿眉毛数 双梳头按摩</p>
+                                <div className="shopVideo-scan">
+                                    <span>37318</span>
+                                    <em> | </em>
+                                    <span>00:53</span>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <div className="brandScale">
+                        <img src={require('../../assets/img/navList/17.jpg')} className="brandImg"/>
+                        <img src={require('../../assets/img/navList/more.png')} className="brandMore"/>
+                    </div>
+                    <div className="brandDetails-img">
+                        <ul>
+                            <li>
+                                <img src={require('../../assets/img/navList/brandScale1.jpg')}/>
+                            </li>
+                            <li>
+                                <img src={require('../../assets/img/navList/brandScale2.jpg')}/>
+                            </li>
+                            <li>
+                                <img src={require('../../assets/img/navList/brandScale3.jpg')}/>
+                            </li>
+                            <li>
+                                <img src={require('../../assets/img/navList/brandScale4.jpg')}/>
+                            </li>
+                            <li>
+                                <img src={require('../../assets/img/navList/brandScale5.jpg')}/>
+                            </li>
+                            <li>
+                                <img src={require('../../assets/img/navList/brandScale6.jpg')}/>
+                            </li>
+                            <li>
+                                <img src={require('../../assets/img/navList/brandScale7.jpg')} />
+                            </li>
+                            <li>
+                                <img src={require('../../assets/img/navList/brandScale8.jpg')} />
+                            </li>
+                            <li>
+                                <img src={require('../../assets/img/navList/brandScale9.jpg')} />
+                            </li>
+                            <li>
+                                <img src={require('../../assets/img/navList/brandScale10.jpg')} />
+                            </li>
+                            <li>
+                                <img src={require('../../assets/img/navList/brandScale11.jpg')} />
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="tiYanGuanLogo">
+                        <img src={require('../../assets/img/navList/18.jpg')} className="tiYanGuanImg"/>
+                        <img src={require('../../assets/img/navList/more.png')} className="tiYanGuanMore"/>
+                    </div>
+                    <div className="tiYanGuanDetails">
+                        <img src={require('../../assets/img/navList/tyg1.jpg')} className="tygdImg"/>
+                    </div>
+                    <div className="indexFoot">
+                    <img src={require('../../assets/img/navList/foot.jpg')}/>
+                    </div>
                 </div>
            </div>
         )

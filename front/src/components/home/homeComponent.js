@@ -23,6 +23,7 @@ class HomeComponent extends React.Component{
     render(){
         return (
             <div className="home">
+            
                 <div className="top_home">
                     <div className="top_left">
                         <span>北京</span>
