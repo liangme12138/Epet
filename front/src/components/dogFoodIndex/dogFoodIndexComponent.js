@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as dogFoodIndexAction from './dogFoodIndexAction'; 
-import '../dogFoodIndex/dogFoodIndex.scss'
+import '../dogFoodIndex/dogFoodIndex.scss';
+import action from '../../utils/tab'
 
 class DogFoodIndexComponent extends React.Component{
     state = {
@@ -22,25 +23,33 @@ class DogFoodIndexComponent extends React.Component{
             })
             this.setState({ Tab: this.state.Tab})
             this.setState({ changeTab: this.state.changeTab })
-            this.toTabItem(1);
+
+            // 封装函数
+            // this.toTabItem(1);
+            this.setState({ tabItems: action.TabItem(1, this.state.tabItems, this.props.TabDate) })
+            
+            $('#tabs').find('li').eq(0).find('img').attr({ src: this.state.changeTab[0] })
         })
         
     }
     // 点击切换菜单
     toTabItem(id) {
-        this.state.tabItems = [];
-        if (this.props.TabDate) {
-            this.props.TabDate.forEach(item => {
-                if (item.tabId == id) {
-                    // console.log(item.tabId)
-                    this.state.tabItems.push(item.classifyImg)
-                }
-            })
-            this.setState({ tabItems: this.state.tabItems})
-        }
+        // 封装--详细请看tab.js文件
+        this.setState({ tabItems: action.TabItem(id, this.state.tabItems, this.props.TabDate) })
+        
+        // this.state.tabItems = [];
+        // if (this.props.TabDate) {
+        //     this.props.TabDate.forEach(item => {
+        //         if (item.tabId == id) {
+        //             // console.log(item.tabId)
+        //             this.state.tabItems.push(item.classifyImg)
+        //         }
+        //     })
+        //     this.setState({ tabItems: this.state.tabItems})
+        // }
     }
     tabSmall(idx,eve){
-        this.toTabItem((idx*1+1));
+        this.toTabItem((idx * 1 + 1), this.state.tabItems, this.props.TabDate);
         for(var i=0;i<this.state.Tab.length;i++){
             if(i != idx){
                 // console.log($('#tabs').find('li').eq(i))
@@ -52,7 +61,7 @@ class DogFoodIndexComponent extends React.Component{
     render(){
         return(
             <div className="dogFood">
-                <div className="banner-item-2">
+                <div className="banner-item-2"> 
                     <img src="https://img2.epetbar.com/nowater/2017-09/15/08/a4a9af65943791fd74db9a5ae3cb38b7.png@!water"/>
                     
                 </div>
@@ -72,6 +81,7 @@ class DogFoodIndexComponent extends React.Component{
                         }
                     </div>
                 </div>
+                
             </div>
         )
     }
