@@ -7,10 +7,13 @@ import Login from '../components/login/loginComponent'
 import HomeComponent from '../components/home/homeComponent';
 import DogFoodIndexComponent from '../components/dogFoodIndex/dogFoodIndexComponent'; 
 import DogCostumeIndexComponent from '../components/dogCostumeIndex/dogCostumeIndexComponent';
-import EpetTeamComponent from '../components/ePetTeam/ePetTeamComponent'
-import Register from '../components/register/registerComponent'
-import Mine from '../components/mine/mineComponent'
-import Accounts from '../components/account/accountComponent'
+import EpetTeamComponent from '../components/ePetTeam/ePetTeamComponent';
+import Register from '../components/register/registerComponent';
+import Mine from '../components/mine/mineComponent';
+import Accounts from '../components/account/accountComponent';
+import EpetInterComponent from '../components/ePetInter/ePetInterComponent';
+import ePetTopBarComponent from '../components/ePetTopBar/ePetTopBarComponent';
+import ePetMarkingComponent from '../components/ePetMarking/ePetMarkingComponent';
 export default (
     <div>
         <Route path="/" component={HomeComponent}>
@@ -23,11 +26,16 @@ export default (
         <Route path="category" component={GoodslistComponent}></Route>
         <Route path="search" component={PublicSearchComponent}></Route>
         <Route path="/login" component={Login}></Route>
-        <Route path="/epetteam" component={EpetTeamComponent}></Route>
+        <Route path="epetteam" component={EpetTeamComponent}></Route>
         <Route path="login" component={Login}></Route>
         <Route path="register" component={Register}></Route>
         <Route path="mine" component={Mine}></Route>
         <Route path="account" component={Accounts}></Route>
+        <Route path="epetinter" component={EpetInterComponent}></Route>
+        <Route path="epettop" component={ePetTopBarComponent}></Route>
+        <Route path="epetmarking" component={ePetMarkingComponent}></Route>
+        
+        
         
     </div>
 )
