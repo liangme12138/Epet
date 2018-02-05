@@ -3,30 +3,16 @@ export default function LoginReducer(state = {}, action) {
     let newState = JSON.parse(JSON.stringify(state));
     // console.log(action)
     switch (action.type) {
-        case 'loginRequesting':
+        case 'registerRequesting':
             spinner.loadSpinner();
             newState.status = 0;
             break;
-        case 'loginRequested':
+        case 'registerRequested':
             spinner.closeSpinner();
             newState.status = 1;
             newState.result = action.respones;
             break;
-        case 'loginRequesterror':
-            spinner.closeSpinner();
-            newState.status = -1;
-            newState.result = action.respones;
-            break;
-        case 'lRequesting':
-            spinner.loadSpinner();
-            newState.status = 0;
-            break;
-        case 'lRequested':
-            spinner.closeSpinner();
-            newState.status = 1;
-            newState.result = action.respones;
-            break;
-        case 'lRequesterror':
+        case 'registerRequesterror':
             spinner.closeSpinner();
             newState.status = -1;
             newState.result = action.respones;

@@ -50,14 +50,21 @@
               }          
            }
            .users{
+               height:0.93rem;
                 float:left;
                 p{
                     color:#fff;
+                    text-align: center;
                     line-height: 0.45rem;
                     font-size:0.27rem;
                     margin-bottom:0.07rem;
+                    margin: 50px auto;
+                    span{
+                        padding:0.07rem;
+                    }
                 }
-                >span{
+                div{
+                    >span{
                     position:relative;
                     font-size:0.19rem;
                     padding:0.04rem 0.4rem 0.04rem 0.11rem;
@@ -73,6 +80,8 @@
                         width: 0.24rem;
                     }
                 }
+                }
+                
            }
        }
     } 

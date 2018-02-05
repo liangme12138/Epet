@@ -1,8 +1,29 @@
 import React from 'react'
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import * as registerAction from './registerAction'
 import { List, InputItem, WhiteSpace, Button } from 'antd-mobile';
 import './register.scss'
-export default class Register extends React.Component {
+class Register extends React.Component {
+    getUser=(e)=>{
+        this.setState({phone:e});
+        // this.props.checkPhone()
+
+    }
+    getCode=(e)=>{
+        this.setState({code: e });
+    }
+    getPwd = (e) => {
+        this.setState({ password: e });
+    }
+    clickCode=(e)=>{
+        // 获取验证码
+        // this.setState({ checkCode:e});
+    }
+    register=(e)=>{
+        if ($.trim(this.state.phone) && $.trim(this.state.password) && $.trim(this.state.code)==this.state.checkCode){
+            this.props.register('register', { phone: $.trim(this.state.phone), password: $.trim(this.state.password)})
+         }   
+    }
     goBack = (e) => {
         this.props.router.goBack(-1);
     }
@@ -19,11 +40,11 @@ export default class Register extends React.Component {
                     >
                         <div className="iconfont icon-ren" />
                     </InputItem>
-                    <InputItem
+                    <InputItem onBlur={this.getCode}
                         placeholder="请输入验证码"
                     >
                         <div className="iconfont icon-mima" />
-                        <Button type="ghost" inline size="small" style={{ marginRight: '0.08rem' }} onClick={this.getCode}>获取验证码</Button>
+                        <Button type="ghost" inline size="small" style={{ marginRight: '0.08rem' }} onClick={this.clickCode}>获取验证码</Button>
                     </InputItem>
                     <InputItem onBlur={this.getPwd}
                         placeholder="请输入8-20位密码"
@@ -32,7 +53,7 @@ export default class Register extends React.Component {
                     </InputItem>
                     <WhiteSpace />
                     <div className="btn-container">
-                        <Button className="btn" type="primary" onClick={this.login1}>注册</Button>
+                        <Button className="btn" type="primary" onClick={this.register}>注册</Button>
                     </div>
                     <p className="bott">点击【关注】，即表示您阅读并同意<span>《M宠用户协议》</span></p>
                 </main>
@@ -40,5 +61,12 @@ export default class Register extends React.Component {
         )
     }
 }
-
+const mapToState = function (state) {
+    console.log(state)
+    return {
+        status: state.registerReducer.status,
+        data: state.registerReducer.result || []
+    }
+}
+export default connect(mapToState, registerAction)(Register)
  

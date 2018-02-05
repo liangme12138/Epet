@@ -7,11 +7,25 @@ export default class Mine extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-           
+           visible:true
         };
     }
+    componentWillMount(){
+        if (!window.localStorage.getItem('userInfo')) {
+            return false;
+        }
+        this.setState({
+            // 获取用户（数组）
+            userInfo: JSON.parse(window.localStorage.getItem('userInfo')),
+            visible: false,
+        });
+    }
+    quit=(e)=>{
+        window.localStorage.removeItem('userInfo');
+        this.props.router.push("login");
+    }
     skipAccount=(e)=>{       
-            this.props.router.push("account");
+        this.props.router.push("account");
     }
     skipOrder = (e) => {
         this.props.router.push("order");
@@ -21,6 +35,12 @@ export default class Mine extends React.Component {
     }
     skipCollect = (e) => {
         this.props.router.push("collect")
+    }
+    skipLogin= (e) => {
+        this.props.router.push("login");
+    }
+    skipRegister= (e) => {
+        this.props.router.push("register");
     }
     render() {
         return (
@@ -32,8 +52,16 @@ export default class Mine extends React.Component {
                     <div className="status">
                         <div className="headimg"><img src="../../src/assets/img/login/1.jpg" alt="" /></div>
                         <div className="users">
-                            <p>dfsfsaf</p>
-                            <span>爱宠V星球<i style={{ background: "url('../../src/assets/img/login/v0.png') no-repeat" }}></i></span>
+                            {
+                                this.state.visible ?
+                                <p><span onClick={this.skipLogin}>登录</span>|<span onClick={this.skipRegister}>注册</span></p> 
+                                :
+                                    <div><p style={{ marginTop: 10, marginBottom: 10 }}>{this.state.userInfo[0].phone}</p>
+                                        <span>爱宠V星球<i style={{ background: "url('../../src/assets/img/login/v0.png') no-repeat" }}></i></span></div>
+                                
+                            }
+                            
+                            
                         </div> 
                     </div>
                     <div className="qian"><img src="../../src/assets/img/login/signin.png" alt=""/></div>
@@ -114,7 +142,7 @@ export default class Mine extends React.Component {
                     </ul>
                 </div>
                 <div className="btn-container">
-                    <Button className="btn" type="primary" onClick={this.login1}>退出</Button>
+                    <Button className="btn" type="primary" onClick={this.quit}>退出</Button>
                 </div>
                 <PublicMenu></PublicMenu>
             </div>
