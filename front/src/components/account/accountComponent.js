@@ -17,6 +17,9 @@ class Account extends React.Component {
    goBack=(e)=>{
        this.props.router.goBack(-1);
    }
+   skipAddress=(e)=>{
+       this.props.router.push('address');
+   }
     render(){
         const { getFieldProps } = this.props.form;
         return (
@@ -47,7 +50,7 @@ class Account extends React.Component {
                     <Picker data={animal} cols={1} {...getFieldProps('district3') } className="forss">
                          <List.Item arrow="horizontal">你的宠物</List.Item>
                     </Picker>      
-                    <List.Item arrow="horizontal">地址管理</List.Item>    
+                    <List.Item arrow="horizontal" onClick={this.skipAddress}>地址管理</List.Item>    
                 </main>
                 <div className="btn-container">
                     <Button className="btn" type="primary" >保存</Button>

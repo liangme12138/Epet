@@ -13,6 +13,15 @@ export default class Mine extends React.Component {
     skipAccount=(e)=>{       
             this.props.router.push("account");
     }
+    skipOrder = (e) => {
+        this.props.router.push("order");
+    }
+    skipPay=(e)=>{
+        this.props.router.push("order/waitpay")
+    }
+    skipCollect = (e) => {
+        this.props.router.push("collect")
+    }
     render() {
         return (
             <div id="sm_mine">
@@ -31,7 +40,7 @@ export default class Mine extends React.Component {
                     
                 </header>
                 <ul className="nav common">
-                    <li><i style={{ background: "url('../../src/assets/img/login/elves.png')0 0"}}></i>
+                    <li onClick={this.skipPay}><i style={{ background: "url('../../src/assets/img/login/elves.png')0 0"}}></i>
                     <p>待付款</p>
                     </li>
                     <li><i style={{ background: "url('../../src/assets/img/login/elves.png')-0.4rem 0" }}></i>
@@ -41,8 +50,8 @@ export default class Mine extends React.Component {
                     <p>待评价</p>
                     </li >
 
-                    <li><img src="../../src/assets/img/login/icon4_dog.png" alt="" />
-                    <p>全部订单</p>
+                    <li onClick={this.skipOrder}><img src="../../src/assets/img/login/icon4_dog.png" alt="" />
+                    <p >全部订单</p>
                     </li >
                 </ul>
                 <ul className="icon common">
@@ -100,7 +109,7 @@ export default class Mine extends React.Component {
                             <p><i style={{ background: "url('../../src/assets/img/login/elves.png')2.1rem 0" }}></i>我的咨询<i className="iconfont icon-more"></i></p>
                         </li>
                         <li>
-                            <p><i style={{ background: "url('../../src/assets/img/login/elves.png')7.13rem 0" }}></i>我的收藏<i className="iconfont icon-more"></i></p>
+                            <p onClick={this.skipCollect}><i style={{ background: "url('../../src/assets/img/login/elves.png')7.13rem 0" }}></i>我的收藏<i className="iconfont icon-more"></i></p>
                         </li>
                     </ul>
                 </div>

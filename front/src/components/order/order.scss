@@ -1,0 +1,52 @@
+#sm_order{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+     .header{ 
+        background:#fff;
+         padding:0 0.13rem;
+         border-bottom:1px solid #f3f3f3;
+        p{
+            text-align:center;
+            height: 0.67rem;
+            line-height: 0.67rem;
+            font-size:0.24rem;
+            position:relative;
+            i{
+                position:absolute;
+                font-size:0.32rem;
+            }
+            i:nth-child(1){
+                left:0;
+            }
+            i:nth-child(2){
+                right:0;
+            }
+        }
+    }
+    .nav{
+        height: 0.56rem;
+        display: flex;
+        li{
+            width:25%;
+            text-align: center;        
+            height: 0.56rem;
+            span{
+                background:#fff;
+                height:0.53rem;
+                line-height: 0.53rem;
+                display: block;
+
+            }
+        }
+        .active{
+             border-bottom:0.03rem solid red;
+             color:red;
+             
+        }
+    }
+    .main{
+        overflow: auto;
+        flex:1;
+    }
+}
