@@ -1,0 +1,138 @@
+.ePetInter{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .ePetInterTop{
+        height: 2.1333rem;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .ePetInterMain{
+        height: 4.48rem;
+        margin-top: 0.4rem;
+        background: #ffff;
+        .ePetInter-title{
+            height: 0.5467rem;
+            margin-bottom: 0.1333rem;
+            text-align: center;
+            color: #7a45e5;
+            h1{
+                margin: 0;
+                font-weight: normal;
+                font-size: 0.2933rem;
+                text-shadow: 5px 2px 6px #f5f1ff;
+            }
+            p{
+                letter-spacing:0.04rem;
+                font-size: 0.16rem;
+            }
+        }
+        .ePetInter-con{
+            height: 3.5333rem;
+            padding: 0.1333rem;
+            ul{
+                li{
+                    height: 1.6533rem;
+                    margin-bottom: 0.1333rem;
+                    p{
+                        display: inline-block;
+                        width: 50%;
+                        color: #786b91;
+                        font-size: 0.2133rem;
+                    }
+                    .p1{
+                        float: left;
+                        
+                    }
+                    .p2{
+                        float: right;
+                    }
+                    .conF1 {
+                        width: 40%;
+                        float: right;
+                        vertical-align: middle;
+                    }
+                    .conF2{
+                        float: left;
+                        width: 40%;
+                        vertical-align: middle;                        
+                    }
+
+                }
+            }
+        }
+        .ePetInter-brand{
+            height: 1.9733rem;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .ePetInter-bottom{
+            height: 5.7333rem;
+            margin-top: 0.2rem;
+            background: #ffff;
+            .ePetInter-bottomTitle{
+                height: 0.5467rem;
+                margin-bottom: 0.1333rem;
+                text-align: center;
+                color: #7a45e5;
+                h1 {
+                    margin: 0;
+                    font-weight: normal;
+                    font-size: 0.2933rem;
+                    text-shadow: 5px 2px 6px #f5f1ff;
+                }
+                p {
+                    letter-spacing: 0.04rem;
+                    font-size: 0.16rem;
+                }
+            }
+            .ePetInter-bottomServer{
+                height: 4.76rem;
+                text-align: center;
+                p{
+                    color: #786b91;
+                }
+                .baozhang{
+                    height: 3.4133rem;
+                    img{
+                        width: 100%;
+                        display: inline-block;
+                        height: 100%;
+                    }
+                }
+            }
+            .ePetInterBuy{
+                height: 5.76rem;
+                img{
+                    width: 100%;
+                }
+            }
+            .ePetInter-desc{
+                height: 4.5333rem;
+                text-align: center;
+                color: #7a45e5;
+                margin-top: 0.2rem;
+                 h1 {
+                     margin: 0;
+                     font-weight: normal;
+                     font-size: 0.2933rem;
+                     text-shadow: 5px 2px 6px #f5f1ff;
+                 }
+
+                 p {
+                     letter-spacing: 0.04rem;
+                     font-size: 0.16rem;
+                 }
+                 img{
+                     display: inline-block;
+                     width: 100%;
+                     
+                 }
+            }
+        }
+    }
+}

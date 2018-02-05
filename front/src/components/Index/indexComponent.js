@@ -3,16 +3,43 @@ import ReactDOM from 'react-dom';
 import { Router, Route, Link, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import * as IndexAction  from './indexAction';
-import '../../sass/base.scss'
+// import lazyload from '../../lazyload/lazyload.js';
+// import LazyLoad from 'react-lazyload'
+import '../../sass/base.scss';
 import './index.scss';
 import rem from '../../utils/getRem.js';
 // 下拉刷新
 // import { RefreshControl, ListView } from 'antd-mobile';
 rem.rem();
+// lazyload.lazyloaded();
 // import IndexSurpriseComponent from '../indexSurprise/indexSurpriseComponent';
 import HomeBastComponent from '../home/homeBestComponent'
 class IndexComponent extends React.Component{
+    state={
+        
 
+    }
+    // 进入e宠团
+    toEpetTeam(){
+        hashHistory.push('epetteam')
+    }
+    // 进入品牌特卖
+    toBrandSale() {
+        hashHistory.push('brandsale')
+    }
+    // 进入宠国际
+    toEpetInter(){
+        hashHistory.push('epetinter')
+    }
+    // 进入潮品预售
+    toEpettop() {
+        hashHistory.push('epettop')
+    }
+    // 进入特价清仓
+    toEpetmarking() {
+        hashHistory.push('epetmarking')
+    }
+    
     componentDidMount() {
         
     }
@@ -30,27 +57,27 @@ class IndexComponent extends React.Component{
                 <div className="index-1-main">
                     <div className="icon-navList">
                         <ul>
-                            <li>
+                            <li onClick={this.toEpetTeam}>
                                 <i>
                                     <img src={require('../../assets/img/navList/1.jpg')}/>
                                 </i>
                             </li>
-                            <li>
+                            <li onClick={this.toBrandSale}>
                                 <i>
                                     <img src={require('../../assets/img/navList/2.jpg')}/>
                                 </i>
                             </li>
-                            <li>
+                            <li onClick={this.toEpetInter}>
                                 <i>
                                     <img src={require('../../assets/img/navList/3.jpg')}/>
                                 </i>
                             </li>
-                            <li>
+                            <li onClick={this.toEpettop}>
                                 <i>
                                     <img src={require('../../assets/img/navList/4.jpg')}/>
                                 </i>
                             </li>
-                            <li>
+                            <li onClick={this.toEpetmarking}>
                                 <i>
                                     <img src={require('../../assets/img/navList/5.jpg')}/>
                                 </i>
@@ -115,7 +142,7 @@ class IndexComponent extends React.Component{
                     <div className="brandDetails-img">
                         <ul>
                             <li>
-                                <img src={require('../../assets/img/navList/brandScale1.jpg')}/>
+                                <img src={require('../lazyload.gif')} data-src={require('../../assets/img/navList/brandScale1.jpg')}/>
                             </li>
                             <li>
                                 <img src={require('../../assets/img/navList/brandScale2.jpg')}/>
