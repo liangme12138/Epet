@@ -85,7 +85,7 @@ class IndexComponent extends React.Component{
                     <div className="new-people">
                             <img src={require('../../assets/img/navList/newPeople.gif')}/>
                     </div>
-                    <HomeBastComponent />
+                    <HomeBastComponent Img={['../src/assets/img/navList/11.jpg', '../src/assets/img/navList/12.jpg', '../src/assets/img/navList/13.jpg']}/>
                     <div className="eTeam">
                         <img src={require('../../assets/img/navList/14.jpg')}/>
                     </div>
