@@ -19,13 +19,16 @@ export default class EpetTeamComponent extends React.Component{
         window.scrollTo(0,0);
     }
 
+    back() {
+        window.history.back();
+    }
     
     
     render() {
         return(
             <div className="ePetTeam">
                 <div className="titleTop">
-                    <i className="iconfont icon-back titleTopLeft"></i>
+                    <i className="iconfont icon-back titleTopLeft" onClick={this.back}></i>
                     <h2>E宠团</h2>
                     <i className="iconfont icon-close titleTopClose"></i>
                 </div>
