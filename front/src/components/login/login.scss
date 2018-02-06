@@ -1,0 +1,135 @@
+#sm_login{
+    height: 100%;
+    display:flex;
+    flex-direction:column;
+    background:#fff;
+    #top{
+        height:2.4rem;
+        .header{
+            color:#fff;
+            padding:0 0.13rem;
+            height:0.67rem;
+            line-height:0.67rem;
+            display:flex;
+            span{
+                flex:1;
+                font-size:0.24rem;
+                i{
+                font-size:0.32rem;
+                }
+            }
+            span:nth-child(2){
+                text-align:right;
+            }
+        }
+        .logo{
+            z-index:2;
+            // flex:1;
+            height:1.15rem;
+            // img{
+            //     display:block;
+            //     width: 2.13rem;
+            //     height: 0.8rem;
+            // }
+            
+        }
+        .tab{
+            height: 0.59rem;
+            display:flex;
+            background:rgba(255,255,255,0.3);
+            li{
+                position:relative;
+                flex:50%;
+                text-align:center;
+                line-height: 0.59rem;
+                color:#fff;
+                font-size:0.24rem;
+                .active{
+                        display: block;
+                        width: 0;
+                        height: 0;
+                        border-left: 0.13rem solid transparent;
+                        border-right: 0.13rem solid transparent;
+                        border-bottom: 0.13rem solid #fff;
+                        position: absolute;
+                        bottom: 0px;
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                }
+            }
+        }
+    }
+    #main{
+        // flex:1;
+        padding:0 0.27rem 0 0.13rem;
+        height:3.73rem;
+        .am-list-item{
+            height: 0.61rem;
+             position:relative;
+            .am-list-line{
+            border-bottom:1PX solid #ddd;
+            height: 0.61rem;
+            .am-input-label{
+               width:0.4rem;
+            }
+            i{
+                font-size:24px;
+            }
+            }
+        }
+        .mima{
+            
+            line-height: 0.4rem;
+            padding:0.13rem 0 0 0.27rem;
+            color:#898989;
+             display:flex;
+                span{
+                    flex:1;
+                }
+                span:nth-child(2){
+                 text-align:right;   
+                }
+        }
+        .btn-container{
+            margin-top:0.13rem;
+            .btn{
+                background-color:#2EC975;
+                margin-left:0.27rem;
+                height: 0.53rem;
+                line-height: 0.53rem;  
+              
+            }
+        }
+        .login2{
+           
+            .am-button-small{
+                position:absolute;
+                right:0;
+                top:0.11rem;
+            }
+        }
+        
+        
+    }
+    #bot{
+        p{
+            text-align:center;
+            line-height:0.75rem;
+            font-size:0.21rem;
+            color:#D7D7D7;
+           
+
+        }
+        ul{
+            justify-content:flex-start;
+            display:flex;
+            li{
+               width:25%;
+               img{
+                 margin:0 auto;
+               }
+            }
+        }
+    }
+}

@@ -9,8 +9,8 @@ import qs from 'qs';
 import baseurl from './baseUrl'
 var baseUrl = baseurl.Url;
 
-var fliterUrl = function (url) {
-    if (url.startsWith('http')) {
+var fliterUrl = function(url){
+    if (url.startsWith('http')){
         return url;
     }
     return baseUrl + url;
@@ -32,7 +32,8 @@ export default {
                 url: fliterUrl(opt.url),
                 data: qs.stringify(opt.params),
                 method: 'post',
-                headers: {
+                respDataType:JSON,
+                headers: {   
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
             }).then((response) => {

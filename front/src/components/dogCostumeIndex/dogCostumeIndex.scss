@@ -1,0 +1,251 @@
+.dogCostume {
+    width: 100%;
+    display: flex; // height: 100%;
+    padding-bottom: 0.67rem;
+    flex-direction: column;
+    .banner-item-3 {
+        height: 2rem;
+        img {
+            display: block;
+            width: 100%;
+            height: 2rem;
+        }
+    }
+    .tabMenus {
+        // height: 3.33rem;
+        background: #fff;
+        >ul {
+            display: flex;
+            flex-wrap: wrap;
+            padding-left: 0.13rem;
+            li {
+                flex: 25%;
+                padding: 0.13rem;
+                span {
+                    // text-align: center;
+                    display: block; // height: 0.8rem;
+                    img {
+                        width: 0.67rem;
+                        height: 0.67rem;
+                        display: block;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+    }
+    .costumeOther {
+        display: flex;
+        padding: 0.09rem;
+        background: #fff;
+        .Other-item-1 {
+            flex: 1; // height: 1.33rem;
+            // width: 2.27rem;
+            img {
+                height: 1.13rem;
+                width: 100%;
+                display: block;
+            }
+        }
+        .Other-item-1 :first-child {
+            padding-right: 0.07rem;
+        }
+        .Other-item-1 :last-child {
+            padding-left: 0.07rem;
+        }
+    }
+    .shishang {
+        background: #fff;
+        padding: 0.13rem 0;
+        .shishang-top {
+            padding-top: 0.13rem;
+            h2,
+            p {
+                text-align: center;
+            }
+            h2 {
+                font-size: 0.27rem;
+            }
+            p {
+                font-size: 0.21rem;
+                height: 0.4rem;
+                line-height: 0.4rem;
+            }
+        }
+        >ul {
+            width: 100%;
+            display: inline;
+            white-space: nowrap;
+            overflow-x: scroll;
+            float: left; // border-bottom: 0.01rem solid #eee;
+            li {
+                display: inline-block;
+                padding: 0 0.17rem;
+                width: 3.33rem;
+                .img {
+                    padding: 0.07rem;
+                    img {
+                        display: block;
+                        width: 2.67rem;
+                    }
+                }
+                span {
+                    display: block; // padding: 0.13rem;
+                    width: 2.67rem; // height: 2.67rem;
+                    white-space: pre-wrap;
+                    padding: 0 0.13rem;
+                    color: #666;
+                    font-size: 0.19rem;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 3; // font-size: 12px;
+                }
+            }
+        }
+    }
+    .Activites {
+        background: #fff;
+        .styleAtv-top {
+            padding-top: 0.13rem;
+            h2,
+            p {
+                text-align: center;
+            }
+            h2 {
+                font-size: 0.27rem;
+            }
+            p {
+                font-size: 0.21rem;
+                height: 0.4rem;
+                line-height: 0.4rem;
+            }
+        }
+        .Activite {
+            .ActiviteItem {
+                padding: 0.19rem 0;
+                .ActiviteImg {
+                    position: relative;
+                    img {
+                        display: block;
+                        height: 2.13rem;
+                        width: 100%;
+                    }
+                    .itemImg {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        width: 3.33rem;
+                        height: 1.6rem;
+                        margin-left: -1.67rem;
+                        margin-top: -0.8rem;
+                        img {
+                            display: block;
+                            width: 3.33rem;
+                            height: 1.6rem;
+                        }
+                        .atvMes {
+                            position: absolute;
+                            width: 2.27rem;
+                            top: 0;
+                            left: 50%;
+                            margin-left: -1.08rem; // margin-top:0.53rem;
+                            color: #fff;
+                            text-align: center;
+                            >h2 {
+                                height: 0.53rem;
+                                line-height: 0.53rem;
+                                font-size: 0.24rem;
+                                margin-top: 0.13rem;
+                            }
+                            >p {
+                                height: 0.27rem;
+                                line-height: 0.27rem;
+                            }
+                            >span {
+                                position: relative;
+                                display: block;
+                                color: #000;
+                                >i {
+                                    margin-left: 20%;
+                                    position: absolute;
+                                    width: 2.27rem;
+                                    display: block;
+                                    height: 0.4rem;
+                                    top: 0;
+                                    background: url('../../assets/img/icon/super_img.png')no-repeat;
+                                }
+                            }
+                        }
+                    }
+                }
+                .ActiviteGoods {
+                    >li {
+                        border: none;
+                        i {
+                            text-decoration: line-through;
+                            color: #777;
+                            font-size: 0.16rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .hotProduct {
+        background: #fff;
+        .hotProduct-top {
+            padding-top: 0.13rem;
+            h2,
+            p {
+                text-align: center;
+            }
+            h2 {
+                font-size: 0.27rem;
+            }
+            p {
+                font-size: 0.21rem;
+                height: 0.4rem;
+                line-height: 0.4rem;
+            }
+        }
+        .hotProducts {
+            .hotProductItem {
+                .hotProductItem-top {
+                    display: flex;
+                    height: 0.4rem;
+                    >span:first-child {
+                        flex: 3;
+                        padding-left: 0.21rem;
+                        i {}
+                        span {
+                            font-size: 0.16rem;
+                            margin: 0 0.07rem;
+                        }
+                    }
+                    >span:last-child {
+                        flex: 1;
+                        line-height: 0.4rem;
+                        font-size: 0.16rem;
+                    }
+                }
+                >ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    padding: 0 10px;
+                    li {
+                        flex: 50%;
+                        padding: 0 10px;
+                        padding-top: 20px;
+                        img {
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -50,7 +50,7 @@
                 height: 0.47rem;
                 line-height: 0.47rem;
                 padding: 0 0.17rem;
-                a {           
+                a {
                     color: #333;
                     display: inline-block;
                 }
@@ -58,6 +58,29 @@
             li:first-child {
                 color: rgb(2, 105, 2);
                 border-bottom: 2px solid rgb(2, 105, 2);
+            }
+        }
+    }
+    .components{
+        flex: 1;
+        overflow-x: hidden;
+    }
+}
+.currency_ad {
+    // height: 1.6667rem;
+    margin-top: 0.1333rem;
+    background: #ffff;
+    .currency-box {
+        // height: 1.6667rem;
+        .currency-box-left {
+            float: left;
+        }
+        .currency-box-right{
+            float: right;
+            i{
+                img{
+                    width: 100%;
+                }
             }
         }
     }

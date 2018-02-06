@@ -1,0 +1,195 @@
+#sm_mine{
+    // height: 100%;
+    display:flex;
+    flex-direction: column;
+    background:#fff;
+    overflow: auto;
+    .header{
+        height:2.23rem;
+        position:relative;
+         .qian{      
+           position:absolute;
+           right:0;
+           bottom:0.07rem;
+           img{
+              display:block;
+                width:0.8rem;
+                height:1.13rem; 
+           }
+       }
+       .top{
+           padding:0.13rem 0.17rem;
+           >p{
+            height: 0.37rem;
+            margin:0.13rem 0;
+            span{
+                float:right;
+                display:block;
+                width: 0.37rem;
+                height: 0.37rem;
+                margin:0 0.13rem ;
+              
+            }
+           }
+       }
+       .status{
+           height: 1.34rem;
+           .headimg{
+                float:left;
+                height: 1.07rem;
+                width: 1.07rem;
+                padding:0.07rem;
+                border-radius:50%;
+                margin:0 0.2rem;
+                background:#EBEBEB;
+              img{
+                height:0.93rem; 
+                width: 0.93rem;
+                display:block;
+                border-radius:50%;  
+              }          
+           }
+           .users{
+               height:0.93rem;
+                float:left;
+                p{
+                    color:#fff;
+                    text-align: center;
+                    line-height: 0.45rem;
+                    font-size:0.27rem;
+                    margin-bottom:0.07rem;
+                    margin: 50px auto;
+                    span{
+                        padding:0.07rem;
+                    }
+                }
+                div{
+                    >span{
+                    position:relative;
+                    font-size:0.19rem;
+                    padding:0.04rem 0.4rem 0.04rem 0.11rem;
+                    background-color:#3A7329;
+                    color:#fff;
+                    border-radius:0.13rem;
+                      i{
+                        position:absolute;
+                        right:0.11rem;
+                        top:0.07rem;
+                        display:block;
+                        height: 0.19rem;
+                        width: 0.24rem;
+                    }
+                }
+                }
+                
+           }
+       }
+    } 
+    ul{
+        border-bottom:1px solid #E5E5E5;
+        display:flex;
+        
+    }
+    .nav{ 
+        // margin-top:0.13rem;
+        display:block;
+        height:  1.3rem;
+        } 
+    .common{
+        display:flex;
+        justify-content:flex-around; 
+        li{   
+            width: 25%;
+             align-self:center; 
+             i{
+                margin:auto;
+                display:block; 
+                height:0.33rem;
+                width:0.4rem;
+             }
+             img{
+                 margin:auto;
+                background-position:center;
+                display:block;
+                height:0.37rem;
+                width:0.4rem;
+                }
+            >p:nth-child(1){
+                font-weight:bold;
+            }
+            p{
+                line-height: 0.4rem;
+                text-align:center;
+            }
+        }
+       
+    }
+    .icon{
+        // margin-top:0.13rem;
+        height: 1.5rem;
+        li{
+            width:25%;
+        }
+    }
+    .pit{
+        justify-content:flex-around; 
+        height:1.2rem;
+        li{
+            width: 25%;
+           height: 1.2rem; 
+          >img{
+            display:block;
+            height: 1.2rem;
+         }  
+        }
+        
+    }
+    .lis{
+        flex:1;
+        // height: 4.91rem;
+        ul{
+           background:#F3F4F5;
+            display: flex;
+            flex-direction:column;
+            padding-bottom:0.13rem;
+           li{
+               background:#fff;
+              flex:1;
+              padding:0 0.13rem;
+              border-top:0.03rem solid #F3F4F5;
+               p{
+                   font-size:0.24rem;
+                   height: 0.63rem;
+                   line-height: 0.63rem;
+                   padding-left:0.4rem;
+                   position:relative;
+                   i{
+                       font-weight:bold;
+                       position:absolute;
+                       right:0;
+                   }
+                    i:nth-child(1){
+                        left:0;
+                        top:0.2rem;
+                        display:block;
+                        width: 0.3rem;
+                        height:0.3rem;
+                    }
+
+               }
+           }
+           li:nth-child(4){
+               margin-bottom:0.13rem;
+           }
+        }
+        
+    }
+    .btn-container{
+       margin-bottom:0.77rem;
+       .btn{
+           background:red;
+       }
+    }
+   
+   
+}

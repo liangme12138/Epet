@@ -1,7 +1,10 @@
 import React from 'react';
 import { Router, Route, Link, hashHistory,browserHistory, IndexRoute } from 'react-router';
 import './home.scss';
-export default class HomeComponent extends React.Component{
+import PublicMenu from '../publicMenu/publicMenuComponent';
+import * as HomeAction from './homeAction';
+import { connect } from 'react-redux';
+class HomeComponent extends React.Component{
     ToComponent(event){
         // console.log(event.target.getAttribute('data-path'))
         if (event.target.tagName == 'LI'){
@@ -14,9 +17,13 @@ export default class HomeComponent extends React.Component{
         hashHistory.push('search')
         // this.props.route.push('search')
     }
+    componentWillMount() {
+
+    }
     render(){
         return (
             <div className="home">
+            
                 <div className="top_home">
                     <div className="top_left">
                         <span>北京</span>
@@ -32,15 +39,26 @@ export default class HomeComponent extends React.Component{
                     <ul onClick={this.ToComponent.bind(this)}>
                         <li data-path="/">首页</li>
                         <li data-path="/dogfoodindex">狗狗主粮</li>
-                        <li>服饰城</li>
-                        <li>医疗保健</li>
-                        <li>零食玩具</li>
-                        <li>日用外出</li>
-                        <li>美容香波</li>
+                        <li data-path="/dogcostumeindex">服饰城</li>
+                        <li data-path="/healthcareindex">医疗保健</li>
+                        <li data-path="/snacktoysindex">零食玩具</li>
+                        <li data-path="/gooutindex">日用外出</li>
+                        <li data-path="/beautyindex">美容香波</li>
                     </ul>
                 </div>
-                {this.props.children}
+                <div className="components">{this.props.children}</div>
+                <PublicMenu/>
             </div>
         )
     }
 }
+
+const mapToState = function (state) {
+    // console.log(state.MenuReducer.result)
+    return {
+        // AjaxMenutate: state.MenuReducer.status,
+        // MenuDate: state.MenuReducer.result || []
+    }
+}
+
+export default connect(mapToState, HomeAction)(HomeComponent);

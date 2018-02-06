@@ -1,0 +1,47 @@
+#sm_collect{
+    height: 100%;
+     .header{ 
+        background:#fff;
+         padding:0 0.13rem;
+         border-bottom:1px solid #f3f3f3;
+        p{
+            text-align:center;
+            height: 0.67rem;
+            line-height: 0.67rem;
+            font-size:0.24rem;
+            position:relative;
+            i{
+                position:absolute;
+                font-size:0.32rem;
+            }
+            
+            i:nth-child(1){
+                left:0;
+            }
+            i:nth-child(2){
+                position:absolute;
+                right:0;
+            }
+        }
+    }
+    .nav{
+        background:#fff;
+        display: flex;
+        li{
+            width: 50%;
+            height: 0.6rem;
+            text-align: center;
+          span{
+              display: block;
+              line-height: 0.56rem;
+          }
+          .active{
+              border-bottom:0.03rem solid #4DB933;
+              color:#4DB933;
+          }  
+        }
+    }
+    .main{
+        background:#fff;
+    }
+}

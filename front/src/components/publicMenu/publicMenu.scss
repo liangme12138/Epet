@@ -5,19 +5,23 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    border-top:0.01rem solid #eee;
-    // flex-direction: column;
+    border-top: 0.01rem solid #eee; // flex-direction: column;
     li {
         flex: 1;
         height: 0.67rem;
-        padding-top: 0.05rem;
-        // padding-left: 20px;
+        padding-top: 0.05rem; // padding-left: 20px;
         text-align: center;
-        i,span{
+        i,
+        span {
             display: block;
         }
-        i{
+        i {
             font-size: 0.32rem;
         }
     }
+}
+
+.publicMenu {
+    height: 0.67rem;
+    // margin-top: 0.67rem;
 }
