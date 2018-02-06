@@ -25,7 +25,19 @@ import evaluate from '../components/order/waitevaluate/evaluateComponnet'
 import waitpay from '../components/order/waitpay/payComponent'
 import takegoods from '../components/order/waittakegoods/takegoodsComponent'
 import editAddress from '../components/editAddress/editAddressComponent'
-import collect from '../components/collect/collectComponent'
+import collect from '../components/collect/collectComponent';
+import FakeComponent from '../components/specialist/fake/fakeComponent';
+import HighQualityComponent from '../components/specialist/HighQuality/HighQualityComponent';
+import FeedComponent from '../components/specialist/feed/feedComponent';
+import GuideComponent from '../components/specialist/guide/guideComponent';
+import ToysComponent from '../components/specialist/Toys/ToysComponent';
+import ClothesComponent from '../components/specialist/clothes/clothesComponent';
+import FashionComponent from '../components/specialist/fashion/fashionComponent';
+import DriveComponent from '../components/specialist/drive/driveComponent';
+import WatchCompoent from '../components/specialist/watch/watchCompoent';
+import ScarceComponent from '../components/specialist/scarce/scarceComponent';
+import ToActiviteComponent from '../components/ToActivite/ToActiviteComponent'
+
 export default (
     <div>
         <Route path="/" component={HomeComponent}>
@@ -60,5 +72,17 @@ export default (
         <Route path="address" component={address}></Route>
         <Route path="editAddress" component={editAddress}></Route>
         <Route path="collect" component={collect}></Route>
+        <Route path="fake" component={FakeComponent}></Route>
+        <Route path="highquality" component={HighQualityComponent}></Route>
+        <Route path="/feed" component={FeedComponent}></Route>
+        <Route path="/guide" component={GuideComponent}></Route>
+        <Route path="/toys" component={ToysComponent}></Route>
+        <Route path="clothes" component={ClothesComponent}></Route>
+        <Route path="/fashion" component={FashionComponent}></Route>
+        <Route path="/drive" component={DriveComponent}></Route>
+        <Route path="/watch" component={WatchCompoent}></Route>
+        <Route path="/scarce" component={ScarceComponent}></Route>
+        <Route path="/activite(/:id)" component={ToActiviteComponent}></Route>
+        
     </div>
 )

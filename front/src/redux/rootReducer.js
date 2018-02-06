@@ -9,6 +9,7 @@ import healthcareReducer from '../components/HealthCareIndex/HealthCareIndexRedu
 import SnackToysReducer from '../components/SnackToysIndex/SnackToysIndexReducer';
 import goOutIndexReducer from '../components/goOutIndex/goOutIndexReducer';
 import BeautyIndexReducer from '../components/BeautyIndex/BeautyIndexReducer';
+import ActiveProduct from '../components/ToActivite/ToActiviteReducer';
 
 export default combineReducers({
     goodslist,
@@ -19,5 +20,6 @@ export default combineReducers({
     healthcareReducer,
     SnackToysReducer,
     goOutIndexReducer,
-    BeautyIndexReducer
+    BeautyIndexReducer,
+    ActiveProduct
 })
