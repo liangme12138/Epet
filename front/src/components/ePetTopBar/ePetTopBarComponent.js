@@ -2,14 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, hashHistory } from 'react-router';
 import './ePetTopBar.scss';
+import { connect } from 'react-redux';
+import * as ePetTopBarActions from './ePetTopBarAction';
 
 // 潮品预售
-export default class ePetTopBarComponent extends React.Component{
+class ePetTopBarComponent extends React.Component{
     state={
-
+        data:[]
     }
     back(){
         window.history.back();
+    }
+    componentDidMount() {
+        this.props.getData().then((res)=>{
+            console.log(res)
+            res.map((item,idx)=>{
+                this.state.data.push(item)
+            })
+            this.setState({data:this.state.data})
+        })
+        // console.log(this.state.data)
     }
     render() {
         return(
@@ -19,35 +31,35 @@ export default class ePetTopBarComponent extends React.Component{
                     <h2>潮品预售列表</h2>
                 </div>
                 <div className="ePetTopBar-main">
-                    <div className="topBar">
-                        <div className="topBar-img">
-                            <img src={require('../../assets/img/navList/topbar1.png')} alt=""/>
+                    {
+                        this.state.data.map((item,idx)=>{
+                            return <div className="topBar" key={idx}>
+                            <div className="topBar-img">
+                                <img src={item.imgurl} />
+                            </div>
+                            <p>{item.name}</p>
+                            <span >{item.introduce}</span>
+                            <div className="topBar-price">
+                                ¥ <span className="topBar-priceNum">{item.price}</span>
+                                <a className="topBarBtn">
+                                    我要预定
+                                </a>
+                            </div>
                         </div>
-                        <p>小蚁智家  宠物陪伴机器人 黄色 36.3*23.2*28.2cm</p>
-                        <span >200万高清摄像头，APP远程遥控三段发球距离与奖励，语音互动随时随地陪伴爱宠。</span>
-                        <div className="topBar-price">
-                            ¥ <span className="topBar-priceNum">2999.00</span>
-                            <a className="topBarBtn">
-                                我要预定
-                            </a>
-                        </div>
-                    </div>
-
-                    <div className="topBar">
-                        <div className="topBar-img">
-                            <img src={require('../../assets/img/navList/topbar1.png')} alt="" />
-                        </div>
-                        <p>小蚁智家  宠物陪伴机器人 黄色 36.3*23.2*28.2cm</p>
-                        <span >200万高清摄像头，APP远程遥控三段发球距离与奖励，语音互动随时随地陪伴爱宠。</span>
-                        <div className="topBar-price">
-                            ¥ <span className="topBar-priceNum">2999.00</span>
-                            <a className="topBarBtn">
-                                我要预定
-                            </a>
-                        </div>
-                    </div>
+                        })
+                    }
+                </div>
+                <div className="ePetTopBar-foot">
+                    <span>已加载全部</span>
                 </div>
             </div>
         )
     }
 }
+
+const mapToState = function (state) {
+    return{
+        getData: state.ePetTopBarReducer.status || []
+    }
+}
+export default connect(mapToState, ePetTopBarActions)(ePetTopBarComponent)

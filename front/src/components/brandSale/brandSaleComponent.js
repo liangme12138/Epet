@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Router, Route, Link, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import * as brandSaleActions from './brandSaleAction';
+import spinner from '../spinner/spinner';
 import '../../sass/iconfont.css';
 import './brandSale.scss';
 
@@ -12,18 +13,32 @@ class BrandSaleComponent extends React.Component{
         Type2:[],
         Type3:[]
     }
-
-    
-
     li1(){
         var curLi = this;
         console.log(curLi)
-
     }
     back(){
         window.history.back();
     }
+    timeTransfor(time){
+        // 创建当前时间
+        var date = new Date();
+        var curMs = date.getTime();
+        var oriMs = time.getTime();
+        var differ = curMs - oriMs;
+        console.log(differ)
+    }
 
+    componentWillReceiveProps() {
+        
+    }
+
+    componentWillMount() {
+        this.props.getType().then(res=>{
+            spinner.closeSpinner();
+                
+        }); 
+    }
     componentDidMount() {
         this.props.getType().then((res)=>{
             console.log(res)
@@ -39,12 +54,10 @@ class BrandSaleComponent extends React.Component{
             this.setState({Type1:this.state.Type1})
             this.setState({Type2:this.state.Type2})
             this.setState({Type3: this.state.Type3})
-            
         })
-        console.log(this.state.Type1,'111')
-        console.log(this.state.Type2, '222')
-        console.log(this.state.Type3, '333')
-        
+        // console.log(this.state.Type1,'111')
+        // console.log(this.state.Type2, '222')
+        // console.log(this.state.Type3, '333')
         
     }
 
@@ -92,23 +105,59 @@ class BrandSaleComponent extends React.Component{
                     </div>
                     <div className="brandSale-list">
                         <ul>
-                            <li className="brandSale-rela">
-                                <img src={require('../../assets/img/navList/brandsale1.jpg')} />
-                                <p className="leave-time">
-                                    <span>仅剩</span>
-                                    <span>x天xx时xx分xx秒</span>
-                                    <span className="goods-name">康乐多高性价比犬粮</span>
-                                </p>
-                            </li>
+                            {
+                                this.state.Type1.map((item,idx)=>{
+                                    // console.log(item.time,'time')
+                                    return  <li className="brandSale-rela" key={idx}>
+                                                <img src={item.imgUrl} />
+                                                <p className="leave-time">
+                                                    <span>仅剩</span>
+                                                    <span>x天xx时xx分xx秒</span>
+                                                    <span className="goods-name">{item.brandName}</span>
+                                                </p>
+                                            </li>
+                                })
+                            }
+                        </ul>
+                    </div>
+                    <div className="brandSale-title">
+                        <img src="../src/assets/img/navList/bs.png"/>
+                    </div>
+                    <div className="brandSale-list">
+                        <ul>
+                            {
+                                this.state.Type2.map((item,idx)=>{
+                                    return <li className="brandSale-rela" key={idx}>
+                                                <img src={item.imgUrl} />
+                                                <p className="leave-time">
+                                                    <span>仅剩</span>
+                                                    <span>{item.time}</span>
+                                                    <span className="goods-name">{item.brandName}</span>
+                                                </p>
+                                            </li>
+                                })
+                            }
+                        
+                        </ul>
+                    </div>
+                    <div className="brandSale-title">
+                        <img src="../src/assets/img/navList/bs2.png"/>
+                    </div>
+                    <div className="brandSale-list">
+                        <ul>
+                            {
+                                this.state.Type3.map((item, idx) => {
+                                    return <li className="brandSale-rela" key={idx}>
+                                        <img src={item.imgUrl} />
+                                        <p className="leave-time">
+                                            <span>仅剩</span>
+                                            <span>{item.time}</span>
+                                            <span className="goods-name">{item.brandName}</span>
+                                        </p>
+                                    </li>
+                                })
+                            }
 
-                            <li className="brandSale-rela">
-                                <img src={require('../../assets/img/navList/brandsale1.jpg')} />
-                                <p className="leave-time">
-                                    <span>仅剩</span>
-                                    <span>x天xx时xx分xx秒</span>
-                                    <span className="goods-name">康乐多高性价比犬粮</span>
-                                </p>
-                            </li>
                         </ul>
                     </div>
                 </div>

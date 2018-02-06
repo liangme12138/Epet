@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import * as dogFoodIndexAction from './dogFoodIndexAction'; 
 import '../dogFoodIndex/dogFoodIndex.scss';
 import action from '../../utils/tab'
-import HomeBastComponent from '../home/homeBestComponent'
+import HomeBastComponent from '../home/homeBestComponent';
+import '../../sass/indexbase.scss';
+
 class DogFoodIndexComponent extends React.Component{
     state = {
         Tab:[],
@@ -98,7 +100,7 @@ class DogFoodIndexComponent extends React.Component{
                         }
                     </div>
                 </div>
-                <HomeBastComponent/>
+                <HomeBastComponent Img={['../src/assets/img/navList/11.jpg', '../src/assets/img/navList/12.jpg', '../src/assets/img/navList/13.jpg']}/>
                 <div className="Activites">
                     <h2>
                         <img src="../src/assets/img/navList/ebf85555c851f683bf33cd4c14f7f68b.jpg"/>
@@ -120,8 +122,8 @@ class DogFoodIndexComponent extends React.Component{
                                                             <img src={item1.goodImgUrl} />
                                                         </div>
                                                         <div className="goodmsg">
-                                                            <p>纯粹Purich  金标中大型犬成犬 15k</p>
-                                                            <span>￥358.50</span>
+                                                            <p>{item1.goodName}</p>
+                                                            <span>￥{item1.Price}</span>
                                                         </div>
                                                     </li>
                                                         }
@@ -139,10 +141,10 @@ class DogFoodIndexComponent extends React.Component{
                 </div>
                 <div className="dogfoodMenu">
                     <ul className="dogfoodMenuUL">
-                        <li>全部</li>
+                        <li><span>全部</span></li>
                         {
                             this.props.dogFoodMenu.map((item,idx)=>{
-                                return <li key={idx}>{item.classifyName}</li>
+                                return <li key={idx}><span>{item.classifyName}</span></li>
                             })
                         }
                     </ul>
@@ -153,7 +155,7 @@ class DogFoodIndexComponent extends React.Component{
 }
 
 const mapToState = function (state) {
-    console.log('state', state.TabsReducer.result4)
+    console.log('state', state.TabsReducer)
     return {
         AjaxTabState: state.TabsReducer.status,
         TabDate: state.TabsReducer.result1 || [],

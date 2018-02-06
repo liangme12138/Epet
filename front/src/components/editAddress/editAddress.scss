@@ -1,0 +1,39 @@
+#sm_edit{
+    height:100%;
+     .header{ 
+        background:#fff;
+         padding:0 0.13rem;
+         border-bottom:1px solid #f3f3f3;
+        p{
+            text-align:center;
+            height: 0.67rem;
+            line-height: 0.67rem;
+            font-size:0.24rem;
+            position:relative;
+            i{
+                position:absolute;
+                font-size:0.32rem;
+            }
+            span{
+                position:absolute;
+                right:0.4rem;
+                padding:0 0.07rem;
+            }
+            i:nth-child(1){
+                left:0;
+            }
+            i:nth-child(3){
+                position:absolute;
+                right:0;
+            }
+        }
+    }
+    .main{
+        .am-list-item{
+            border-top:1px solid #D7D7D7;
+        }
+        .am-list-extra{
+           flex-basis: 70%;
+        }
+    }
+}

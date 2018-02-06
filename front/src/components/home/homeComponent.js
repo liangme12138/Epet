@@ -40,10 +40,10 @@ class HomeComponent extends React.Component{
                         <li data-path="/">首页</li>
                         <li data-path="/dogfoodindex">狗狗主粮</li>
                         <li data-path="/dogcostumeindex">服饰城</li>
-                        <li>医疗保健</li>
-                        <li>零食玩具</li>
-                        <li>日用外出</li>
-                        <li>美容香波</li>
+                        <li data-path="/healthcareindex">医疗保健</li>
+                        <li data-path="/snacktoysindex">零食玩具</li>
+                        <li data-path="/gooutindex">日用外出</li>
+                        <li data-path="/beautyindex">美容香波</li>
                     </ul>
                 </div>
                 <div className="components">{this.props.children}</div>

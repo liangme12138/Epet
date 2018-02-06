@@ -9,11 +9,15 @@ export default function TabsReducer(state = {}, action) {
             break;
         case 'costumetabrequested':
             newState.status = 1;
-            newState.result = action.respones;
+            newState.result1 = action.respones;
             break;
         case 'requesterror':
             newState.status = -1;
             newState.result = action.respones;
+            break;
+        case 'dogCostumeBigImgrequested':
+            newState.status = 1;
+            newState.result2 = action.respones;
             break;
     }
     return newState;

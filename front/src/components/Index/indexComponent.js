@@ -13,7 +13,8 @@ import rem from '../../utils/getRem.js';
 rem.rem();
 // lazyload.lazyloaded();
 // import IndexSurpriseComponent from '../indexSurprise/indexSurpriseComponent';
-import HomeBastComponent from '../home/homeBestComponent'
+import HomeBastComponent from '../home/homeBestComponent';
+
 class IndexComponent extends React.Component{
     state={
         
@@ -25,7 +26,7 @@ class IndexComponent extends React.Component{
     }
     // 进入品牌特卖
     toBrandSale() {
-        hashHistory.push('brandsale')
+        hashHistory.push('brandsale');
     }
     // 进入宠国际
     toEpetInter(){
@@ -112,7 +113,7 @@ class IndexComponent extends React.Component{
                     <div className="new-people">
                             <img src={require('../../assets/img/navList/newPeople.gif')}/>
                     </div>
-                    <HomeBastComponent />
+                    <HomeBastComponent Img={['../src/assets/img/navList/11.jpg', '../src/assets/img/navList/12.jpg', '../src/assets/img/navList/13.jpg']}/>
                     <div className="eTeam">
                         <img src={require('../../assets/img/navList/14.jpg')}/>
                     </div>
