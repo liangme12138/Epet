@@ -19,8 +19,7 @@ export function ajaxMiddleware(MiddleWareAPI){
 
             if(url){
                 return new Promise ((resolve,reject) => {
-                    http[method]({ url: url, 'params': params}).then(res => {
-                        console.log(res)
+                    http[method]({ 'url': url, 'params': params}).then(res => {
                         MiddleWareAPI.dispatch({
                             type: requested,
                             respones:res.data
