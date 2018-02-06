@@ -214,7 +214,6 @@ class DogCostumeIndexComponent extends React.Component{
 }
 
 const mapToState = function (state) {
-    // console.log('state',state.CostumeReducer)
     return {
         AjaxTabState: state.CostumeReducer.status,
         TabDate: state.CostumeReducer.result1 || [], 

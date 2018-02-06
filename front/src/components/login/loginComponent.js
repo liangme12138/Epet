@@ -1,10 +1,11 @@
 import React from 'react'
-
-import { List, InputItem, WhiteSpace, Button } from 'antd-mobile';
+import { connect } from 'react-redux';
+import * as loginAction from './loginAction'
+import { List, InputItem, WhiteSpace, Button, Toast } from 'antd-mobile';
 import baseUrl from '../../utils/baseUrl'
 import http from "../../utils/reqAjax.js"
 import './login.scss'
-export default class Login extends React.Component{
+class Login extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -13,45 +14,58 @@ export default class Login extends React.Component{
             checkcode: '',
             user:'',
             pwd:'',
+            code:'',
             count:80,
             obj:"获取动态密码"
         };
     }
+    componentDidUpdate() {
+        if(this.props.status == '1' && this.props.data.length>0) {
+            var str = JSON.stringify(this.props.data);
+            window.localStorage.setItem('userInfo', str);
+            this.props.router.push("/");
+        }
+        else if (this.props.data==="false"){
+            Toast.info('该手机号尚未注册，请前往注册', 1);
+        }   
+    }
     changeTab=(e)=>{
-        const idx=$(e.target).index();
-        if(idx=="0"){
+        const tab=e.target.className;
+        if(tab=="tab1"){
             $(e.target).children().addClass('active').parent('li').siblings('li').children().removeClass('active');
             this.setState({show:true});
         }
-        else if(idx=="1"){
+        else if(tab=="tab2"){
             $(e.target).children().addClass('active').parent('li').siblings('li').children().removeClass('active');
             this.setState({ show: false });
         }
     }
+
     getUser=(e)=>{
-        if(e.length>0){
-          this.setState({user:$.trim(e)});      
-        }
-        
+        this.setState({user:e});      
     }
     getPwd=(e)=>{
-        if(e.length>0){
-            this.setState({ pwd: $.trim(e)});
-        }          
+        this.setState({ pwd:e}); 
     }
     getPhone=(e)=>{
-        if (e.length > 0) {
-            this.setState({ phone: $.trim(e) });
-        } 
-    }
-    login1=(e)=>{
-        if(!this.state.user){
-
+        this.setState({ phone:e });
+        if($.trim(e)){
+            this.props.checkPhone("login.php", {phone2: this.state.phone});
         }
     }
-    login2 = (e) => {
-
+    login1=(e)=>{
+        e.stopPropagation();
+        if(!$.trim(this.state.user) || !$.trim(this.state.pwd)){
+            Toast.info('手机号或密码不能为空!!!', 1);
+        }
+        else if ($.trim(this.state.user) && $.trim(this.state.pwd)){
+            this.props.login("login.php", { phone: this.state.user, password: this.state.pwd });
+        }
+         
+        
+        
     }
+   
     randomNumber(min, max) {
         return parseInt(Math.random() * (max - min + 1) + min);
     }
@@ -82,6 +96,15 @@ export default class Login extends React.Component{
      
        
     }
+    code=(e)=>{
+        var code=$.trim(e);
+       this.setState({code:e});
+    }
+    login2 = (e) => {
+        if(this.state.code===this.state.checkcode){
+            this.props.router.push("/");    
+        }
+    }
     goBack=(e)=>{
         // this.props.router.goBack(-1);
         this.props.router.push("/");
@@ -99,34 +122,38 @@ export default class Login extends React.Component{
                      </p>
                     <div className="logo"> <img src="" alt="" /></div>
                     <ul className="tab" onClick={this.changeTab}>
-                        <li>普通登录<i className="active"></i></li>
-                        <li>手机动态密码登录<i></i></li>
+                        <li className="tab1">普通登录<i className="active"></i></li>
+                        <li className="tab2">手机动态密码登录<i></i></li>
                     </ul>
                     <div id="main">
                     {this.state.show? <div className="login1">
-                            <InputItem onBlur={this.getUser}                          
+                            <InputItem onBlur={this.getUser} 
+                                type="phone"                         
                                 placeholder="手机号/邮箱/用户名"
+                                clear
                                 autoFocus
                             >
                                 <div className="iconfont icon-ren"/>
                             </InputItem>
                             <InputItem onBlur={this.getPwd}
+                                type="password"
                                 placeholder="输入密码"
                             >
                                 <div className="iconfont icon-mima"/>
                             </InputItem>
                             <WhiteSpace />
                             <p className="mima"><span>新用户注册</span><span>忘记密码？</span></p>  
-                            <div className="btn-container">
+                            <div className="btn-container" >
                                 <Button className="btn" type="primary" onClick={this.login1}>登录</Button>
                             </div>
                         </div>:<div className="login2">
                                 <InputItem onBlur={this.getPhone}
+                                    type="phone" 
                                     placeholder="已注册的手机号"
                                 >
                                     <div className="iconfont icon-ren" />
                                 </InputItem>
-                                <InputItem
+                                <InputItem onBlur={this.code}
                                     placeholder="动态密码"
                                 >
                                     <div className="iconfont icon-mima" />
@@ -136,7 +163,7 @@ export default class Login extends React.Component{
                                 <WhiteSpace />
                                 <p className="mima"><span>新用户注册</span><span>忘记密码？</span></p>
                                 <div className="btn-container">
-                                    <Button className="btn" type="primary" onClick={this.login1}>登录</Button>
+                                    <Button className="btn" type="primary" onClick={this.login2}>登录</Button>
                                 </div>
                         </div>
                     }
@@ -157,3 +184,11 @@ export default class Login extends React.Component{
         )
     }
 }
+const mapToState = function (state) {
+    console.log(state)
+    return {
+        status: state.loginReducer.status,
+        data: state.loginReducer.result || []
+    }
+}
+export default connect(mapToState, loginAction)(Login)
