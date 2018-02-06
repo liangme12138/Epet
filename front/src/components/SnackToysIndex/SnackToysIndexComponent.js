@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import * as SnackToysIndexAction from './SnackToysIndexAction';
 import action from '../../utils/tab';
 import '../dogFoodIndex/dogFoodIndex.scss';
-import '../../sass/indexbase.scss'
+import '../../sass/indexbase.scss';
+import  spinner from '../spinner/spinner'
 class SnackToysIndexComponet extends React.Component{
     state = {
         Tab: [],
@@ -13,6 +14,7 @@ class SnackToysIndexComponet extends React.Component{
         avtBigImg: []
     }
     componentWillMount() {
+        spinner.loadSpinner();
         //ajax tab菜单数据
         this.props.getTab().then(() => {
             // console.log('aa', this.props.TabDate)
@@ -30,6 +32,9 @@ class SnackToysIndexComponet extends React.Component{
             this.setState({ tabItems: action.TabItem(9, this.state.tabItems, this.props.TabDate) })
             // console.log('tabItems', this.state.tabItems)
             $('#tabs').find('li').eq(0).find('img').attr({ src: this.state.changeTab[0] })
+            spinner.closeSpinner();
+        }).catch(error => {
+            spinner.closeSpinner();
         });
         
         // ajax 精选品牌数据
@@ -43,7 +48,10 @@ class SnackToysIndexComponet extends React.Component{
             this.setState({ avtBigId: this.state.avtBigId });
             // console.log(this.state.avtBigId)
             this.setState({ avtBigImg: this.state.avtBigImg });
-        })
+            spinner.closeSpinner();
+        }).catch(error => {
+            spinner.closeSpinner();
+        });
 
         this.props.SnackToysMenu()
     }
@@ -60,6 +68,11 @@ class SnackToysIndexComponet extends React.Component{
             }
         }
         $(eve.target).attr({ src: this.state.changeTab[idx] })
+    }
+    ToActivite(id) {
+        // console.log(id); 
+        // hashHistory.push('/activite/')
+        this.props.router.push("/activite/" + id);
     }
     render(){
       return (
@@ -91,7 +104,7 @@ class SnackToysIndexComponet extends React.Component{
                       {
                           this.state.avtBigId.map((item, idx) => {
                               return <div className="ActiviteItem" key={idx}>
-                                  <div className="ActiviteImg">
+                                  <div className="ActiviteImg" onClick={this.ToActivite.bind(this, item)}>
                                       <img src={this.state.avtBigImg[idx]} />
                                   </div>
                                   <ul className="ActiviteGoods">
@@ -111,7 +124,7 @@ class SnackToysIndexComponet extends React.Component{
                                               }
                                           })
                                       }
-                                      <li>
+                                      <li onClick={this.ToActivite.bind(this, item)}>
                                           <h3>查看全部</h3>
                                           <span>SEE ALL</span>
                                       </li>

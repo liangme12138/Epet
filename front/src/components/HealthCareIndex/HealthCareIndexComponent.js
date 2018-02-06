@@ -4,7 +4,8 @@ import * as HealthCareIndexAction from './HealthCareIndexAction';
 import action from '../../utils/tab'; 
 import '../dogFoodIndex/dogFoodIndex.scss';
 import HomeBastComponent from '../home/homeBestComponent';
-import '../../sass/indexbase.scss'
+import '../../sass/indexbase.scss';
+import spinner from '../spinner/spinner'
 
 class HealthCareIndexComponent extends React.Component{
     state = {
@@ -15,6 +16,7 @@ class HealthCareIndexComponent extends React.Component{
         avtBigImg: []
     }
     componentWillMount() {
+        spinner.loadSpinner();
         //ajax tab菜单数据
         this.props.getTab().then(() => {
             // console.log('aa', this.props.TabDate)
@@ -32,6 +34,9 @@ class HealthCareIndexComponent extends React.Component{
             this.setState({ tabItems: action.TabItem(5, this.state.tabItems, this.props.TabDate) })
             // console.log('tabItems', this.state.tabItems)
             $('#tabs').find('li').eq(0).find('img').attr({ src: this.state.changeTab[0] })
+            spinner.closeSpinner();
+        }).catch(error => {
+            spinner.closeSpinner();
         });
 
         // ajax 精选品牌数据
@@ -45,6 +50,9 @@ class HealthCareIndexComponent extends React.Component{
             this.setState({ avtBigId: this.state.avtBigId });
             // console.log(this.state.avtBigId)
             this.setState({ avtBigImg: this.state.avtBigImg });
+            spinner.closeSpinner();
+        }).catch(error => {
+            spinner.closeSpinner();
         })
 
         this.props.HealthCareMenu()
@@ -74,6 +82,11 @@ class HealthCareIndexComponent extends React.Component{
         }
         $(eve.target).attr({ src: this.state.changeTab[idx] })
     }
+    ToActivite(id) {
+        // console.log(id); 
+        // hashHistory.push('/activite/')
+        this.props.router.push("/activite/" + id);
+    }
     render(){
         return (
             <div className="dogFood">
@@ -93,7 +106,7 @@ class HealthCareIndexComponent extends React.Component{
                         }
                     </div>
                 </div>
-                <HomeBastComponent Img={['../src/assets/img/navList/d720be7dab61d13745d644d26a0feaef.jpg', '../src/assets/img/navList/5914108edeadbfba0118b6c2ec9a26c1.jpg', '../src/assets/img/navList/b405fedf3e8d3dd537928f8b997a628b.jpg']}/>
+                <HomeBastComponent Img={['../src/assets/img/navList/d720be7dab61d13745d644d26a0feaef.jpg', '../src/assets/img/navList/5914108edeadbfba0118b6c2ec9a26c1.jpg', '../src/assets/img/navList/b405fedf3e8d3dd537928f8b997a628b.jpg']} active={["drive", "watch", "scarce"]}/>
                 <div className="Activites">
                     <h2>
                         <img src="../src/assets/img/navList/ebf85555c851f683bf33cd4c14f7f68b.jpg" />
@@ -102,7 +115,7 @@ class HealthCareIndexComponent extends React.Component{
                         {
                             this.state.avtBigId.map((item, idx) => {
                                 return <div className="ActiviteItem" key={idx}>
-                                    <div className="ActiviteImg">
+                                    <div className="ActiviteImg" onClick={this.ToActivite.bind(this, item)}>
                                         <img src={this.state.avtBigImg[idx]} />
                                     </div>
                                     <ul className="ActiviteGoods">
@@ -122,7 +135,7 @@ class HealthCareIndexComponent extends React.Component{
                                                 }
                                             })
                                         }
-                                        <li>
+                                        <li onClick={this.ToActivite.bind(this, item)}>
                                             <h3>查看全部</h3>
                                             <span>SEE ALL</span>
                                         </li>

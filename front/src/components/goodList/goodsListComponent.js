@@ -1,26 +1,27 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
-import {connect} from 'react-redux';
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router'
-import * as goodsListActions from '../goodList/goodsListAction'
+
 import "../goodList/goodsList.scss"
 import PublicMenu from '../publicMenu/publicMenuComponent'
-import spinner from '../spinner/spinner'
-import { Toast} from 'antd-mobile';
 
-class GoodsListComponent extends React.Component{
-    componentWillMount(){
-        //显示loading
-        // spinner.loadSpinner();
-        this.props.getCategory().then(res=>{
-            spinner.closeSpinner();
-        });
+export default class GoodsListComponent extends React.Component{
+    componentDidMount(){
+        if (this.props.children.props.route.path){
+            if (this.props.children.props.route.path == '/brand'){
+                $('header span').removeClass();
+                $('header span').eq(1).toggleClass('active');
+            }
+        }
     }
-    
     check(event){
         if(event.target.tagName == "SPAN"){
             $('header span').removeClass();
             event.target.classList.toggle('active');
+            if (event.target.innerHTML == "分类"){
+                this.props.router.push('category');
+            } else if (event.target.innerHTML == "品牌"){
+                this.props.router.push('brand');
+            }
         } else if (event.target.tagName == "I"){
             this.props.router.push('search');
         }
@@ -37,28 +38,11 @@ class GoodsListComponent extends React.Component{
                     </div>
                     <i className="iconfont icon-sousuo"></i>
                 </header>
-                <div>
-                    <div className="category">
-                        {
-                            
-                        }
-                    </div>
-                    <div className="brand">
-
-                    </div>
+                <div className="mainGoods">{this.props.children}</div>
+                <div className="footer">
+                    <PublicMenu></PublicMenu>
                 </div>
-                <PublicMenu></PublicMenu>
             </div>
         )
     }
 }
-
-//DataModel => m
-const mapToState = function(state){
-    return {
-        ajaxStatus: state.goodslist.status,
-        ajaxResult: state.goodslist.result || []
-    }
-}
-
-export default connect(mapToState, goodsListActions)(GoodsListComponent)

@@ -6,6 +6,7 @@ import action from '../../utils/tab'
 import HomeBastComponent from '../home/homeBestComponent';
 import '../../sass/indexbase.scss';
 
+import spinner from  '../spinner/spinner';
 class DogFoodIndexComponent extends React.Component{
     state = {
         Tab:[],
@@ -17,7 +18,7 @@ class DogFoodIndexComponent extends React.Component{
     }
     componentWillMount(){ 
         var arr =[]
-
+        spinner.loadSpinner();
         //ajax tab菜单数据
         this.props.getTab().then(()=>{
             // console.log('aa', this.props.TabDate)
@@ -34,8 +35,11 @@ class DogFoodIndexComponent extends React.Component{
             // this.toTabItem(1);
             this.setState({ tabItems: action.TabItem(1, this.state.tabItems, this.props.TabDate) })
             
-            $('#tabs').find('li').eq(0).find('img').attr({ src: this.state.changeTab[0] })
-        })
+            $('#tabs').find('li').eq(0).find('img').attr({ src: this.state.changeTab[0] });
+            spinner.closeSpinner();
+        }).catch(error => {
+            spinner.closeSpinner();
+        });
         // ajax 精选品牌数据
         this.props.getBigImg().then(()=>{
             this.props.atvPrd.forEach((item)=>{
@@ -47,7 +51,10 @@ class DogFoodIndexComponent extends React.Component{
             this.setState({ avtBigId: this.state.avtBigId});
             // console.log(this.state.avtBigId)
             this.setState({ avtBigImg: this.state.avtBigImg });
-        })
+            spinner.closeSpinner();
+        }).catch(error => {
+            spinner.closeSpinner();
+        });
         this.props.getDogFoodMenu()
         
     }
@@ -77,6 +84,11 @@ class DogFoodIndexComponent extends React.Component{
         }
         $(eve.target).attr({ src: this.state.changeTab[idx] })
     }
+    ToActivite(id) {
+        // console.log(id); 
+        // hashHistory.push('/activite/')
+        this.props.router.push("/activite/" + id);
+    }
     render(){
         return(
             <div className="dogFood">
@@ -100,7 +112,7 @@ class DogFoodIndexComponent extends React.Component{
                         }
                     </div>
                 </div>
-                <HomeBastComponent Img={['../src/assets/img/navList/11.jpg', '../src/assets/img/navList/12.jpg', '../src/assets/img/navList/13.jpg']}/>
+                <HomeBastComponent Img={['../src/assets/img/navList/5df340d068e4bc97759d801edcd5ac19.jpg', '../src/assets/img/navList/6ebc7bc52a02cc2fb2d725dd9ebe58aa.jpg', '../src/assets/img/navList/e8fa7e93ded2be02792cbade66353832.jpg']} active={["fake", "HighQuality","feed"]}/>
                 <div className="Activites">
                     <h2>
                         <img src="../src/assets/img/navList/ebf85555c851f683bf33cd4c14f7f68b.jpg"/>
@@ -109,7 +121,7 @@ class DogFoodIndexComponent extends React.Component{
                         {
                             this.state.avtBigId.map((item,idx)=>{
                                 return <div className="ActiviteItem" key={idx}>
-                                            <div className="ActiviteImg">
+                                    <div className="ActiviteImg" onClick={this.ToActivite.bind(this, item)}>
                                                 <img src={this.state.avtBigImg[idx]} />
                                             </div>
                                             <ul className="ActiviteGoods">
@@ -129,7 +141,7 @@ class DogFoodIndexComponent extends React.Component{
                                                         }
                                                     })
                                                 }
-                                                <li>
+                                        <li onClick={this.ToActivite.bind(this, item)}>
                                             <h3>查看全部</h3>
                                             <span>SEE ALL</span>
                                         </li>

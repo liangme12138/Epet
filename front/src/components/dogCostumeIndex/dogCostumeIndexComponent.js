@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import * as dogCostumeIndexAction from './dogCostumeIndexAction';
 import './dogCostumeIndex.scss';
 import '../../sass/indexbase.scss';
+import { Router, Route, Link, hashHistory } from 'react-router';
+import spinner from '../spinner/spinner'
 
 class DogCostumeIndexComponent extends React.Component{
     state = {
@@ -10,10 +12,10 @@ class DogCostumeIndexComponent extends React.Component{
         avtBigImg: [],
         atvName:[],
         atvReferral:[]
-
     }
     componentWillMount() {
         // console.log('componentWillMount');
+        spinner.loadSpinner();
         this.props.getTab();
         this.props.getBigImg().then(() => {
             this.props.atvPrd.forEach((item) => {
@@ -30,8 +32,11 @@ class DogCostumeIndexComponent extends React.Component{
             this.setState({ atvName: this.state.atvName });
             this.setState({ atvReferral: this.state.atvReferral });
             
-            console.log('this', this.state.avtBigId)
-        })
+            // console.log('this', this.state.avtBigId);
+            spinner.closeSpinner();
+        }).catch(error => {
+            spinner.closeSpinner();
+        });
         // this.props.getDogFoodMenu();
 
     }
@@ -42,6 +47,19 @@ class DogCostumeIndexComponent extends React.Component{
             //     width:500
             // }).siblings('img').animate({width: 400});
         //   });
+    }
+    toSpecialist(eve){
+        // console.log(eve);
+        if (eve == 'clothes') {
+            hashHistory.push('clothes')
+        } else if (eve == 'fashion'){
+            hashHistory.push('fashion')
+        }
+    }
+    ToActivite(id){
+        // console.log(id); 
+        // hashHistory.push('/activite/')
+        this.props.router.push("/activite/"+id);
     }
     render(){
         return (
@@ -71,10 +89,10 @@ class DogCostumeIndexComponent extends React.Component{
                     </ul>
                 </div>
                 <div className="costumeOther">
-                    <div className="Other-item-1">
+                    <div className="Other-item-1" onClick={this.toSpecialist.bind(this, 'clothes')}>
                         <img src="../src/assets//img//navList//22bf3a2c0f094e861ebd86491627945a.jpg"/>
                     </div>
-                    <div className="Other-item-1">
+                    <div className="Other-item-1" onClick={this.toSpecialist.bind(this, 'fashion')}>
                         <img src="../src/assets//img//navList//d2efde3e7cf1b72e9eb0f7d1732e08f2.jpg"/>
                     </div>
                 </div>
@@ -119,7 +137,7 @@ class DogCostumeIndexComponent extends React.Component{
                         {
                             this.state.avtBigId.map((item,idx)=>{
                                 return <div className="ActiviteItem" key={idx}>
-                                    <div className="ActiviteImg">
+                                    <div className="ActiviteImg" onClick={this.ToActivite.bind(this, item)}>
                                         <div className="itemImg">
                                             <img src="../src/assets/img/icon/bgimg.png" />
                                             <div className="atvMes">
@@ -149,7 +167,7 @@ class DogCostumeIndexComponent extends React.Component{
                                                 
                                             })
                                         }
-                                        <li>
+                                        <li onClick={this.ToActivite.bind(this, item)}>
                                             <img src="../src/assets/img/active/goods/more.jpg"/>
                                         </li>
                                     </ul>
@@ -196,7 +214,6 @@ class DogCostumeIndexComponent extends React.Component{
 }
 
 const mapToState = function (state) {
-    // console.log('state',state.CostumeReducer)
     return {
         AjaxTabState: state.CostumeReducer.status,
         TabDate: state.CostumeReducer.result1 || [], 
