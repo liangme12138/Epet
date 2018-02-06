@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
 
-import goodslist from '../components/goodList/goodsListReducer'
+import category from '../components/category/categoryReducer'
+import product from '../components/productsComponent/productReducer'
+import defail from '../components/productDefail/defailComponentReducer'
 import index from '../components/Index/indexReducer';
-import TabsReducer from'../components/dogFoodIndex/dogFoodIndexReducer';
+import TabsReducer from '../components/dogFoodIndex/dogFoodIndexReducer';
 import MenuReducer from '../components/home/homeReducer';
 import CostumeReducer from '../components/dogCostumeIndex/dogCostumeIndexReducer';
 import loginReducer from '../components/login/loginReducer'
@@ -14,7 +16,9 @@ import BeautyIndexReducer from '../components/BeautyIndex/BeautyIndexReducer';
 import ActiveProduct from '../components/ToActivite/ToActiviteReducer';
 
 export default combineReducers({
-    goodslist,
+    category,
+    product,
+    defail,
     index,
     TabsReducer,
     MenuReducer,

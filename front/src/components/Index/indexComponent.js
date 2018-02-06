@@ -4,7 +4,7 @@ import { Router, Route, Link, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import * as IndexAction  from './indexAction';
 // import lazyload from '../../lazyload/lazyload.js';
-import LazyLoad from 'react-lazyload'
+// import LazyLoad from 'react-lazyload'
 import '../../sass/base.scss';
 import './index.scss';
 import rem from '../../utils/getRem.js';

@@ -5,7 +5,12 @@ import IndexComponent from '../components/Index/indexComponent';
 import PublicSearchComponent from "../components/publicSearch/publicSearchComponent";
 import Login from '../components/login/loginComponent'
 import HomeComponent from '../components/home/homeComponent';
-import DogFoodIndexComponent from '../components/dogFoodIndex/dogFoodIndexComponent'; 
+import DogFoodIndexComponent from '../components/dogFoodIndex/dogFoodIndexComponent';
+import categorysComponent from '../components/category/categoryComponent'
+import BrandComponent from '../components/brandComponent/brandComponent'
+import ProductComponent from '../components/productsComponent/productsComponent'
+import DefailComponent from '../components/productDefail/defailComponent';
+ 
 import DogCostumeIndexComponent from '../components/dogCostumeIndex/dogCostumeIndexComponent';
 import HealthCareIndexComponent from '../components/HealthCareIndex/HealthCareIndexComponent';
 import SnackToysIndexComponent from '../components/SnackToysIndex/SnackToysIndexComponent';
@@ -51,8 +56,12 @@ export default (
             <Route path="beautyindex" component={BeautyIndexComponent}></Route>
         </Route> 
         <Route path="/search" component={PublicSearchComponent}></Route>
-        <Route path="category" component={GoodslistComponent}></Route>
-        <Route path="search" component={PublicSearchComponent}></Route>
+        <Route path="category" component={GoodslistComponent}>
+            <IndexRoute component={categorysComponent}></IndexRoute>
+            <Route path="/brand" component={BrandComponent}></Route>
+        </Route>
+        <Route path="product(/:val)" component={ProductComponent}></Route>
+        <Route path="defail(/:goodId)" component={DefailComponent}></Route>
         <Route path="/login" component={Login}></Route>
         <Route path="epetteam" component={EpetTeamComponent}></Route>
         <Route path="login" component={Login}></Route>
