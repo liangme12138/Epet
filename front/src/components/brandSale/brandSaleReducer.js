@@ -1,8 +1,10 @@
+import spinner from '../spinner/spinner'
 export default function BrandSaleReducer(state = {},action) {
     let newState = JSON.parse(JSON.stringify(state));
 
     switch (action.type) {
         case 'requesting':
+            spinner.loadSpinner();
             newState.status = 0;
             break;
         case 'bsrequested':
@@ -14,6 +16,7 @@ export default function BrandSaleReducer(state = {},action) {
             newState.res = action.response;
             break;
         case 'getTyperequested':
+            spinner.closeSpinner();
             newState.status = 1;
             newState.res1 = newState.response;
             break;

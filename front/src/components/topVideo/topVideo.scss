@@ -1,0 +1,84 @@
+.topVideo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .titleTop {
+        height: 0.6667rem;
+        background: #ffff;
+        text-align: center;
+        line-height: 0.6667rem;
+        .titleTopLeft {
+            float: left;
+            font-size: 0.4rem;
+        }
+        h2 {
+            display: inline-block;
+            margin: 0 auto;
+            width: 70%;
+        }
+        .titleTopClose {
+            float: right;
+            font-size: 0.4rem;
+        }
+        h2 {
+            font-weight: normal;
+            font-size: 0.24rem;
+        }
+    }
+    .topVideo-main{
+       display: flex;
+       flex-direction: column;
+       width: 100%;
+       .topVideo-play{
+           height: 2.8rem;
+           img{
+               width: 100%;
+           }
+       }
+       .topVideo-goods{
+           ul{
+               width: 100%;
+               li{
+                   display: block;
+                   height: 1.7333rem;
+                   background: #ffff;
+                   border-bottom: 1px solid #ccc;
+                   padding: 0.2rem;
+                   img{
+                       display: block;
+                       width: 1.3333rem;
+                       height: 1.3333rem;
+                       float: left;
+                   }
+                   h4{
+                       font-size: 0.2267rem;
+                       font-weight: normal;
+                       overflow: hidden;
+                       line-height: 0.3333rem;
+                   }
+                   .rel {
+                        font-size: 0.1733rem;
+                        color: #666;
+                        line-height: 0.4667rem;
+                   }
+                   .topvideoprice{
+                       color: red;
+                       .price {
+                           font-size: 0.2667rem;
+                       }
+                       .cart{
+                            display: inline-block;
+                            float: right;
+                            width: 0.3333rem;
+                            height: 0.3333rem;
+                            border: 1px solid red;
+                            text-align: center;
+                            line-height: 0.3333rem;
+                            border-radius: 0.0667rem;
+                       }
+                   }
+               }
+           }
+       }
+    }
+}

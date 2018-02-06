@@ -4,7 +4,6 @@
         //  $servername = 'localhost';
         //  $password = '';
         $servername = '10.3.136.55';
-
         $username = 'root';
         $password = 'root';
         $database = 'pet';

@@ -43,7 +43,8 @@ import FashionComponent from '../components/specialist/fashion/fashionComponent'
 import DriveComponent from '../components/specialist/drive/driveComponent';
 import WatchCompoent from '../components/specialist/watch/watchCompoent';
 import ScarceComponent from '../components/specialist/scarce/scarceComponent';
-import ToActiviteComponent from '../components/ToActivite/ToActiviteComponent'
+import ToActiviteComponent from '../components/ToActivite/ToActiviteComponent';
+import TopVideoComponent from '../components/topVideo/topVideoComponent';
 
 export default (
     <div>
@@ -75,6 +76,7 @@ export default (
         <Route path="account" component={Accounts}></Route>
         <Route path="brandsale" component={BrandSaleComponent}></Route>
         <Route path="epettop" component={ePetTopBarComponent}></Route>
+        <Route path="topvideo" component={TopVideoComponent}></Route>
         
         
         <Route path="order" component={orderComponent}>
@@ -98,6 +100,7 @@ export default (
         <Route path="/watch" component={WatchCompoent}></Route>
         <Route path="/scarce" component={ScarceComponent}></Route>
         <Route path="/activite(/:id)" component={ToActiviteComponent}></Route>
+        
         
     </div>
 )
