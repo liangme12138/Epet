@@ -6,7 +6,7 @@
     // $state = isset($_GET['state']) ? $_GET['state'] : "getProduct";
     // $category = isset($_GET['category']) ? $_GET['category'] : "1";
    $state = isset($_POST['state']) ? $_POST['state'] : "getProduct";
-    $category = isset($_POST['category']) ? $_POST['category'] : "1";
+    $category = isset($_POST['category']) ? $_POST['category'] : "";
     $sql;
 
     if($state == 'getProduct'){

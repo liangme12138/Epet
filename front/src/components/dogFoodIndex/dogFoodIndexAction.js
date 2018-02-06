@@ -2,7 +2,7 @@
 export function getTab() {
     return {
         url: 'indexTabs.php',
-        params: { tabItem: 1 },
+        params: {state:'dogFoodMenu', tabItem: 1 },
         types: ['requesting', 'tabrequested','requesterror']
     }
 }
@@ -10,7 +10,7 @@ export function getBigImg(){
      return {
         url: 'activite.php',
         method: 'post',
-         params: { state: 'getProduct'},
+         params: { state: 'getProduct', category:1},
          types: ['requesting', 'getPrdrequested', 'requesterror']
      }
 }
