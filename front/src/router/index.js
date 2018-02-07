@@ -31,6 +31,7 @@ import waitpay from '../components/order/waitpay/payComponent'
 import takegoods from '../components/order/waittakegoods/takegoodsComponent'
 import editAddress from '../components/editAddress/editAddressComponent'
 import collect from '../components/collect/collectComponent'
+import cart from '../components/cartComponent/cartComponent'
 export default (
     <div>
         <Route path="/" component={HomeComponent}>
@@ -69,5 +70,6 @@ export default (
         <Route path="address" component={address}></Route>
         <Route path="editAddress" component={editAddress}></Route>
         <Route path="collect" component={collect}></Route>
+        <Route path="cart" component={cart}></Route>
     </div>
 )

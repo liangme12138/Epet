@@ -11,6 +11,7 @@ class ProductsComponent extends React.Component{
     state = {
         type:false,
         filtrate:false,
+        userId: '',
         brand:[],
         efficacy:['不限制','蛔虫','球虫','心丝虫'],
         physique: ['不限制', '粉剂', '片剂', '液态'],
@@ -20,26 +21,31 @@ class ProductsComponent extends React.Component{
     }
     componentWillMount(){
         spinner.loadSpinner();
+        if (JSON.parse(window.localStorage.getItem('userInfo'))) {
+            this.setState({ userId: JSON.parse(window.localStorage.getItem('userInfo'))[0].userId });
+        }
         var val = this.props.router.params.val || this.props.productId;
-        if (isNaN(val)){
-            this.props.getProduct('', '', '', event.target.innerText).then((res) => {
-                spinner.closeSpinner();
-            }).catch(error => {
-                spinner.closeSpinner();
-            })
-        }else{
-            this.props.getProduct(val).then((res)=>{
+        console.log(val)
+        if (val.indexOf('tab') != -1 || isNaN(val) == false){
+            console.log(666)
+            this.props.getProduct(val).then((res) => {
                 var arr = ['全部'];
-                res.forEach(item=>{
-                    if (this.state.brand.indexOf(item.brand) == -1){
+                res.forEach(item => {
+                    if (this.state.brand.indexOf(item.brand) == -1) {
                         arr.push(item.brand);
                         this.setState({ brand: arr });
                     }
                 })
                 this.setState({ brand: arr });
-                this.setState({data:arr});
+                this.setState({ data: arr });
                 spinner.closeSpinner();
-            }).catch(error=>{
+            }).catch(error => {
+                spinner.closeSpinner();
+            })
+        }else if (isNaN(val)){
+            this.props.getProduct('', '', '', val).then((res) => {
+                spinner.closeSpinner();
+            }).catch(error => {
                 spinner.closeSpinner();
             })
         }
@@ -177,8 +183,17 @@ class ProductsComponent extends React.Component{
         $('.productsMask').css('display', 'none');
         this.setState({ states: !this.state.states });
     }
-    godefail(val){
-        this.props.router.push("/defail/" + val);
+    godefail(val,event){
+        if (event.target.tagName !== "I"){
+            this.props.router.push("/defail/" + val);
+        }
+    }
+    addcart1(){
+        if (this.state.userId != '') {
+            this.props.addcart1(this.state.userId, this.props.productId, 1, true, 'addcar').then(res => {
+                
+            })
+        }
     }
     render(){
         return (
@@ -244,11 +259,14 @@ class ProductsComponent extends React.Component{
                                             <p className="price">{"￥ "+item.Price}</p>
                                             <p className="sell">{"售出: " + item.sale}</p>
                                         </div>
-                                        <Button onClick={() => alert('我的萌宠', '已成功添加到购物车!', [
+                                        <Button onClick={this.state.userId ? () => alert('我的萌宠', '已成功添加到购物车!', [
                                             { text: '继续购物', onPress: () => console.log(), style: 'default' },
                                             { text: '去购物车', onPress: () => this.props.router.push("/cart"), style: { fontWeight: 'bold' } },
-                                        ])}
-                                        ><i className="iconfont icon-cart"></i></Button>
+                                        ]) : () => alert('我的萌宠', '亲！请先登录!', [
+                                            { text: '继续逛逛', onPress: () => console.log(), style: 'default' },
+                                            { text: '去登录', onPress: () => this.props.router.push("/login"), style: { fontWeight: 'bold' } },
+                                        ]) }
+                                        ><i className="iconfont icon-cart" onClick={this.addcart1.bind(this)}></i></Button>
                                     </li>
                                 )
                             })
