@@ -13,7 +13,7 @@ export default function IndexReducer(state = {},action) {
             break;
         case 'requesterror':
             spinner.closeSpinner();
-            mewState.status = -1;
+            newState.status = -1;
             break;
     }
     return newState;

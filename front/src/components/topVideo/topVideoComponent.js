@@ -1,12 +1,27 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, hashHistory } from 'react-router';
+import { connect } from 'react-redux';
+import * as topvideoActions from './topVideoAction';
 import './topVideo.scss';
 
-export default class TopVideoComponent extends React.Component{
+class TopVideoComponent extends React.Component{
+    state = {
+        topGoods: []
+        
+    }
+    back() {
+        window.history.back()
+    }
 
     componentDidMount(){
-
+        this.props.getTop().then((res)=>{
+            // console.log(res)
+            res.map((item)=>{
+                this.state.topGoods.push(item)
+            })
+            this.setState({topGoods:this.state.topGoods})
+        })
     }
     render(){
         return(
@@ -21,29 +36,20 @@ export default class TopVideoComponent extends React.Component{
                     </div>
                     <div className="topVideo-goods">
                         <ul>
-                            <li>
-                                <img src={require('../../assets/img/navList/topvideo1.jpg')}/>
-                                <h4>钢骨 金钢级H型陪伴零食 牛肉味S号 46g</h4>
-                                <p className="rel">真正的『硬货』来了</p>
-                                <p className="topvideoprice">
-                                    <span>￥</span>
-                                    <span className="price">111</span>
-                                    <span className="cart iconfont icon-cart" >
-
-                                    </span>
-                                </p>
-                            </li>
-
-                            <li>
-                                <img src={require('../../assets/img/navList/topvideo1.jpg')} />
-                                <h4>钢骨 金钢级H型陪伴零食 牛肉味S号 46g</h4>
-                                <p className="rel">真正的『硬货』来了</p>
-                                <p className="topvideoprice">
-                                    <span>￥</span>
-                                    <span className="price">111</span>
-                                    <span className="cart iconfont icon-cart" ></span>
-                                </p>
-                            </li>
+                            {
+                                this.state.topGoods.map((item,idx)=>{
+                                    return <li key={idx}>
+                                        <img src={item.imgurl} />
+                                        <h4>{item.topname}</h4>
+                                        <p className="rel">{item.toptitle}</p>
+                                        <p className="topvideoprice">
+                                            <span>￥</span>
+                                            <span className="price">{item.topprice}</span>
+                                            <span className="cart iconfont icon-cart" ></span>
+                                        </p>
+                                    </li>
+                                })
+                            }
                         </ul>
                     </div>
                     
@@ -53,3 +59,11 @@ export default class TopVideoComponent extends React.Component{
         )
     }
 }
+const mapToState = function (state) {
+    return {
+        // type: state.BrandSaleReducer.res1 || [],
+        // brandsale: state.BrandSaleReducer.res2 || []
+        result: state.topReducer.res || []
+    }
+}
+export default connect(mapToState, topvideoActions)(TopVideoComponent);

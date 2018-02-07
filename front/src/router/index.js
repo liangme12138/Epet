@@ -47,7 +47,8 @@ import ScarceComponent from '../components/specialist/scarce/scarceComponent';
 import ToActiviteComponent from '../components/ToActivite/ToActiviteComponent';
 import TopVideoComponent from '../components/topVideo/topVideoComponent';
 import PetallianceComponent from '../components/petalliance/petallianceComponent';
-import ClothCityComponent from '../components/clothCity/clothCityComponent'
+import ClothCityComponent from '../components/clothCity/clothCityComponent';
+import NewYearComponent from '../components/newYear/newYearComponent';
 
 export default (
     <div>
@@ -82,9 +83,9 @@ export default (
         <Route path="epetteam" component={EpetTeamComponent}></Route>
         <Route path="epetmarking" component={ePetMarkingComponent}></Route>
         <Route path="clothCity" component={ClothCityComponent}></Route>
+        <Route path="newyear" component={NewYearComponent}></Route>
         
-        
-        
+
         <Route path="order" component={orderComponent}>
             <IndexRoute component={allorder} />
             <Route path="allorder" component={allorder}></Route>

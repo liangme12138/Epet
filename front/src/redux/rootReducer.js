@@ -19,7 +19,8 @@ import cart from '../components/cartComponent/cartReducer'
 import ePetTopBarReducer from '../components/ePetTopBar/ePetTopBarReducer'
 import ActiveProduct from '../components/ToActivite/ToActiviteReducer';
 import EpetMarkReducer from '../components/ePetMarking/ePetMarkingReducer';
-
+import petAllianceReducer from '../components/petalliance/petallianceReducer';
+import topReducer from '../components/topVideo/topVideoReducer';
 export default combineReducers({
     category,
     product,
@@ -39,7 +40,9 @@ export default combineReducers({
     BeautyIndexReducer,
     ePetTopBarReducer,
     ActiveProduct,
-    EpetMarkReducer
+    EpetMarkReducer,
+    petAllianceReducer,
+    topReducer
     // BeautyIndexReducer
 
 })

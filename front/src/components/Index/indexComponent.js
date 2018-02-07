@@ -45,6 +45,12 @@ class IndexComponent extends React.Component{
     brandMore() {
         hashHistory.push('brandsale')
     }
+    toNewYear() {
+        hashHistory.push('newyear')
+    }
+    toTopVideo() {
+        hashHistory.push('topvideo')
+    }
     
     componentDidMount() {
         this.props.getImg().then((res)=>{
@@ -70,7 +76,7 @@ class IndexComponent extends React.Component{
                     </div>
                     {/* <img src="https://img2.epetbar.com/nowater/2018-01/29/14/a745927376b596c2cb4685686af4d2ad.jpg@!water" /> */}
                 </div>
-                <div className="video-img">
+                <div className="video-img" onClick={this.toNewYear}>
                     <img src="https://img2.epetbar.com/nowater/2018-01/29/18/1bba61520c6e0f89abb16fe0705ccf5e.gif" />
                 </div>
                 <div className="index-1-main">
@@ -142,7 +148,7 @@ class IndexComponent extends React.Component{
                     </div>
                     <div className="shopVideoImg">
                         <ul>
-                            <li>
+                            <li onClick={this.toTopVideo}>
                                 <img src={require('../../assets/img/navList/15.jpg')}/>
                                 <p>安蔻儿眉毛数 双梳头按摩</p>
                                 <div className="shopVideo-scan">

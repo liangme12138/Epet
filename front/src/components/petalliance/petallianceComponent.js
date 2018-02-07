@@ -2,17 +2,29 @@ import React from 'react'
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, hashHistory } from 'react-router';
 import './petalliance.scss';
+import { connect } from 'react-redux';
+import * as petAllianceActions from './petallianceAction';
 
 
 // 萌宠联盟
-export default class PetallianceComponent extends React.Component{
+class PetallianceComponent extends React.Component{
+    state = {
+        database:[]
+    }
     componentDidMount(){
-        
+        this.props.getDataAll().then((res)=>{
+            res.map((item)=>{
+                this.state.database.push(item);
+            })
+            this.setState({database:this.state.database})
+        })
+        // console.log(this.state.database)
     }
 
     back(){
         window.history.back()
     }
+
     
     render(){
         return (
@@ -34,19 +46,19 @@ export default class PetallianceComponent extends React.Component{
                 </div>
                 <div className="petalliance-main">
                     <ul>
-                        <li>
-                            <p className="name">飞天大神猫</p>
-                            <p className="other">
-                                <span className="profession">
-                                    预备体验师
-                                </span>
-                                <span className="dog">
-                                    巴哥犬 3岁5个月2天
-                                </span>
-                                <img src="../src/assets/img/navList/dog.jpg"/>
-                                <p className="introduce">狗狗安全反光救生衣使用报告</p>
-                            </p>
-                        </li>
+                        {
+                            this.state.database.map((item,idx)=>{
+                                return <li key={idx}>
+                                    <p className="name">{item.nickname}</p>
+                                    <p className="other">
+                                        <span className="profession">{item.zhiye}</span>
+                                        <span className="dog">{item.dog}</span>
+                                        <img src={item.imgurl} />
+                                        <p className="introduce">{item.title}</p>
+                                    </p>
+                                </li>
+                            })
+                        }
                     </ul>
                 </div>
             </div>
@@ -54,3 +66,10 @@ export default class PetallianceComponent extends React.Component{
         )
     }
 }
+const mapToState = function (state) {
+    return {
+        data: state.petAllianceReducer.res || []
+        
+    }
+}
+export default connect(mapToState, petAllianceActions)(PetallianceComponent);
