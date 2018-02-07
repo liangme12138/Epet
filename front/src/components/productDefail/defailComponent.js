@@ -26,8 +26,7 @@ class DefailComponent extends React.Component{
                 }
             })
             // 获取购物车商品数量
-            this.props.cartDefail(3,'cart').then(res=>{
-                console.log($('#defail'))
+            this.props.cartDefail(val,'cart').then(res=>{
                 if (res == 'ok' && res[0].count != 0){
                     var res = res[0].count;
                     this.setState({ numDefail: res});
@@ -113,7 +112,7 @@ class DefailComponent extends React.Component{
                         this.props.result.map((item,idx)=>{
                             return(
                                 <div key={idx}>
-                                    <img src={item.ImgUrl} alt=""/>
+                                    <img src={item.ImgUrl || item.goodImgUrl} alt=""/>
                                     <p>{item.goodName}</p>
                                     <p>{item.describe}</p>
                                     <p><span>{'￥' + item.Price}</span><del>{'￥' + item.originPrice}</del></p>

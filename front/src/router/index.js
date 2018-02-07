@@ -12,6 +12,8 @@ import ProductComponent from '../components/productsComponent/productsComponent'
 import DefailComponent from '../components/productDefail/defailComponent';
  
 import DogCostumeIndexComponent from '../components/dogCostumeIndex/dogCostumeIndexComponent';
+import BrandSaleComponent from '../components/brandSale/brandSaleComponent';
+
 import HealthCareIndexComponent from '../components/HealthCareIndex/HealthCareIndexComponent';
 import SnackToysIndexComponent from '../components/SnackToysIndex/SnackToysIndexComponent';
 import GoOutIndexComponent from '../components/goOutIndex/goOutIndexComponent';
@@ -30,8 +32,21 @@ import evaluate from '../components/order/waitevaluate/evaluateComponnet'
 import waitpay from '../components/order/waitpay/payComponent'
 import takegoods from '../components/order/waittakegoods/takegoodsComponent'
 import editAddress from '../components/editAddress/editAddressComponent'
-import collect from '../components/collect/collectComponent'
 import cart from '../components/cartComponent/cartComponent'
+import collect from '../components/collect/collectComponent';
+import FakeComponent from '../components/specialist/fake/fakeComponent';
+import HighQualityComponent from '../components/specialist/HighQuality/HighQualityComponent';
+import FeedComponent from '../components/specialist/feed/feedComponent';
+import GuideComponent from '../components/specialist/guide/guideComponent';
+import ToysComponent from '../components/specialist/Toys/ToysComponent';
+import ClothesComponent from '../components/specialist/clothes/clothesComponent';
+import FashionComponent from '../components/specialist/fashion/fashionComponent';
+import DriveComponent from '../components/specialist/drive/driveComponent';
+import WatchCompoent from '../components/specialist/watch/watchCompoent';
+import ScarceComponent from '../components/specialist/scarce/scarceComponent';
+import ToActiviteComponent from '../components/ToActivite/ToActiviteComponent';
+import TopVideoComponent from '../components/topVideo/topVideoComponent';
+
 export default (
     <div>
         <Route path="/" component={HomeComponent}>
@@ -39,6 +54,10 @@ export default (
             <Route path="/" component={IndexComponent}></Route>
             <Route path="dogfoodindex" component={DogFoodIndexComponent}></Route>
             <Route path="dogcostumeindex" component={DogCostumeIndexComponent}></Route>
+            <Route path="epetinter" component={EpetInterComponent}></Route>
+            <Route path="epetteam" component={EpetTeamComponent}></Route>
+            <Route path="epetmarking" component={ePetMarkingComponent}></Route>
+            
             <Route path="healthcareindex" component={HealthCareIndexComponent}></Route>
             <Route path="snacktoysindex" component={SnackToysIndexComponent}></Route>
             <Route path="gooutindex" component={GoOutIndexComponent}></Route>
@@ -52,14 +71,15 @@ export default (
         <Route path="product(/:val)" component={ProductComponent}></Route>
         <Route path="defail(/:goodId)" component={DefailComponent}></Route>
         <Route path="/login" component={Login}></Route>
-        <Route path="epetteam" component={EpetTeamComponent}></Route>
         <Route path="login" component={Login}></Route>
         <Route path="register" component={Register}></Route>
         <Route path="mine" component={Mine}></Route>
         <Route path="account" component={Accounts}></Route>
-        <Route path="epetinter" component={EpetInterComponent}></Route>
+        <Route path="brandsale" component={BrandSaleComponent}></Route>
         <Route path="epettop" component={ePetTopBarComponent}></Route>
-        <Route path="epetmarking" component={ePetMarkingComponent}></Route>
+        <Route path="topvideo" component={TopVideoComponent}></Route>
+        
+        
         <Route path="order" component={orderComponent}>
             <IndexRoute component={allorder} />
             <Route path="allorder" component={allorder}></Route>
@@ -71,5 +91,18 @@ export default (
         <Route path="editAddress" component={editAddress}></Route>
         <Route path="collect" component={collect}></Route>
         <Route path="cart" component={cart}></Route>
+        <Route path="fake" component={FakeComponent}></Route>
+        <Route path="highquality" component={HighQualityComponent}></Route>
+        <Route path="/feed" component={FeedComponent}></Route>
+        <Route path="/guide" component={GuideComponent}></Route>
+        <Route path="/toys" component={ToysComponent}></Route>
+        <Route path="clothes" component={ClothesComponent}></Route>
+        <Route path="/fashion" component={FashionComponent}></Route>
+        <Route path="/drive" component={DriveComponent}></Route>
+        <Route path="/watch" component={WatchCompoent}></Route>
+        <Route path="/scarce" component={ScarceComponent}></Route>
+        <Route path="/activite(/:id)" component={ToActiviteComponent}></Route>
+        
+        
     </div>
 )

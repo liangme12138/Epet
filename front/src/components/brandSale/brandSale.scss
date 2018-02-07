@@ -1,0 +1,105 @@
+.brandSale{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .titleTop {
+        height: 0.6667rem;
+        background: #ffff;
+        text-align: center;
+        line-height: 0.6667rem;
+        .titleTopLeft {
+            float: left;
+            font-size: 0.4rem;
+        }
+        h2 {
+            display: inline-block;
+            margin: 0 auto;
+            width: 70%;
+        }
+        .titleTopClose {
+            float: right;
+            font-size: 0.4rem;
+        }
+        h2 {
+            font-weight: normal;
+            font-size: 0.24rem;
+        }
+    }
+    .titleMain{
+       display: flex;
+       flex-direction: column;
+       width: 100%;
+       .titlePicture {
+           width: 100%;
+           height: 2.1333rem;
+           img {
+               width: 100%;
+               height: 100%;
+           }
+       }
+       .title-nav{
+           width: 100%;
+           height: 0.7333rem;
+           margin-bottom: 0.1333rem;
+           background: #ffff;
+           ul{
+                width: 100%;
+                height: 0.7333rem;
+                // flex-direction: column;
+                // justify-content: space-around;
+                flex: 1;
+                li{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    text-align: center;
+                    width: 25%;
+                    height: 0.7333rem;
+                    float: left;
+                   i{
+                        display: inline-block;
+                        width: 0.2667rem;
+                        height: 0.2667rem;
+                        margin:0 auto; 
+                   }
+               }
+           }
+       }
+       .brandSale-title{
+           height: 0.76rem;
+           img{
+               width: 100%;
+           }
+       }
+       .brandSale-list{
+           ul{
+               width: 100%;
+               .brandSale-rela {
+                    height: 2.8rem;
+                    margin-bottom: 0.1333rem;
+                    background: #ffff;
+                    position: relative;
+                    img{
+                        display: block;
+                        max-width: 100%;
+                    }
+                    .leave-time{
+                        width: 100%;
+                        height: 0.3333rem;
+                        position: absolute;
+                        bottom: 0;
+                        background: linear-gradient(to right, #000, transparent);
+                        opacity: .6;
+                        line-height: 0.3333rem;
+                        color: #ffff;
+                        font-size: 0.2133rem;
+                        padding: 0 0.1333rem;
+                        .goods-name{
+                            float: right;
+                        }
+                    }
+               }
+           }
+       }
+    }
+}

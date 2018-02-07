@@ -11,7 +11,7 @@ export default {
             console.log(seeHeight);
             for (var i = 0; i < num; i++) {
                 if (img[i].offsetTop < seeHeight + scrollTop) {
-                    if (img[i].getAttribute("src") == "lazyload.gif") {
+                    if (img[i].getAttribute("src") == "../src/components/lazyload.gif") {
                         img[i].src = img[i].getAttribute("data-src");
                     }
                     n = i + 1;

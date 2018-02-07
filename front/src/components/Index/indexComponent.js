@@ -13,14 +13,20 @@ import rem from '../../utils/getRem.js';
 rem.rem();
 // lazyload.lazyloaded();
 // import IndexSurpriseComponent from '../indexSurprise/indexSurpriseComponent';
-import HomeBastComponent from '../home/homeBestComponent'
+import HomeBastComponent from '../home/homeBestComponent';
+
 class IndexComponent extends React.Component{
     state={
+        
 
     }
     // 进入e宠团
     toEpetTeam(){
         hashHistory.push('epetteam')
+    }
+    // 进入品牌特卖
+    toBrandSale() {
+        hashHistory.push('brandsale');
     }
     // 进入宠国际
     toEpetInter(){
@@ -57,7 +63,7 @@ class IndexComponent extends React.Component{
                                     <img src={require('../../assets/img/navList/1.jpg')}/>
                                 </i>
                             </li>
-                            <li>
+                            <li onClick={this.toBrandSale}>
                                 <i>
                                     <img src={require('../../assets/img/navList/2.jpg')}/>
                                 </i>
@@ -107,7 +113,7 @@ class IndexComponent extends React.Component{
                     <div className="new-people">
                             <img src={require('../../assets/img/navList/newPeople.gif')}/>
                     </div>
-                    <HomeBastComponent Img={['../src/assets/img/navList/11.jpg', '../src/assets/img/navList/12.jpg', '../src/assets/img/navList/13.jpg']}/>
+                    <HomeBastComponent Img={['../src/assets/img/navList/11.jpg', '../src/assets/img/navList/12.jpg', '../src/assets/img/navList/13.jpg']} active={["guide", "HighQuality", "toys"]}/>
                     <div className="eTeam">
                         <img src={require('../../assets/img/navList/14.jpg')}/>
                     </div>

@@ -23,3 +23,22 @@ export function SnackToysMenu() {
         types: ['requesting', 'SnackToysMenurequested', 'requesterror']
     }
 }
+
+export function getProduct(id) {
+    if (id == 'all') {
+        return {
+            url: 'indexGetProduct.php',
+            method: 'post',
+            params: { state: 'getAllProduct', category: 4 },
+            types: ['requesting', 'getAllProductrequested', 'requesterror']
+        }
+    } else {
+        return {
+            url: 'indexGetProduct.php',
+            method: 'post',
+            params: { state: 'getItemProduct', category: id },
+            types: ['requesting', 'getItemProductrequested', 'requesterror']
+        }
+    }
+
+}

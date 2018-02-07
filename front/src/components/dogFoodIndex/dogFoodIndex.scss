@@ -39,6 +39,11 @@
         }
     }
 }
+.menus{
+    position: relative;
+    top:0;
+}
+
 
 // .Activites {
 //     >h2 {
@@ -120,29 +125,3 @@
 //         }
 //     }
 // }
-
-.dogfoodMenu {
-    // height: 60px;
-    background: #fff;
-    .dogfoodMenuUL {
-        width: 100%;
-        display: inline;
-        white-space: nowrap;
-        overflow-x: scroll;
-        float: left;
-        border-bottom: 1px solid #eee;
-        li {
-            display: inline-block;
-            padding: 0 0.17rem;
-            span{
-                display: block;
-                // padding: 0 30px;
-                margin:20px 0;
-                padding:6px 30px;
-                border: 1px solid red;
-                border-radius: 15px;
-                background: rgb(240, 236, 236);
-            }
-        }
-    }
-}
