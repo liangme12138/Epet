@@ -37,6 +37,11 @@ export default function TabsReducer(state = {}, action) {
             newState.status = 1;
             newState.result5 = action.respones;
             break;
+        case 'indexMenusrequested':
+            spinner.closeSpinner();
+            newState.status = 1;
+            newState.result6 = action.respones;
+            break;
     }
     return newState;
 }

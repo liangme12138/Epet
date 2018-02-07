@@ -19,25 +19,10 @@ class DogFoodIndexComponent extends React.Component{
     }
     componentWillMount(){ 
        
-       
-        var arr =[]
-        //ajax tab菜单数据
-        this.props.getTab().then(()=>{
-            // console.log('aa', this.props.TabDate)
-            this.props.TabDate.forEach((item)=>{
-                if (this.state.Tab.indexOf(item.tabImg1) == -1){
-                    this.state.Tab.push(item.tabImg1);
-                    this.state.changeTab.push(item.tabImg2);
-                }
-            })
-            this.setState({ Tab: this.state.Tab})
-            this.setState({ changeTab: this.state.changeTab })
-            // 封装函数
-            // this.toTabItem(1);
-            this.setState({ tabItems: action.TabItem(1, this.state.tabItems, this.props.TabDate) })
-            
-            $('#tabs').find('li').eq(0).find('img').attr({ src: this.state.changeTab[0] });
-        })
+        this.props.getIndexMenus().then(() => {
+            $('#tabs').find('li').eq(0).find('img').attr({ src: this.props.IndexMenus[0].tabImg2 });
+        });
+        this.props.getTab('tabId1')
         // ajax 精选品牌数据
         this.props.getBigImg().then(()=>{
             this.props.atvPrd.forEach((item)=>{
@@ -56,39 +41,33 @@ class DogFoodIndexComponent extends React.Component{
         this.props.getProduct('all').then(res=>{
             this.setState({ datalist:res})
         });
+        
     }
     componentDidMount(){
         $('.all').addClass('active');
     }
-    // 点击切换菜单
-    toTabItem(id) {
-        // 封装--详细请看tab.js文件
-        this.setState({ tabItems: action.TabItem(id, this.state.tabItems, this.props.TabDate) })
-    }
-    tabSmall(idx,eve){
-        this.toTabItem((idx * 1 + 1), this.state.tabItems, this.props.TabDate);
-        for(let i=0;i<this.state.Tab.length;i++){
-            if(i != idx){
-                // console.log($('#tabs').find('li').eq(i))
-                $('#tabs').find('li').eq(i).find('img').attr({ src: this.state.Tab[i] })
+
+    tabSmall(obj,eve){
+        for(let i=0;i<this.props.IndexMenus.length;i++){
+            if(i != obj.idx){
+                $('#tabs').find('li').eq(i).find('img').attr({ src: this.props.IndexMenus[i].tabImg1 })
             }
         }
-        $(eve.target).attr({ src: this.state.changeTab[idx] })
+        $(eve.target).attr({ src: this.props.IndexMenus[obj.idx].tabImg2 });
+        this.props.getTab(obj.tabId);
     }
     ToActivite(id) {
-        // console.log(id); 
-        // hashHistory.push('/activite/')
         this.props.router.push("/activite/" + id);
     }
     godefail(val) {
-        console.log('val', val)
+        // console.log('val', val)
         this.props.router.push("/defail/" + val);
     }
     ToProductList(id){
         console.log(id)
     }
     clickMenu(id, event){
-        console.log(event.target.tagName);
+        // console.log(event.target.tagName);
         $('.dogfoodMenuUL li span').removeClass('active');
         event.target.classList.toggle('active');
 
@@ -146,20 +125,20 @@ class DogFoodIndexComponent extends React.Component{
                     
                 </div>
                 <div className="dogFoodMenu">
-                    {/* <ul id="tabs">
+                    <ul id="tabs">
                         {
-                            this.state.Tab.map((item,idx)=>{
-                                return <li key={idx} data-id={idx} onClick={this.tabSmall.bind(this,idx)}><img src={item}/></li>
+                            this.props.IndexMenus.map((item,idx)=>{
+                                return <li key={idx} data-id={idx} onClick={this.tabSmall.bind(this, { idx: idx, tabId: item.tabId})}><img src={item.tabImg1}/></li>
                             })
                         }
                     </ul>
                     <div className="tabItems">
                         {
-                            this.state.tabItems.map((item, idx) => {
-                                return <div key={idx} onClick={this.ToProductList.bind(this, item.tabId)}><img src={item} /></div>
+                            this.props.TabDate.map((item, idx) => {
+                                return <div key={idx} onClick={this.ToProductList.bind(this, item.tabId)}><img src={item.classifyImg} /></div>
                             })
                         }
-                    </div> */}
+                    </div>
                 </div>
                 <HomeBastComponent Img={['../src/assets/img/navList/5df340d068e4bc97759d801edcd5ac19.jpg', '../src/assets/img/navList/6ebc7bc52a02cc2fb2d725dd9ebe58aa.jpg', '../src/assets/img/navList/e8fa7e93ded2be02792cbade66353832.jpg']} active={["fake", "HighQuality","feed"]}/>
                 <div className="Activites">
@@ -210,31 +189,6 @@ class DogFoodIndexComponent extends React.Component{
                         }
                     </ul>
                 </div>
-                {/* <div className="products">
-                    <div className="productsMask"></div>
-                    <ul>
-                        {   
-                            this.state.datalist.map((item, idx) => {
-                                return (
-                                    <li key={idx} onClick={this.godefail.bind(this, item.goodId)}>
-                                        <img src={item.ImgUrl} alt="" />
-                                        <div>
-                                            <h3>{item.goodName}</h3>
-                                            <p className="others">{item.size}</p>
-                                            <p className="price">{"￥ " + item.Price}</p>
-                                            <p className="sell">{"售出: " + item.sale}</p>
-                                        </div>
-                                        <Button onClick={() => alert('我的萌宠', '已成功添加到购物车!', [
-                                            { text: '继续购物', onPress: () => console.log(), style: 'default' },
-                                            { text: '去购物车', onPress: () => this.props.router.push("/cart"), style: { fontWeight: 'bold' } },
-                                        ])}
-                                        ><i className="iconfont icon-cart"></i></Button>
-                                    </li>
-                                )
-                            })                                 
-                        }
-                    </ul>
-                </div> */}
                 {this.renderUserMessage()}
             </div>
         )
@@ -248,7 +202,7 @@ const mapToState = function (state) {
         TabDate: state.TabsReducer.result1 || [],
         atvPrd: state.TabsReducer.result2 || [],
         dogFoodMenu: state.TabsReducer.result4 || [],
-        // datalist: state.TabsReducer.result5 || []
+        IndexMenus: state.TabsReducer.result6 || []
     }
 }
 

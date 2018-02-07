@@ -99,25 +99,19 @@ class DogCostumeIndexComponent extends React.Component{
                     <ul>
                         <li>
                             <div className="img">
-                                <img src="../src/assets/img/61d7525eca35a3b739809ce675eb24be.jpg"/>
+                                <img src="../src/assets/img/navList/f5e8ec92c66bbb9d27f7afedcb78551a.jpg"/>
+                            </div>
+                            <span>一群专注于优质亲宠用品的设计者，从材质选择、款式设计，到制作工艺，生产品质，每一个环节都追求没有最好，只有更好。</span>
+                        </li>
+                        <li>
+                            <div className="img">
+                                <img src="../src/assets/img/navList/61d7525eca35a3b739809ce675eb24be.jpg"/>
                             </div>
                             <span>Touchdog拥有强大设计团队，以设计风格时尚和潮流著称。强调美观及舒适性，把日式卡通及涂鸦融入产品，把宠物打造为一个时尚、潮流、可爱的宝贝。</span>
                         </li>
                         <li>
                             <div className="img">
-                                <img src="../src/assets/img/61d7525eca35a3b739809ce675eb24be.jpg"/>
-                            </div>
-                            <span>Touchdog拥有强大设计团队，以设计风格时尚和潮流著称。强调美观及舒适性，把日式卡通及涂鸦融入产品，把宠物打造为一个时尚、潮流、可爱的宝贝。</span>
-                        </li>
-                        <li>
-                            <div className="img">
-                                <img src="../src/assets/img/61d7525eca35a3b739809ce675eb24be.jpg"/>
-                            </div>
-                            <span>Touchdog拥有强大设计团队，以设计风格时尚和潮流著称。强调美观及舒适性，把日式卡通及涂鸦融入产品，把宠物打造为一个时尚、潮流、可爱的宝贝。</span>
-                        </li>
-                        <li>
-                            <div className="img">
-                                <img src="../src/assets/img/61d7525eca35a3b739809ce675eb24be.jpg"/>
+                                <img src="../src/assets/img/navList/335a4eb41a65c53667340976c7f5aba6.jpg"/>
                             </div>
                             <span>Touchdog拥有强大设计团队，以设计风格时尚和潮流著称。强调美观及舒适性，把日式卡通及涂鸦融入产品，把宠物打造为一个时尚、潮流、可爱的宝贝。</span>
                         </li>
