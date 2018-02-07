@@ -62,7 +62,7 @@ class DefailComponent extends React.Component{
                         this.props.result.map((item,idx)=>{
                             return(
                                 <div key={idx}>
-                                    <img src={item.ImgUrl} alt=""/>
+                                    <img src={item.ImgUrl || item.goodImgUrl} alt=""/>
                                     <p>{item.goodName}</p>
                                     <p>{item.describe}</p>
                                     <p><span>{'￥' + item.Price}</span><del>{'￥' + item.originPrice}</del></p>

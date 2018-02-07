@@ -23,3 +23,22 @@ export function gooutMenu() {
         types: ['requesting', 'gooutMenurequested', 'requesterror']
     }
 }
+
+export function getProduct(id) {
+    if (id == 'all') {
+        return {
+            url: 'indexGetProduct.php',
+            method: 'post',
+            params: { state: 'getAllProduct', category: 5 },
+            types: ['requesting', 'getAllProductrequested', 'requesterror']
+        }
+    } else {
+        return {
+            url: 'indexGetProduct.php',
+            method: 'post',
+            params: { state: 'getItemProduct', category: id },
+            types: ['requesting', 'getItemProductrequested', 'requesterror']
+        }
+    }
+
+}

@@ -20,6 +20,8 @@ class HomeComponent extends React.Component{
     componentWillMount() {
 
     }
+
+
     render(){
         return (
             <div className="home">

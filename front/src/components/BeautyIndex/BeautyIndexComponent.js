@@ -4,6 +4,7 @@ import * as BeautyIndexAction from './BeautyIndexAction';
 import '../../sass/indexbase.scss';
 import action from '../../utils/tab';
 // import './BeautyIndex.scss'
+import { Modal, Button, SearchBar, WhiteSpace } from 'antd-mobile';
 
 class BeautyIndexComponent extends React.Component {
   state = {
@@ -11,7 +12,8 @@ class BeautyIndexComponent extends React.Component {
     tabItems: [],
     changeTab: [],
     avtBigId: [],
-    avtBigImg: []
+    avtBigImg: [],
+    datalist: []
   }
   componentWillMount() {
     //ajax tab菜单数据
@@ -33,7 +35,11 @@ class BeautyIndexComponent extends React.Component {
       $('#tabs').find('li').eq(0).find('img').attr({ src: this.state.changeTab[0] })
     }); 
 
-    this.props.BeautyMenu()
+    this.props.BeautyMenu();
+    // 获取商品
+    this.props.getProduct('all').then(res => {
+      this.setState({ datalist: res })
+    });
   }
   toTabItem(id) {
     // 封装--详细请看tab.js文件
@@ -48,6 +54,64 @@ class BeautyIndexComponent extends React.Component {
       }
     }
     $(eve.target).attr({ src: this.state.changeTab[idx] })
+  }
+  componentDidMount() {
+    $('.all').addClass('active');
+  }
+  godefail(val) {
+    console.log('val', val)
+    this.props.router.push("/defail/" + val);
+  }
+  clickMenu(id, event) {
+    console.log(event.target.tagName);
+    $('.dogfoodMenuUL li span').removeClass('active');
+    event.target.classList.toggle('active');
+
+    this.props.getProduct(id).then((res) => {
+      if (res == "fail") {
+        this.setState({ datalist: '' })
+      } else {
+        this.setState({ datalist: res })
+      }
+    });
+  }
+  renderUserMessage() {
+    if (this.state.datalist !== '') {
+      return (
+        <div className="products">
+          <div className="productsMask"></div>
+          <ul>
+            {
+              this.state.datalist.map((item, idx) => {
+                return (
+                  <li key={idx} onClick={this.godefail.bind(this, item.goodId)}>
+                    <img src={item.ImgUrl} alt="" />
+                    <div>
+                      <h3>{item.goodName}</h3>
+                      <p className="others">{item.size}</p>
+                      <p className="price">{"￥ " + item.Price}</p>
+                      <p className="sell">{"售出: " + item.sale}</p>
+                    </div>
+                    <Button onClick={() => alert('我的萌宠', '已成功添加到购物车!', [
+                      { text: '继续购物', onPress: () => console.log(), style: 'default' },
+                      { text: '去购物车', onPress: () => this.props.router.push("/cart"), style: { fontWeight: 'bold' } },
+                    ])}
+                    ><i className="iconfont icon-cart"></i></Button>
+                  </li>
+                )
+              })
+            }
+          </ul>
+        </div>
+      );
+    } else {
+      return (
+        <div className="DataError">
+          <img src="../src/assets/img/icon/nodata_stance.png" />
+          <p>暂无该类的商品数据!</p>
+        </div>
+      );
+    }
   }
   render() {
     return (
@@ -107,14 +171,15 @@ class BeautyIndexComponent extends React.Component {
         </div> */}
         <div className="dogfoodMenu">
           <ul className="dogfoodMenuUL">
-            <li><span>全部</span></li>
+            <li><span className="all"  onClick={this.clickMenu.bind(this, 'all')}>全部</span></li>
             {
               this.props.BeautyMenus.map((item, idx) => {
-                return <li key={idx}><span>{item.classifyName}</span></li>
+                return <li key={idx}><span onClick={this.clickMenu.bind(this, item.classify2Id)}>{item.classifyName}</span></li>
               })
             }
           </ul>
         </div>
+        {this.renderUserMessage()} 
       </div>
     )
   }

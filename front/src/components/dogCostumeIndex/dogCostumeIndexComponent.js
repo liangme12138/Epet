@@ -40,13 +40,8 @@ class DogCostumeIndexComponent extends React.Component{
         // this.props.getDogFoodMenu();
 
     }
-    aa(eve){
-        // console.log(e)
-        // $(eve.target).on("click",function(){
-            // $(eve.target).animate({
-            //     width:500
-            // }).siblings('img').animate({width: 400});
-        //   });
+    godefail(val) {
+        this.props.router.push("/defail/" + val);
     }
     toSpecialist(eve){
         // console.log(eve);
@@ -101,7 +96,7 @@ class DogCostumeIndexComponent extends React.Component{
                         <h2>时尚大牌</h2>
                         <p>尖货品质  深度折扣</p>
                     </div>
-                    <ul onTouchEnd={this.aa.bind(this)}>
+                    <ul>
                         <li>
                             <div className="img">
                                 <img src="../src/assets/img/61d7525eca35a3b739809ce675eb24be.jpg"/>
@@ -152,7 +147,7 @@ class DogCostumeIndexComponent extends React.Component{
                                         {
                                             this.props.atvPrd.map((item1, index) => {
                                                 if (item == item1.activityId) {
-                                                    return <li key={index}>
+                                                    return <li key={index} onClick={this.godefail.bind(this, item1.activitygoodId)}>
                                                         <div className="goodImg">
                                                             <i></i>
                                                             <img src={item1.goodImgUrl} />
@@ -176,7 +171,7 @@ class DogCostumeIndexComponent extends React.Component{
                         }
                     </div>
                 </div>
-                <div className="hotProduct">
+                {/* <div className="hotProduct">
                     <div className="hotProduct-top">
                         <h2>热门品类</h2>
                         <p>高颜值好物</p>
@@ -207,7 +202,7 @@ class DogCostumeIndexComponent extends React.Component{
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         )
     }
