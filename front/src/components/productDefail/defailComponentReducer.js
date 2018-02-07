@@ -13,6 +13,9 @@ export default function defailReducer(state = {}, action) {
             newState.status = -1;
             newState.result = action.respones;
             break;
+        case 'requestedDefail1':
+            newState.status = 1;
+            break;
     }
     return newState;
 }
