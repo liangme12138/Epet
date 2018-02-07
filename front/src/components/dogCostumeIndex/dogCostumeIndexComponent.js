@@ -4,7 +4,8 @@ import * as dogCostumeIndexAction from './dogCostumeIndexAction';
 import './dogCostumeIndex.scss';
 import '../../sass/indexbase.scss';
 import { Router, Route, Link, hashHistory } from 'react-router';
-import spinner from '../spinner/spinner'
+import spinner from '../spinner/spinner';
+import { lxCarousel } from '../../utils/banner'
 
 class DogCostumeIndexComponent extends React.Component{
     state = {
@@ -56,12 +57,21 @@ class DogCostumeIndexComponent extends React.Component{
         // hashHistory.push('/activite/')
         this.props.router.push("/activite/"+id);
     }
+    componentDidMount() {
+
+        $('.carousel').lxCarousel({
+            imgs: ["../src/assets/img/navList/16acd5a53c17914bb26723a799680f51.jpg", "../src/assets/img/navList/71b5c04e99c4adf7a6975656fcca3f58.jpg", "../src/assets/img/navList/ca6f03de501ec23f42e25ad44d190bce.jpg", "../src/assets/img/navList/a5577cfaacf145a7717d1eea05b19b7e.jpg", "../src/assets/img/navList/9f0ebf40d72b6e1e21b23d477cd07f3a.jpg"],
+            wufeng: true
+        })
+    }
     render(){
         return (
             <div className="dogCostume">
                 <div className="banner-item-3">
-                    <img src="https://img2.epetbar.com/nowater/2018-01/22/16/16acd5a53c17914bb26723a799680f51.jpg" />
+                    {/* <img src="https://img2.epetbar.com/nowater/2018-01/22/16/16acd5a53c17914bb26723a799680f51.jpg" /> */}
+                    <div className="carousel">
 
+                    </div>
                 </div>
                 <div className="tabMenus">
                     <ul>

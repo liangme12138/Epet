@@ -7,6 +7,8 @@ import HomeBastComponent from '../home/homeBestComponent';
 import '../../sass/indexbase.scss';
 import spinner from  '../spinner/spinner';
 import { Modal, Button, SearchBar, WhiteSpace } from 'antd-mobile';
+import {lxCarousel}  from '../../utils/banner'
+
 class DogFoodIndexComponent extends React.Component{
     state = {
         Tab:[],
@@ -43,8 +45,16 @@ class DogFoodIndexComponent extends React.Component{
         });
         
     }
+    product(val) {
+        this.props.router.push('/product/' + val);
+    }
     componentDidMount(){
         $('.all').addClass('active');
+        
+        $('.carousel').lxCarousel({
+            imgs: ["../src/assets/img/navList/a4a9af65943791fd74db9a5ae3cb38b7.png"],
+            wufeng: true
+        })
     }
 
     tabSmall(obj,eve){
@@ -63,9 +73,9 @@ class DogFoodIndexComponent extends React.Component{
         // console.log('val', val)
         this.props.router.push("/defail/" + val);
     }
-    ToProductList(id){
-        console.log(id)
-    }
+    // ToProductList(id){
+    //     console.log(id)
+    // }
     clickMenu(id, event){
         // console.log(event.target.tagName);
         $('.dogfoodMenuUL li span').removeClass('active');
@@ -119,10 +129,11 @@ class DogFoodIndexComponent extends React.Component{
     }
     render(){
         return(
-            <div className="dogFood">
+            <div className="dogFood" id="page">
                 <div className="banner-item-2"> 
-                    <img src={require('../../assets/img/navList/a4a9af65943791fd74db9a5ae3cb38b7.png')}/>
-                    
+                    <div className="carousel">
+                      
+                    </div>
                 </div>
                 <div className="dogFoodMenu">
                     <ul id="tabs">
@@ -135,7 +146,7 @@ class DogFoodIndexComponent extends React.Component{
                     <div className="tabItems">
                         {
                             this.props.TabDate.map((item, idx) => {
-                                return <div key={idx} onClick={this.ToProductList.bind(this, item.tabId)}><img src={item.classifyImg} /></div>
+                                return <div key={idx} onClick={this.product.bind(this, item.tabId)}><img src={item.classifyImg} /></div>
                             })
                         }
                     </div>

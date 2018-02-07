@@ -8,6 +8,7 @@ import * as IndexAction  from './indexAction';
 import '../../sass/base.scss';
 import './index.scss';
 import rem from '../../utils/getRem.js';
+import { lxCarousel } from '../../utils/banner'
 // 下拉刷新
 // import { RefreshControl, ListView } from 'antd-mobile';
 rem.rem();
@@ -42,7 +43,10 @@ class IndexComponent extends React.Component{
     }
     
     componentDidMount() {
-        
+        $('.carousel').lxCarousel({
+            imgs: ["../src/assets/img/navList/a745927376b596c2cb4685686af4d2ad.jpg", "../src/assets/img/navList/f106d8068e48bbb7cdbb6da829a1362a.jpg", "../src/assets/img/navList/81daec9ab76d65bc6a30e90f97b9a4ce.jpg", "../src/assets/img/navList/47f70eebdc4f7a3c4f3f81daf4f61748.jpg", "../src/assets/img/navList/cf0dfc1221504900fa9c3831dc7e3c69.jpg", "../src/assets/img/navList/280f12517e14a55ccbd358da770a119b.jpg", "../src/assets/img/navList/c766240b3a1c5229fad7ee776a5a555c.jpg", "../src/assets/img/navList/a745927376b596c2cb4685686af4d2ad.jpg"],
+            wufeng: true
+        })
     }
 
     render(){
@@ -50,7 +54,10 @@ class IndexComponent extends React.Component{
            <div id="index-1">
                 
                 <div className="banner-item-1">
-                    <img src="https://img2.epetbar.com/nowater/2018-01/29/14/a745927376b596c2cb4685686af4d2ad.jpg@!water" />
+                    <div className="carousel">
+
+                    </div>
+                    {/* <img src="https://img2.epetbar.com/nowater/2018-01/29/14/a745927376b596c2cb4685686af4d2ad.jpg@!water" /> */}
                 </div>
                 <div className="video-img">
                     <img src="https://img2.epetbar.com/nowater/2018-01/29/18/1bba61520c6e0f89abb16fe0705ccf5e.gif" />

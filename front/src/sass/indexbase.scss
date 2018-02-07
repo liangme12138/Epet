@@ -161,27 +161,43 @@
                 border: 1px solid red;
                 border-radius: 15px; // background: rgb(240, 236, 236);
             }
-        }
-        // li:first-child {
+        } // li:first-child {
         //     span {
         //         background: rgb(240, 236, 236);
         //     }
         // }
     }
 }
-.active{
+
+.active {
     background: #ccc;
 }
-.DataError{
+
+.DataError {
     width: 100%;
     background: #fff;
-    img{
+    img {
         display: block;
         width: 206px;
         height: 230px;
         margin: 20px auto;
     }
-    p{
+    p {
         text-align: center;
     }
 }
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+} 
+    .carousel{position:relative;width:30000px;height:300px;margin:0 auto;}
+    .carousel ul{position:absolute;top:0;left:0;}
+    .carousel ul li{float: left;}
+    .carousel img{display: block;}
+    .carousel .next,.carousel .prev{position:absolute;left:0;top:50%;transform: translate(0,-50%);padding:10px 5px;width:30px;height:50px;line-height:50px;background-color: rgba(0,0,0,.3);text-align:center;color:#fff;cursor:pointer;}
+    .carousel .next{left:auto;right:0;}
+    .page{position: absolute;right:15px;bottom:15px;}
+    .page span{display:inline-block;margin:0 5px;width:30px;height:30px;line-height:30px;text-align:center;background-color:#efefef;border-radius:50%;cursor:pointer;}
+    .page span.active{background-color:#f60;color:#fff;}
