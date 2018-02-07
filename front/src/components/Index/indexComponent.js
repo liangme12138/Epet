@@ -3,21 +3,18 @@ import ReactDOM from 'react-dom';
 import { Router, Route, Link, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import * as IndexAction  from './indexAction';
-// import lazyload from '../../lazyload/lazyload.js';
-// import LazyLoad from 'react-lazyload'
 import '../../sass/base.scss';
 import './index.scss';
 import rem from '../../utils/getRem.js';
 // 下拉刷新
 // import { RefreshControl, ListView } from 'antd-mobile';
 rem.rem();
-// lazyload.lazyloaded();
 // import IndexSurpriseComponent from '../indexSurprise/indexSurpriseComponent';
 import HomeBastComponent from '../home/homeBestComponent';
 
 class IndexComponent extends React.Component{
     state={
-        
+        imgUrl:[]
 
     }
     // 进入e宠团
@@ -40,9 +37,22 @@ class IndexComponent extends React.Component{
     toEpetmarking() {
         hashHistory.push('epetmarking')
     }
+    // 萌宠联盟
+    topetalliance() {
+        hashHistory.push('petalliance')
+    }
+    brandMore() {
+        hashHistory.push('brandsale')
+    }
     
     componentDidMount() {
-        
+        this.props.getImg().then((res)=>{
+            // console.log(res)
+            res.map((item)=>{
+                this.state.imgUrl.push(item)
+            })
+            this.setState({imgUrl:this.state.imgUrl})
+        })
     }
 
     render(){
@@ -88,7 +98,7 @@ class IndexComponent extends React.Component{
                                     <img src={require('../../assets/img/navList/6.jpg')}/>
                                 </i>
                             </li>
-                            <li>
+                            <li onClick={this.topetalliance}>
                                 <i>
                                     <img src={require('../../assets/img/navList/7.jpg')}/>
                                 </i>
@@ -138,45 +148,20 @@ class IndexComponent extends React.Component{
                     </div>
                     <div className="brandScale">
                         <img src={require('../../assets/img/navList/17.jpg')} className="brandImg"/>
-                        <img src={require('../../assets/img/navList/more.png')} className="brandMore"/>
+                        <img src={require('../../assets/img/navList/more.png')} className="brandMore" onClick={this.brandMore}/>
                     </div>
                     <div className="brandDetails-img">
                         <ul>
-                            <li>
-                                <img src={require('../lazyload.gif')} data-src={require('../../assets/img/navList/brandScale1.jpg')}/>
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale2.jpg')}/>
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale3.jpg')}/>
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale4.jpg')}/>
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale5.jpg')}/>
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale6.jpg')}/>
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale7.jpg')} />
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale8.jpg')} />
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale9.jpg')} />
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale10.jpg')} />
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale11.jpg')} />
-                            </li>
+                            {
+                                this.state.imgUrl.map((item,idx)=>{
+                                    return <li key={idx}>
+                                        <img src={item.imgurl} />
+                                    </li>
+                                })
+                            }
                         </ul>
                     </div>
+
                     <div className="tiYanGuanLogo">
                         <img src={require('../../assets/img/navList/18.jpg')} className="tiYanGuanImg"/>
                         <img src={require('../../assets/img/navList/more.png')} className="tiYanGuanMore"/>
@@ -197,12 +182,11 @@ class IndexComponent extends React.Component{
 const mapToState = function (state) {
     console.log(state)
     return {
-        // dataset: state.collect.response || []
+        imgsrc: state.IndexReducer.imgres || []
     }
 }
 export default connect(mapToState, IndexAction)(IndexComponent)
-// 下拉加载
-/* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
+
 
 
 

@@ -45,6 +45,8 @@ import WatchCompoent from '../components/specialist/watch/watchCompoent';
 import ScarceComponent from '../components/specialist/scarce/scarceComponent';
 import ToActiviteComponent from '../components/ToActivite/ToActiviteComponent';
 import TopVideoComponent from '../components/topVideo/topVideoComponent';
+import PetallianceComponent from '../components/petalliance/petallianceComponent';
+import ClothCityComponent from '../components/clothCity/clothCityComponent'
 
 export default (
     <div>
@@ -54,8 +56,6 @@ export default (
             <Route path="dogfoodindex" component={DogFoodIndexComponent}></Route>
             <Route path="dogcostumeindex" component={DogCostumeIndexComponent}></Route>
             <Route path="epetinter" component={EpetInterComponent}></Route>
-            <Route path="epetteam" component={EpetTeamComponent}></Route>
-            <Route path="epetmarking" component={ePetMarkingComponent}></Route>
             
             <Route path="healthcareindex" component={HealthCareIndexComponent}></Route>
             <Route path="snacktoysindex" component={SnackToysIndexComponent}></Route>
@@ -77,6 +77,11 @@ export default (
         <Route path="brandsale" component={BrandSaleComponent}></Route>
         <Route path="epettop" component={ePetTopBarComponent}></Route>
         <Route path="topvideo" component={TopVideoComponent}></Route>
+        <Route path="petalliance" component={PetallianceComponent}></Route>
+        <Route path="epetteam" component={EpetTeamComponent}></Route>
+        <Route path="epetmarking" component={ePetMarkingComponent}></Route>
+        <Route path="clothCity" component={ClothCityComponent}></Route>
+        
         
         
         <Route path="order" component={orderComponent}>
