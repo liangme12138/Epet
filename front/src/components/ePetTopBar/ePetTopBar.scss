@@ -37,15 +37,16 @@
             p{
                 text-align: center;
                 overflow: hidden;
-                font-size: 0.2133rem;
+                font-size: 0.1733rem;
                 line-height: 0.6667rem;
+                border-bottom: 1px solid #999;
             }
             span{
                 display: inline-block;
                 height: 0.5867rem;
                 margin: 0.1333rem 0 0.2rem 0;
                 color: #666;
-                font-size: 0.24rem;
+                font-size: 0.2133rem;
                 padding: 0 0.1333rem;
             }
             .topBar-price{
@@ -70,6 +71,18 @@
                     font-size: 0.1867rem;
                 }
             }
+        }
+    }
+    .ePetTopBar-foot{
+        height: 0.8667rem;
+        span{
+            display: block;
+            height: 0.3067rem;
+            width: 3.2rem;
+            text-align: center;
+            margin: auto;
+            margin-top: 0.28rem;
+            color: #999;
         }
     }
 }
