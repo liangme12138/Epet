@@ -102,12 +102,13 @@ class Login extends React.Component{
     }
     login2 = (e) => {
         if(this.state.code===this.state.checkcode){
-            this.props.router.push("/");    
+            // this.props.router.push("/");  
+            this.props.router.goBack(-1);  
         }
     }
     goBack=(e)=>{
-        // this.props.router.goBack(-1);
-        this.props.router.push("/");
+        this.props.router.goBack(-1);
+        // this.props.router.push("/");
     }
     skipTo = (e) => {
         this.props.router.push("register");

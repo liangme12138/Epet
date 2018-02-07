@@ -46,11 +46,9 @@
         background: white;
         width:100%;
         margin:.13rem 0;
-        div{
-            .menus_cen{
-                position:static;
-                border-top:0;
-            }
+        .menus_cen{
+            position: absolute;
+            border-top:0;
         }
     }
     .sort{

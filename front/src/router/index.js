@@ -32,6 +32,7 @@ import evaluate from '../components/order/waitevaluate/evaluateComponnet'
 import waitpay from '../components/order/waitpay/payComponent'
 import takegoods from '../components/order/waittakegoods/takegoodsComponent'
 import editAddress from '../components/editAddress/editAddressComponent'
+import cart from '../components/cartComponent/cartComponent'
 import collect from '../components/collect/collectComponent';
 import FakeComponent from '../components/specialist/fake/fakeComponent';
 import HighQualityComponent from '../components/specialist/HighQuality/HighQualityComponent';
@@ -94,6 +95,7 @@ export default (
         <Route path="address" component={address}></Route>
         <Route path="editAddress" component={editAddress}></Route>
         <Route path="collect" component={collect}></Route>
+        <Route path="cart" component={cart}></Route>
         <Route path="fake" component={FakeComponent}></Route>
         <Route path="highquality" component={HighQualityComponent}></Route>
         <Route path="/feed" component={FeedComponent}></Route>

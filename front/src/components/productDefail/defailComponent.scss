@@ -21,6 +21,11 @@
                 line-height: .67rem;
             }
         }
+        P:first-of-type{
+            span{
+                border-bottom: .03rem solid red;
+            }
+        }
         p:last-of-type{
             text-align: left;
             margin-left:.57rem;
@@ -45,11 +50,22 @@
         top:.67rem;
         background: white;
         width:100%;
-        div{
-            .menus_cen{
-                position:static;
-                border-top:0;
-            }
+        .menus_cen{
+            position:static;
+            border-top:0;
+        }
+        .headerNum{
+            width:.2rem;
+            height:.2rem;
+            line-height:.2rem;
+            font-size: .14rem;
+            border-radius:50%;
+            text-align: center;
+            background: red;
+            color:white;
+            position: absolute;
+            right:32%;
+            top:0;
         }
     }
     .defailPro{
@@ -124,10 +140,12 @@
                     height:.8rem;
                     line-height:.8rem;
                     display: flex;
-                    div{
+                    
+                    #btn{
                         flex:1;
                         display: inline-block;
                         padding-top:.13rem;
+                        background: rgb(223, 220, 220);
                         span{
                             font-size: .17rem;
                             display: block;
@@ -143,14 +161,37 @@
                         .icon-favoritesfilling{
                             color:white;
                         }
+                         i.active{
+                            color:#fc0;
+                        }
+                        div{
+                            position: relative;
+                            .numDefail{
+                                width:.2rem;
+                                height:.2rem;
+                                line-height:.2rem;
+                                font-size: .14rem;
+                                border-radius:50%;
+                                background: red;
+                                color:white;
+                                position: absolute;
+                                right:.37rem;
+                                top:-.070rem;
+                            }
+                        }
                     }
                 }
                 div.defailCart{
+                    .am-button{
+                        height:.8rem;
+                        line-height:.8rem;
+                        background: red;
+                        color:white;
+                    }
                     display: block;
-                    background: red;
-                    color:white;
                     text-align: center;
                 }
+               
             }
         }
     }
