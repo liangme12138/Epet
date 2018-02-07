@@ -22,7 +22,7 @@ class  GoOutIndexComponent extends React.Component{
         this.props.getIndexMenus().then(() => {
             $('#tabs').find('li').eq(0).find('img').attr({ src: this.props.IndexMenus[0].tabImg2 });
         });
-        this.props.getTab(13)
+        this.props.getTab('tabId13')
         // ajax 精选品牌数据
         this.props.getBigImg().then(() => {
             this.props.atvPrd.forEach((item) => {

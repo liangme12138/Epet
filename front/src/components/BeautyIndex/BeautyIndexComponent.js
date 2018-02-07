@@ -20,7 +20,7 @@ class BeautyIndexComponent extends React.Component {
     this.props.getIndexMenus().then(() => {
       $('#tabs').find('li').eq(0).find('img').attr({ src: this.props.IndexMenus[0].tabImg2 });
     });
-    this.props.getTab(17)
+    this.props.getTab('tabId17')
 
     this.props.BeautyMenu();
     // 获取商品
