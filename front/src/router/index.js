@@ -50,7 +50,7 @@ export default (
         <Route path="epetinter" component={EpetInterComponent}></Route>
         <Route path="epettop" component={ePetTopBarComponent}></Route>
         <Route path="epetmarking" component={ePetMarkingComponent}></Route>
-        <Route path="order" component={orderComponent}>
+        <Route path="order(/:tab)" component={orderComponent}>
             <IndexRoute component={allorder} />
             <Route path="allorder" component={allorder}></Route>
             <Route path="waitpay" component={waitpay}></Route>
@@ -58,7 +58,7 @@ export default (
             <Route path="evaluate" component={evaluate}></Route>
         </Route>
         <Route path="address" component={address}></Route>
-        <Route path="editAddress" component={editAddress}></Route>
+        <Route path="editAddress(/:id/:rid)(/:uid)" component={editAddress}></Route>
         <Route path="collect" component={collect}></Route>
     </div>
 )

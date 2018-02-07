@@ -1,8 +1,12 @@
 import React from 'react'
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import * as orderAction from '../orderAction'
 import './takegoods.scss'
 import List from '../../publicOrderList/orderListComponent'
-export default class TakegoodsComponent extends React.Component {
+class TakegoodsComponent extends React.Component {
+    state = {
+        userId: (JSON.parse(window.localStorage.getItem('userInfo')))[0].userId || '',
+    }
     render() {
         return (
             <div id="sm_takegoods">
@@ -11,3 +15,11 @@ export default class TakegoodsComponent extends React.Component {
         )
     }
 }
+const mapToState = function (state) {
+    return {
+        // status: state.orderReducer.status,
+        // type: state.orderReducer.type,
+        // information: state.orderReducer.info || []
+    }
+}
+export default connect(mapToState, orderAction)(TakegoodsComponent)

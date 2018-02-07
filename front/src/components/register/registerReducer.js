@@ -1,7 +1,6 @@
 import spinner from '../spinner/spinner'
 export default function LoginReducer(state = {}, action) {
-    let newState = JSON.parse(JSON.stringify(state));
-    // console.log(action)
+    let newState = JSON.parse(JSON.stringify(state))
     switch (action.type) {
         case 'registerRequesting':
             spinner.loadSpinner();
@@ -11,11 +10,18 @@ export default function LoginReducer(state = {}, action) {
             spinner.closeSpinner();
             newState.status = 1;
             newState.result = action.respones;
+            newState.type = action.type;
             break;
         case 'registerRequesterror':
             spinner.closeSpinner();
             newState.status = -1;
             newState.result = action.respones;
+            break;
+        case 'registerRequested':
+            spinner.closeSpinner();
+            newState.status = 1;
+            newState.result = action.respones;
+            newState.type = action.type; 
             break;
     }
     return newState;

@@ -1,8 +1,9 @@
 import React from 'react'
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import * as orderAction from '../orderAction'
 import './pay.scss'
 import List from '../../publicOrderList/orderListComponent'
-export default class PayComponent extends React.Component {
+class PayComponent extends React.Component {
     render() {
         return (
             <div id="sm_pay">
@@ -11,3 +12,11 @@ export default class PayComponent extends React.Component {
         )
     }
 }
+const mapToState = function (state) {
+    return {
+        // status: state.orderReducer.status,
+        // type: state.orderReducer.type,
+        // information: state.orderReducer.info || []
+    }
+}
+export default connect(mapToState, orderAction)(PayComponent)

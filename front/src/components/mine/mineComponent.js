@@ -1,24 +1,40 @@
 import React from 'react'
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import { Link } from 'react-router'
+import * as mineAction from '../mine/mineAction'
 import { List, InputItem, WhiteSpace, Button } from 'antd-mobile';
 import PublicMenu from '../publicMenu/publicMenuComponent'
 import './mine.scss'
-export default class Mine extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-           visible:true
-        };
-    }
+class Mine extends React.Component {
+   state={
+       userInfo: JSON.parse(window.localStorage.getItem('userInfo'))||[],
+       visible:true,
+       headImg: '../../src/assets/img/headImg/1.jpg',
+       phone:''
+   }
     componentWillMount(){
-        if (!window.localStorage.getItem('userInfo')) {
-            return false;
-        }
-        this.setState({
+        if (this.state.userInfo.length>0) {   
+           this.setState({
             // 获取用户（数组）
-            userInfo: JSON.parse(window.localStorage.getItem('userInfo')),
-            visible: false,
-        });
+            userId:this.state.userInfo[0].userId,
+            visible:false,
+            phone: this.state.userInfo[0].nickName || this.state.userInfo[0].phone,
+            headImg: this.state.userInfo[0].headeImg || '../../src/assets/img/headImg/1.jpg'
+            });  
+        }
+       
+    }
+    componentDidMount(){
+        if(this.state.userId){ 
+            this.props.getInfo('setting.php', { userId2: this.state.userId}).then(res=>{
+                if(res.length>0){
+                    var str = JSON.stringify(this.props.information);
+                    window.localStorage.setItem('userInfo', str);
+                }
+            })  
+        }
+        
+       
     }
     quit=(e)=>{
         window.localStorage.removeItem('userInfo');
@@ -29,9 +45,6 @@ export default class Mine extends React.Component {
     }
     skipOrder = (e) => {
         this.props.router.push("order");
-    }
-    skipPay=(e)=>{
-        this.props.router.push("order/waitpay")
     }
     skipCollect = (e) => {
         this.props.router.push("collect")
@@ -50,13 +63,13 @@ export default class Mine extends React.Component {
                         <p><span style={{ background: "url('../../src/assets/img/login/newn.png') no-repeat" }}></span><span onClick={this.skipAccount} style={{ background: "url('../../src/assets/img/login/setting.png') no-repeat" }}></span></p>
                     </div>
                     <div className="status">
-                        <div className="headimg"><img src="../../src/assets/img/login/1.jpg" alt="" /></div>
+                        <div className="headimg"><img src={this.state.headImg} alt="" /></div>
                         <div className="users">
                             {
                                 this.state.visible ?
                                 <p><span onClick={this.skipLogin}>登录</span>|<span onClick={this.skipRegister}>注册</span></p> 
                                 :
-                                    <div><p style={{ marginTop: 10, marginBottom: 10 }}>{this.state.userInfo[0].phone}</p>
+                                    <div><p style={{ marginTop: 10, marginBottom: 10 }}>{this.state.phone}</p>
                                         <span>爱宠V星球<i style={{ background: "url('../../src/assets/img/login/v0.png') no-repeat" }}></i></span></div>
                                 
                             }
@@ -64,23 +77,22 @@ export default class Mine extends React.Component {
                             
                         </div> 
                     </div>
-                    <div className="qian"><img src="../../src/assets/img/login/signin.png" alt=""/></div>
-                    
+                    <div className="qian"><img src="../../src/assets/img/login/signin.png" alt=""/></div>         
                 </header>
                 <ul className="nav common">
-                    <li onClick={this.skipPay}><i style={{ background: "url('../../src/assets/img/login/elves.png')0 0"}}></i>
+                    <li><Link to="order/waitpay"><i style={{ background: "url('../../src/assets/img/login/elves.png')0 0"}}></i>
                     <p>待付款</p>
-                    </li>
-                    <li><i style={{ background: "url('../../src/assets/img/login/elves.png')-0.4rem 0" }}></i>
+                    </Link></li>
+                    <li><Link to="order/takegoods"><i style={{ background: "url('../../src/assets/img/login/elves.png')-0.4rem 0" }}></i>
                     <p>待收货</p>
-                    </li>
-                    <li><i style={{ background: "url('../../src/assets/img/login/elves.png')-0.8rem 0" }}></i>
+                    </Link></li>
+                    <li><Link to="order/evaluate"><i style={{ background: "url('../../src/assets/img/login/elves.png')-0.8rem 0" }}></i>
                     <p>待评价</p>
-                    </li >
+                    </Link></li >
 
-                    <li onClick={this.skipOrder}><img src="../../src/assets/img/login/icon4_dog.png" alt="" />
+                    <li><Link to="order/allorder"><img src="../../src/assets/img/login/icon4_dog.png" alt="" />
                     <p >全部订单</p>
-                    </li >
+                    </Link></li >
                 </ul>
                 <ul className="icon common">
                     <li>
@@ -149,4 +161,12 @@ export default class Mine extends React.Component {
         )
     }
 }
+const mapToState = function (state) {
+    return {
+        status: state.mineReducer.status,
+        type: state.mineReducer.type,
+       information:state.mineReducer.info || []
+    }
+}
+export default connect(mapToState, mineAction)(Mine)
 

@@ -1,6 +1,5 @@
 import {combineReducers} from 'redux';
 
-import goodslist from '../components/goodList/goodsListReducer'
 import index from '../components/Index/indexReducer';
 import TabsReducer from'../components/dogFoodIndex/dogFoodIndexReducer';
 import MenuReducer from '../components/home/homeReducer';
@@ -11,9 +10,11 @@ import healthcareReducer from '../components/HealthCareIndex/HealthCareIndexRedu
 import SnackToysReducer from '../components/SnackToysIndex/SnackToysIndexReducer';
 import goOutIndexReducer from '../components/goOutIndex/goOutIndexReducer';
 import BeautyIndexReducer from '../components/BeautyIndex/BeautyIndexReducer';
-
+import accountReducer from '../components/account/accountReducer'
+import mineReducer from '../components/mine/mineReducer'
+import addressReducer from '../components/address/addressReducer'
+import orderReducer from '../components/order/orderReducer'
 export default combineReducers({
-    goodslist,
     index,
     TabsReducer,
     MenuReducer,
@@ -23,6 +24,10 @@ export default combineReducers({
     healthcareReducer,
     SnackToysReducer,
     goOutIndexReducer,
-    BeautyIndexReducer
+    BeautyIndexReducer,
+    accountReducer,
+    mineReducer,
+    addressReducer,
+    orderReducer
 
 })

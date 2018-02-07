@@ -1,63 +1,83 @@
 import React from 'react'
-// import { connect } from 'react-redux';
-import { List, Radio, Flex, WhiteSpace } from 'antd-mobile';
+import { connect } from 'react-redux';
+import {Link} from 'react-router'
+import { List, Radio, Flex, WhiteSpace,Toast } from 'antd-mobile';
+import * as addressAction from './addressAction'
 import './address.scss'
 const RadioItem = Radio.RadioItem;
-export default class AddresssComponent extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            check:false    
-        };
+class AddresssComponent extends React.Component {
+    state={
+        userInfo: JSON.parse(window.localStorage.getItem('userInfo')) || [],
+        check:false    
+      
+    }  
+    componentWillMount(){
+        if (this.state.userInfo[0].userId) {
+            this.setState({
+                userId: this.state.userInfo[0].userId
+            })
+            this.props.getAddress('address.php', {userId: this.state.userInfo[0].userId})
+        }
+        
     }
-    selectIt=(e)=>{
-      console.log(e.target)
-     
+    delete(id,e){
+        this.props.delAddress('address.php', { receiveId: id }).then(res=> {
+            if(res==true){
+                Toast.success('删除成功!!!', 1);
+                this.props.getAddress('address.php', { userId: this.state.userInfo[0].userId })
+            }
+            else{
+                Toast.fail('删除失败!!!', 1);
+            }
+           
+        })
     }
-    skipEdit=(e)=>{
-        this.props.router.push('editAddress');
-    }
+   
     goBack = (e) => {
-        this.props.router.goBack(-1);
+        this.props.router.push('account');
     }
     render() {
         return (
             <div id="sm_address">
                 <header className="header">
-                    <p><i className="iconfont icon-back" onClick={this.goBack}></i>地址列表<span>添加</span><i className="iconfont icon-viewgallery"></i></p>
+                    <p><i className="iconfont icon-back" onClick={this.goBack}></i>地址列表<span><Link to={{ pathname: "editAddress/" + this.state.userId }}>添加</Link></span><i className="iconfont icon-viewgallery"></i></p>
                 </header>
-                <ul className="main">
-                    <li>
-                        <div className="top">
-                            <p><span>sherah</span><span>13589333333</span></p>
-                            <p>广东省广州市白云区82号</p>
-                        </div>
-                        <div className="bot">
-                            <Flex style={{ padding: '0.2rem' }}>
-                                <Flex.Item>
-                                    <Radio className="my-radio" name="address" onChange={this.selectIt}>默认地址</Radio>
-                                </Flex.Item>
-                                <span onClick={this.skipEdit}><i className="iconfont icon-evaluate"></i>编辑</span> <span><i className="iconfont icon-delete"></i>删除</span>
-                            </Flex>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="top">
-                            <p><span>sherah</span><span>13589333333</span></p>
-                            <p>广东省广州市白云区82号</p>
-                        </div>
-                        <div className="bot">
-                            <Flex style={{ padding: '0.2rem' }}>
-                                <Flex.Item>
-                                    <Radio className="my-radio" name="address" onChange={this.selectIt}>默认地址</Radio>
-                                </Flex.Item>
-                                <span><i className="iconfont icon-evaluate"></i>编辑</span> <span><i className="iconfont icon-delete"></i>删除</span>
-                            </Flex>
-                        </div>
-                    </li>
-               
+                <form className="main">
+                    <ul>
+                    {   
+                        this.props.date.map((item,idx)=>{      
+                         return <li key={idx} >
+                                    <div className="top">
+                                        <p><span>{item.linkMan}</span><span>{item.phone}</span></p>
+                                        <p>{item.village} {item.doorplate}</p>
+                                    </div>
+                                    <div className="bot">
+                                        <Flex style={{ padding: '0.2rem' }}>
+                                            <Flex.Item>
+                                         <Radio className="my-radio" name="address" checked={item.type}>默认地址</Radio>
+                                            </Flex.Item>
+                                     <Link to={{pathname:"editAddress/"+item.userId+"/"+item.receiveId}}><span><i className="iconfont icon-evaluate"></i>编辑</span></Link>      
+                                        </Flex>
+                                        <span onClick={this.delete.bind(this,item.receiveId)} className="del"><i className="iconfont icon-delete"></i>删除</span>
+                                    </div>
+                                </li>
+                                
+                            
+                        })
+                       
+                    }
                 </ul>
+                </form>
             </div>
         )
     }
 }
+const getState = function (state) {
+    return {
+        status: state.addressReducer.status,
+        type: state.addressReducer.type,
+        date: state.addressReducer.result||[]
+    }
+}
+
+export default connect(getState, addressAction)(AddresssComponent);

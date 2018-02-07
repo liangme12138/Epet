@@ -1,13 +1,11 @@
 import React from 'react'
-// import { connect } from 'react-redux';
+import { Link } from 'react-router'
+import { connect } from 'react-redux';
+import * as orderAction from './orderAction'
 import './order.scss'
-
-export default class OrderComponent extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-           
-        };
+class OrderComponent extends React.Component{
+    state={
+        tabNum:this.props.params.tab
     }
     changeTab=(e)=>{
         var tab = e.target.tagName.toLowerCase();
@@ -39,16 +37,16 @@ export default class OrderComponent extends React.Component{
                     <p><i className="iconfont icon-back" onClick={this.goBack}></i>我的订单<i className="iconfont icon-viewgallery"></i></p>
                 </header>
                 <ul className="nav" onClick={this.changeTab}>
-                    <li className="active">
+                    <li className={'allorder'==this.state.tabNum?'active':''}>
                        <span>全部订单</span> 
                     </li>
-                    <li>
+                    <li className={'waitpay'==this.state.tabNum?'active':''}>
                         <span>待付款</span>
                     </li>
-                    <li>
+                    <li className={'takegoods'==this.state.tabNum?'active':''}>
                         <span>待收货</span>
                     </li>
-                    <li>
+                    <li className={'evaluate'==this.state.tabNum?'active':''}>
                         <span>待评价</span>
                     </li>
                 </ul>
@@ -59,4 +57,11 @@ export default class OrderComponent extends React.Component{
         )
     }
 }
-// export default OrderComponent
+const mapToState = function (state) {
+    return {
+        // status: state.orderReducer.status,
+        // type: state.orderReducer.type,
+        // information: state.orderReducer.info || []
+    }
+}
+export default connect(mapToState, orderAction)(OrderComponent)

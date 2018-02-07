@@ -3,31 +3,30 @@ import { connect } from 'react-redux';
 import * as loginAction from './loginAction'
 import { List, InputItem, WhiteSpace, Button, Toast } from 'antd-mobile';
 import baseUrl from '../../utils/baseUrl'
-import http from "../../utils/reqAjax.js"
 import './login.scss'
 class Login extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
             show:true,
-            phone:'',
-            checkcode: '',
-            user:'',
-            pwd:'',
-            code:'',
             count:80,
             obj:"获取动态密码"
         };
     }
     componentDidUpdate() {
-        if(this.props.status == '1' && this.props.data.length>0) {
-            var str = JSON.stringify(this.props.data);
-            window.localStorage.setItem('userInfo', str);
-            this.props.router.push("/");
-        }
-        else if (this.props.data==="false"){
+        if (this.props.type == 'phoneRequested' && this.props.data==false) {
             Toast.info('该手机号尚未注册，请前往注册', 1);
         }   
+         else if(this.props.type =='loginRequested' && this.props.data.length>0) {
+            var str = JSON.stringify(this.props.data);
+            window.localStorage.setItem('userInfo', str);
+            Toast.success('登录成功!!!', 1);
+            this.props.router.push("/");
+        } else if (this.props.type == 'loginRequested' && this.props.data<=0){
+            Toast.info('手机号或密码错误！', 1);
+        }
+       
+       
     }
     changeTab=(e)=>{
         const tab=e.target.className;
@@ -50,7 +49,13 @@ class Login extends React.Component{
     getPhone=(e)=>{
         this.setState({ phone:e });
         if($.trim(e)){
-            this.props.checkPhone("login.php", {phone2: this.state.phone});
+            var phone = e.replace(/\s/g, "");
+            var ph = new RegExp(/^1[34578]\d{9}$/).test(phone);
+            if (!ph) {
+                Toast.info('该手机号无效!!!', 1);
+                this.setState({ phone: '' });
+            }
+            
         }
     }
     login1=(e)=>{
@@ -79,16 +84,17 @@ class Login extends React.Component{
             success: function (res) {
                 res = eval('(' + res + ')');
                 if (res.msg =="OK") {
+                    Toast.info('已发送动态密码，请查看手机！', 1);
                     // 设置倒计时
-                    var timer = setInterval(()=>{
-                        this.setState({ count: this.state.count - 1 });
-                        if (this.state.count <= 0) {
-                            clearInterval(timer);
-                            this.setState({ obj: '获取动态密码' });
-                            return;
-                        }
-                        this.setState({ obj: this.state.count });
-                    }, 1000)
+                    // var timer = setInterval(()=>{
+                    //     this.setState({ count: this.state.count - 1 });
+                    //     if (this.state.count <= 0) {
+                    //         clearInterval(timer);
+                    //         this.setState({ obj: '获取动态密码' });
+                    //         return;
+                    //     }
+                    //     this.setState({ obj: this.state.count });
+                    // }, 1000)
                     
                 }
             }.bind(this)
@@ -98,11 +104,15 @@ class Login extends React.Component{
     }
     code=(e)=>{
         var code=$.trim(e);
-       this.setState({code:e});
+        this.setState({code:e});
     }
     login2 = (e) => {
-        if(this.state.code===this.state.checkcode){
+        this.props.checkPhone("login.php", { phone2: this.state.phone});
+        if(this.state.code==this.state.checkcode){
             this.props.router.push("/");    
+        }
+        else{
+            Toast.info('动态密码验证输入错误', 1);
         }
     }
     goBack=(e)=>{
@@ -163,7 +173,7 @@ class Login extends React.Component{
                                 <WhiteSpace />
                                 <p className="mima"><span>新用户注册</span><span>忘记密码？</span></p>
                                 <div className="btn-container">
-                                    <Button className="btn" type="primary" onClick={this.login2}>登录</Button>
+                                    <Button className="btn" type="primary" ref="login2">登录</Button>
                                 </div>
                         </div>
                     }
@@ -185,10 +195,9 @@ class Login extends React.Component{
     }
 }
 const mapToState = function (state) {
-    console.log(state)
     return {
-        status: state.loginReducer.status,
-        data: state.loginReducer.result || []
+        data: state.loginReducer.result || [],
+        type: state.loginReducer.type
     }
 }
 export default connect(mapToState, loginAction)(Login)
