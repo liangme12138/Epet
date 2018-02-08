@@ -27,6 +27,16 @@
                 array_push($datas,$id.'='."'".$item."'"); 
             }   
         }
+        // $sql = "select * from address where $datas[0] and $datas[1] and $datas[2] and $datas[3] and $datas[4]";
+        // var_dump($sql);
+        // $result = query_oop($sql); 
+        //  if (!empty($result)){
+        //     echo 'true'; 
+        // }
+        // else{
+        //     echo 'false';
+
+        // }
         $sql="update address set $datas[0],$datas[1],$datas[2],$datas[3],$datas[4] where receiveId=$receiveId2"; 
         
         $result =excute_oop($sql); 

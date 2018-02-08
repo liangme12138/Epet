@@ -1,5 +1,7 @@
 #sm_collect{
     height: 100%;
+    display: flex;
+    flex-direction: column;
      .header{ 
         background:#fff;
          padding:0 0.13rem;
@@ -25,9 +27,11 @@
         }
     }
     .nav{
+        height: 0.6rem;
         background:#fff;
-        display: flex;
+        border-bottom:1px solid #f3f3f3;
         li{
+            float:left;
             width: 50%;
             height: 0.6rem;
             text-align: center;
@@ -36,12 +40,102 @@
               line-height: 0.56rem;
           }
           .active{
+              background:#fff;
               border-bottom:0.03rem solid #4DB933;
               color:#4DB933;
           }  
         }
     }
     .main{
-        background:#fff;
+        flex:1;
+        .tab1{
+        overflow: auto;
+        }
+        .ePetMarking-list{
+            width: 100%;
+            margin-top: 0.1333rem;
+            margin-top:0.13rem;
+            background: #ffff;
+            .ePetMarking-title{
+                height: 0.48rem;
+                line-height: 0.48rem;
+                padding:  0 0.2667rem;
+                border-bottom: 1px solid #666;
+                .t1{
+                    color: #f03e3e;
+                }
+                .t2{
+                    color: #666;
+                    padding-left: 0.2667rem;
+                    font-size: 0.16rem;
+                }
+                .discount{
+                    display: inline-block;
+                    width: 0.48rem;
+                    height: 0.2667rem;
+                    background: #f03e3e;
+                    float: right;
+                    color: #fff;
+                    font-size: 0.16rem;
+                    text-align: center;
+                    line-height: 0.2667rem;
+                    border-radius: 0.0667rem;
+                }
+            }
+            .ePetMarking-details{
+                height: 1.6rem;
+                padding: 0.1333rem ;
+                .epetmarkingImg{
+                    float: left;
+                    width: 1.3333rem;
+                    height: 1.3333rem;
+                    img{
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .ePetMarking-name{
+                    line-height: 0.24rem;
+                    line-height: 0.3333rem;
+                }
+                .epetmarkingPrice{
+                    display:relative;
+                    margin-top: 0.2rem;
+                    font-size: 0.2133rem;
+                    .price-cur{
+                        color: #f03e3e;
+                    }
+                    .price-ori{
+                        padding-left: 0.2667rem;
+                        font-size: 0.16rem;
+                        color: #666;
+                        text-decoration: line-through;
+                    }
+                    .del{
+                        position:absolute;
+                        right:0.27rem;
+                        padding:0.07rem 0.13rem;
+                        background:#f03e3e;
+                        color:#FFF;
+                        border-radius:0.07rem;
+                    }
+                }
+               
+            }
+        }
     }
 }
+#sm_nodata{
+        height: 100%;
+        padding-top:1.33rem;
+        img{
+        margin:auto;  
+        }
+        p{
+            text-align:center;
+            line-height: 0.4rem;
+            color:#999999;
+        }
+
+    }

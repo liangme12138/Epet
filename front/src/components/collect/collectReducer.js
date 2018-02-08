@@ -1,42 +1,30 @@
 import spinner from '../spinner/spinner'
-export default function orderReducer(state = {}, action) {
+export default function collectReducer(state = {}, action) {
     let newState = JSON.parse(JSON.stringify(state));
     switch (action.type) {
-        case 'orderRequesting':
+        case 'collectRequesting':
             spinner.loadSpinner();
             newState.status = 0;
             newState.type = action.type;
             break;
-        case 'orderRequesterror':
+        case 'collectRequesterror':
             spinner.closeSpinner();
             newState.status = -1;
             newState.result = action.respones;
             newState.type = action.type;
             break;
-        case 'allorderRequested':
+        case 'collectRequested':
             spinner.closeSpinner();
             newState.status = 1;
-            newState.info = action.respones;
+            newState.result = action.respones;
             newState.type = action.type;
             break;
-        case 'takegoodsRequested':
+        case 'delIdRequested':
             spinner.closeSpinner();
             newState.status = 1;
-            newState.takegoods= action.respones;
+            newState.res = action.respones;
             newState.type = action.type;
             break;
-        case 'waitpayRequested':
-            spinner.closeSpinner();
-            newState.status = 1;
-            newState.pay = action.respones;
-            newState.type = action.type;
-            break;
-        case 'evaluateRequested':
-            spinner.closeSpinner();
-            newState.status = 1;
-            newState.evaluate= action.respones;
-            newState.type = action.type;
-            break;    
     }
     return newState;
 }    

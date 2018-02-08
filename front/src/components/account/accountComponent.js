@@ -59,7 +59,7 @@ class Account extends React.Component {
         })
     }
     goBack=(e)=>{
-       this.props.router.goBack(-1);
+       this.props.router.push('mine');
    }
    skipAddress=(e)=>{
        this.props.router.push('address');

@@ -1,8 +1,5 @@
 import {combineReducers} from 'redux';
 
-
-// import index from '../components/Index/indexReducer';
-import TabsReducer from'../components/dogFoodIndex/dogFoodIndexReducer';
 import category from '../components/category/categoryReducer'
 import product from '../components/productsComponent/productReducer'
 import defail from '../components/productDefail/defailComponentReducer'
@@ -28,6 +25,7 @@ import ActiveProduct from '../components/ToActivite/ToActiviteReducer';
 import EpetMarkReducer from '../components/ePetMarking/ePetMarkingReducer';
 import petAllianceReducer from '../components/petalliance/petallianceReducer';
 import topReducer from '../components/topVideo/topVideoReducer';
+import collectReducer from '../components/collect/collectReducer'
 export default combineReducers({
     category,
     product,
@@ -54,6 +52,7 @@ export default combineReducers({
     ActiveProduct,
     EpetMarkReducer,
     petAllianceReducer,
-    topReducer
+    topReducer,
+    collectReducer
     // BeautyIndexReducer
 })

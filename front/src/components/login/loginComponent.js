@@ -10,44 +10,43 @@ class Login extends React.Component{
         this.state = {
             show:true,
             count:80,
-            obj:"获取动态密码"
+            obj:"获取动态密码",
+            timer:'',
         };
-    }
-    componentDidUpdate() {
-        if (this.props.type == 'phoneRequested' && this.props.data==false) {
-            Toast.info('该手机号尚未注册，请前往注册', 1);
-        }   
-         else if(this.props.type =='loginRequested' && this.props.data.length>0) {
-            var str = JSON.stringify(this.props.data);
-            window.localStorage.setItem('userInfo', str);
-            Toast.success('登录成功!!!', 1);
-            this.props.router.push("/");
-        } else if (this.props.type == 'loginRequested' && this.props.data<=0){
-            Toast.info('手机号或密码错误！', 1);
-        }
-       
-       
     }
     changeTab=(e)=>{
         const tab=e.target.className;
         if(tab=="tab1"){
-            $(e.target).children().addClass('active').parent('li').siblings('li').children().removeClass('active');
+            $(e.target).children().addClass('active1').parent('li').siblings('li').children().removeClass('active1');
             this.setState({show:true});
         }
         else if(tab=="tab2"){
-            $(e.target).children().addClass('active').parent('li').siblings('li').children().removeClass('active');
+            $(e.target).children().addClass('active1').parent('li').siblings('li').children().removeClass('active1');
             this.setState({ show: false });
         }
     }
 
     getUser=(e)=>{
-        this.setState({user:e});      
+        var phone = e.replace(/\s/g, "");
+        if ($.trim(e) && new RegExp(/^1[34578]\d{9}$/).test(phone)) {
+            this.props.checkPhone('login.php', { phone2: phone }).then(res => {
+                if (res ==false) {
+                    Toast.info('该手机号尚未注册，请前往注册', 1);
+                    this.setState({ user: '' });
+                }
+                else {
+                    this.setState({user: phone });
+                }
+            })
+        }
+        else {
+            Toast.info('该手机号无效!!!', 1);
+        } 
     }
     getPwd=(e)=>{
         this.setState({ pwd:e}); 
     }
     getPhone=(e)=>{
-        this.setState({ phone:e });
         if($.trim(e)){
             var phone = e.replace(/\s/g, "");
             var ph = new RegExp(/^1[34578]\d{9}$/).test(phone);
@@ -55,62 +54,92 @@ class Login extends React.Component{
                 Toast.info('该手机号无效!!!', 1);
                 this.setState({ phone: '' });
             }
-            
+            this.props.checkPhone("login.php", { phone2:phone}).then(res=>{
+                if(res==false){
+                    Toast.info('该手机号尚未注册，请前往注册', 1);
+                    this.setState({ phone:''});
+                }
+                this.setState({ phone:phone});
+            }); 
         }
     }
     login1=(e)=>{
-        e.stopPropagation();
         if(!$.trim(this.state.user) || !$.trim(this.state.pwd)){
             Toast.info('手机号或密码不能为空!!!', 1);
         }
-        else if ($.trim(this.state.user) && $.trim(this.state.pwd)){
-            this.props.login("login.php", { phone: this.state.user, password: this.state.pwd });
+        else if ($.trim(this.state.user) && $.trim(this.state.pwd)) {
+            this.props.login("login.php", { phone: this.state.user, password: this.state.pwd }).then(res=>{
+                if(res.length>0){
+                    var str = JSON.stringify(this.props.data);
+                    window.localStorage.setItem('userInfo', str);
+                    Toast.success('登录成功!!!', 1);
+                    this.props.router.push("/");
+                }
+                else{
+                    Toast.info('手机号或密码错误！', 1);
+                }
+            });
         }
-         
-        
-        
+    
     }
    
     randomNumber(min, max) {
         return parseInt(Math.random() * (max - min + 1) + min);
     }
     getCode=(e)=>{
-        var codes = this.randomNumber(999999, 100000);
-        this.setState({ checkcode: codes });
-        $.ajax({
-            type: 'POST',
-            url: baseUrl.Url + "smsyzm.php",
-            data: { yzm:codes, yzmtel: this.state.phone},
-            success: function (res) {
-                res = eval('(' + res + ')');
-                if (res.msg =="OK") {
-                    Toast.info('已发送动态密码，请查看手机！', 1);
-                    // 设置倒计时
-                    // var timer = setInterval(()=>{
-                    //     this.setState({ count: this.state.count - 1 });
-                    //     if (this.state.count <= 0) {
-                    //         clearInterval(timer);
-                    //         this.setState({ obj: '获取动态密码' });
-                    //         return;
-                    //     }
-                    //     this.setState({ obj: this.state.count });
-                    // }, 1000)
-                    
-                }
-            }.bind(this)
-        })
-     
+        if (!this.state.phone) {
+            Toast.info('请重输手机号', 1);
+        }
+        else{
+            var codes = this.randomNumber(999999, 100000);
+            this.setState({ checkcode: codes });
+            $.ajax({
+                type: 'POST',
+                url: baseUrl.Url + "smsyzm.php",
+                data: { yzm: codes, yzmtel: this.state.phone },
+                success: function (res) {
+                    res = eval('(' + res + ')');
+                    if (res.msg == "OK") {
+                        Toast.info('已发送动态密码，请查看手机！', 1);
+                        // 设置倒计时
+                        clearInterval(this.state.timer);
+                        this.state.timer = setInterval(() => {
+                            this.setState({ count: this.state.count - 1 });
+                            if (this.state.count <= 0) {
+                                this.setState({checkcode:''});
+                                clearInterval(this.state.timer);
+                                this.setState({ obj: '获取动态密码' });
+                                return;
+                            }
+                            this.setState({ obj: this.state.count });
+                        }, 1000)
+
+                    }
+                }.bind(this)
+            })
+
+        }
+       
        
     }
     code=(e)=>{
         var code=$.trim(e);
         this.setState({code:e});
     }
-    login2 = (e) => {
-        this.props.checkPhone("login.php", { phone2: this.state.phone});  
-        if(this.state.code===this.state.checkcode){
-            // this.props.router.push("/");  
-            this.props.router.goBack(-1);  
+    login2 = (e) => { 
+        clearInterval(this.state.timer);
+        if(this.state.code==this.state.checkcode){
+            this.props.login("login.php", { phone4:this.state.phone}).then(res => {
+                if (res.length>0) {
+                    var str = JSON.stringify(this.props.data);
+                    window.localStorage.setItem('userInfo', str);
+                    Toast.success('登录成功!!!', 1);
+                    this.props.router.push("/");
+                }
+                else{
+                    Toast.fail('登录失败，请重新登录！', 1);
+                }
+            })
         }
         else{
             Toast.info('动态密码验证输入错误', 1);
@@ -133,7 +162,7 @@ class Login extends React.Component{
                      </p>
                     <div className="logo"> <img src="" alt="" /></div>
                     <ul className="tab" onClick={this.changeTab}>
-                        <li className="tab1">普通登录<i className="active"></i></li>
+                        <li className="tab1">普通登录<i className="active1"></i></li>
                         <li className="tab2">手机动态密码登录<i></i></li>
                     </ul>
                     <div id="main">
@@ -159,12 +188,14 @@ class Login extends React.Component{
                             </div>
                         </div>:<div className="login2">
                                 <InputItem onBlur={this.getPhone}
+                                    clear
                                     type="phone" 
                                     placeholder="已注册的手机号"
                                 >
                                     <div className="iconfont icon-ren" />
                                 </InputItem>
                                 <InputItem onBlur={this.code}
+                                    clear
                                     placeholder="动态密码"
                                 >
                                     <div className="iconfont icon-mima" />
@@ -174,7 +205,7 @@ class Login extends React.Component{
                                 <WhiteSpace />
                                 <p className="mima"><span>新用户注册</span><span>忘记密码？</span></p>
                                 <div className="btn-container">
-                                    <Button className="btn" type="primary" ref="login2">登录</Button>
+                                    <Button className="btn" type="primary" onClick={this.login2}>登录</Button>
                                 </div>
                         </div>
                     }

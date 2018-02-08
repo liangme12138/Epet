@@ -2,27 +2,54 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux';
 import * as orderAction from './orderAction'
+import List from '../../components/publicOrderList/orderListComponent'
 import './order.scss'
 class OrderComponent extends React.Component{
     state={
-        tabNum:this.props.params.tab
+        tabNum:this.props.params.tab,
+         userId: (JSON.parse(window.localStorage.getItem('userInfo')))[0].userId || '',
+    }
+    componentWillMount() {
+        if (this.state.userId) {
+            var  status=0;
+            if (this.state.tabNum =="waitpay"){
+                status=1;
+            }
+            else if (this.state.tabNum =="takegoods"){
+                status=2;
+            }
+            else if (this.state.tabNum == "evaluate"){
+                status = 3;
+            }
+            this.props.allorder('order.php', { userId: this.state.userId,status:status}).then(res => {
+                this.setState({ dataset: res })
+            })
+        }
     }
     changeTab=(e)=>{
         var tab = e.target.tagName.toLowerCase();
         var text=$(e.target).html();
         if(tab=="span"){
             $(e.target).parent('li').addClass('active').siblings('li').removeClass('active');
-            if (text =="全部订单"){
-                this.props.router.push("order/allorder");
+            if (text =="全部订单"){ 
+                this.props.allorder('order.php', { userId: this.state.userId }).then(res => {
+                    this.setState({ dataset: res })
+                })
             }
             else if (text == "待付款"){
-                this.props.router.push("order/waitpay");
+                this.props.waitpay('order.php', { userId: this.state.userId,status:1}).then(res => {
+                    this.setState({ dataset: res })
+                })
             }
             else if (text == "待收货"){
-                this.props.router.push("order/takegoods");
+                this.props.takegoods('order.php', { userId: this.state.userId,status:2}).then(res => {
+                this.setState({ dataset: res })
+             })
             }
             else if (text == "待评价") {
-                this.props.router.push("order/evaluate");
+                this.props.evaluate('order.php', { userId: this.state.userId, status:3 }).then(res => {
+                    this.setState({ dataset: res })
+                })
             }
             
         }    
@@ -51,7 +78,7 @@ class OrderComponent extends React.Component{
                     </li>
                 </ul>
                 <div className="main">
-                    {this.props.children}
+                        <List data={this.state.dataset}></List>                 
                 </div>
             </div>
         )
@@ -59,9 +86,8 @@ class OrderComponent extends React.Component{
 }
 const mapToState = function (state) {
     return {
-        // status: state.orderReducer.status,
-        // type: state.orderReducer.type,
-        // information: state.orderReducer.info || []
+        type: state.orderReducer.type,
+        information: state.orderReducer.info || []
     }
 }
 export default connect(mapToState, orderAction)(OrderComponent)
