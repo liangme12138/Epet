@@ -40,82 +40,80 @@
         }
         .goodslists-ePet {
             width: 100%;
-            .goodsList-ePet{
-                height: 2.2667rem;
-                padding: 0.2rem 0.1333rem;
-                border-bottom: 1px dashed #000;
-                background: #ffff;
-                .img-real{
-                    float: left;
-                    width: 30%;
-                    height: 1.28rem;
+            ul{
+                width: 100%;
+                .eteamMain{
+                    display: block;
+                    height: 2.2667rem;
+                    margin-bottom: 0.1333rem;
+                    background: #ffff;
+                    padding: 0.2rem;
                     img{
-                        width: 100%;
-                        height: 100%;
+                        display: block;
+                        float: left;
+                        width: 1.28rem;
+                        height: 1.28rem;
+                        margin-right: 0.1333rem;
                     }
-                }
-                .goodsList-info{
-                    float: right;
-                    width: 70%;
-                    height: 1.28rem;
-                    font-size: 0.1867rem;
-                    p{
+                    .name{
                         line-height: 0.2667rem;
-                    }
-                    .goodslist-content{
-                        height: 0.2933rem;
-                        margin-top: 0.1333rem;
                         font-size: 0.1867rem;
-                        color: #f03e3e;
+                    }
+                    .icon{
+                        margin-top: 0.1333rem;
+                        .ren ,.colll{
+                            display: inline-block;
+                            width: 0.9333rem;
+                            height: 0.2667rem;
+                            border: 1px solid red;
+                            border-radius: 0.0667rem;
+                            color: red;
+                            font-size: 0.16rem;
+                            text-align: center;
+                            line-height: 0.24rem;
+                        }
+                        .colll{
+                            margin-left: 0.2667rem;
+                        }
+                    }
+                    .price{
+                        margin-top: 0.2rem;
+                       .curprice{
+                           color: red;
+                           font-size: 0.2133rem;
+                       }
+
+                    }
+                    h2{
+                        display: block;
+                        height: 0.6rem;
+                        line-height: 0.6rem;
+                        padding: 0 0.2667rem;
+                        font-size: 0.2133rem;
+                        font-weight: normal;
+                        margin-top: 0.1333rem;
+                        border-top: 1px dashed #666;
                         span{
                             display: inline-block;
-                            border: 1px solid #f03e3e;
-                            padding: 0.0667rem;
-                            border-radius: 0.0267rem;
                         }
-                        span:first-child{
-                            em{
-                                display: inline-block;
-                            }
+                        .buied{
+                            font-size: 0.1867rem;
+                            color: #666;
                         }
-                        span:last-child{
-                            margin-left: 0.0667rem;
-                        }
-                    }
-                    .goodslist-price{
-                        margin-top: 0.2667rem;
-                        .price-mostPerson{
-                            color: red;
-                            font-size: 0.24rem;
-                        }
-                        .price-single{
-
+                        .buyBtn{
+                            float: right;
+                            width: 0.9333rem;
+                            height: 0.4rem;
+                            border: 1px solid #666;
+                            border-radius: 0.0667rem;
+                            line-height: 0.4rem;
+                            text-align: center;
+                            margin-top: 0.1333rem;
                         }
                     }
                 }
             }
-            .ePetTeam-status{
-                height: 0.6rem;
-                margin-bottom: 0.1333rem;
-                background: #ffff;
-                line-height: 0.6rem;
-                padding: 0 0.2667rem;
-                .status-done{
-                    font-size: 0.1867rem;
-                }
-                .status-btn{
-                    float: right;
-                    display: inline-block;
-                    width: 0.9333rem;
-                    height: 0.4rem;
-                    background: #f03e3e;
-                    line-height: 0.4rem;
-                    text-align: center;
-                    color: #ffff;
-                    margin-top: 0.1333rem;
-                    border-radius: 0.0667rem;
-                }
-            }
+           
         }
 
         .goodslist-loadmore{

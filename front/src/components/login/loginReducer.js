@@ -6,31 +6,28 @@ export default function LoginReducer(state = {}, action) {
         case 'loginRequesting':
             spinner.loadSpinner();
             newState.status = 0;
+            newState.type = action.type;
             break;
         case 'loginRequested':
             spinner.closeSpinner();
             newState.status = 1;
             newState.result = action.respones;
+            newState.type = action.type;
             break;
         case 'loginRequesterror':
             spinner.closeSpinner();
             newState.status = -1;
             newState.result = action.respones;
+            newState.type = action.type;
             break;
-        case 'lRequesting':
-            spinner.loadSpinner();
-            newState.status = 0;
-            break;
-        case 'lRequested':
+        case 'phoneRequested':
             spinner.closeSpinner();
             newState.status = 1;
             newState.result = action.respones;
+            newState.type = action.type;
             break;
-        case 'lRequesterror':
-            spinner.closeSpinner();
-            newState.status = -1;
-            newState.result = action.respones;
-            break;
+      
+       
     }
     return newState;
 }

@@ -1,0 +1,116 @@
+.applaws{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .titleTop {
+        height: 0.6667rem;
+        background: #ffff;
+        text-align: center;
+        line-height: 0.6667rem;
+        .titleTopLeft {
+            float: left;
+            font-size: 0.4rem;
+        }
+        h2 {
+            display: inline-block;
+            margin: 0 auto;
+            width: 70%;
+        }
+        .titleTopClose {
+            float: right;
+            font-size: 0.4rem;
+        }
+        h2 {
+            font-weight: normal;
+            font-size: 0.24rem;
+        }
+    }
+    .fullcuttop{
+        width: 100%;
+        background: #545885;
+        .full1{
+            height: 7.4933rem;
+            img{
+                display: block;
+                width: 100%;
+            }
+        }
+        .full2 {
+            height: 3.56rem;
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        .full3 {
+            height: 5.16rem;
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        .full4 {
+            height: 4.9733rem;
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        .full5 {
+            height: 3.0667rem;
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        .full6 {
+            height: 3.2667rem;
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        .full7 {
+            height: 1.96rem;
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        .full8{
+            height: 2.2667rem;
+            background: #ffff;
+            padding: 0.2667rem;
+            img{
+                display: block;
+                float: left;
+                width: 1.7333rem;
+                height: 1.7333rem;
+            }
+            .title{
+                line-height: 0.2667rem;
+                font-size: 0.1867rem;
+                color: #000;
+            }
+            .all{
+                line-height: 0.3333rem;
+                span:first-child{
+                    display: inline;
+                    margin-right: 0.2667rem;
+                    color: #ff4400;
+                    font-size: 0.1867rem;
+                }
+                span:last-child{
+                    color: #666;
+                }
+                button{
+                    display: block;
+                    width: 1.6rem;
+                    height: 0.56rem;
+                    background: #ff4400;
+                    color: #ffff;
+                }
+            }
+        }
+    }
+}
