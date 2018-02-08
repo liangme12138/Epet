@@ -47,7 +47,8 @@ import ScarceComponent from '../components/specialist/scarce/scarceComponent';
 import ToActiviteComponent from '../components/ToActivite/ToActiviteComponent';
 import TopVideoComponent from '../components/topVideo/topVideoComponent';
 import PetallianceComponent from '../components/petalliance/petallianceComponent';
-import ClothCityComponent from '../components/clothCity/clothCityComponent'
+import ClothCityComponent from '../components/clothCity/clothCityComponent';
+import NewYearComponent from '../components/newYear/newYearComponent';
 
 export default (
     <div>
