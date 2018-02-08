@@ -18,6 +18,8 @@ import BeautyIndexReducer from '../components/BeautyIndex/BeautyIndexReducer';
 import cart from '../components/cartComponent/cartReducer'
 import ePetTopBarReducer from '../components/ePetTopBar/ePetTopBarReducer'
 import ActiveProduct from '../components/ToActivite/ToActiviteReducer';
+import orderReducer from '../components/orderDefailComponent/orderDefailReducer';
+import payReducer from '../components/payComponent/payReducer';
 
 export default combineReducers({
     category,
@@ -35,6 +37,8 @@ export default combineReducers({
     SnackToysReducer,
     goOutIndexReducer,
     cart,
+    payReducer,
+    orderReducer,
     BeautyIndexReducer,
     ePetTopBarReducer,
     ActiveProduct

@@ -27,9 +27,12 @@ class DefailComponent extends React.Component{
             })
             // 获取购物车商品数量
             this.props.cartDefail(val,'cart').then(res=>{
-                if (res == 'ok' && res[0].count != 0){
-                    var res = res[0].count;
-                    this.setState({ numDefail: res});
+                if (res[0].count != 0){
+                    var count = 0;
+                    for(var i=0;i<res.length;i++){
+                        count += res[i].count*1
+                    }
+                    this.setState({ numDefail: count});
                 }
             })
         }

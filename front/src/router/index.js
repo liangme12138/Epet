@@ -46,6 +46,8 @@ import WatchCompoent from '../components/specialist/watch/watchCompoent';
 import ScarceComponent from '../components/specialist/scarce/scarceComponent';
 import ToActiviteComponent from '../components/ToActivite/ToActiviteComponent';
 import TopVideoComponent from '../components/topVideo/topVideoComponent';
+import OrderDefail from '../components/orderDefailComponent/orderDefailComponent';
+import pay from '../components/payComponent/payComponent';
 
 export default (
     <div>
@@ -64,6 +66,7 @@ export default (
             <Route path="beautyindex" component={BeautyIndexComponent}></Route>
         </Route> 
         <Route path="/search" component={PublicSearchComponent}></Route>
+        <Route path="/pay(/:orderId/:money)" component={pay}></Route>
         <Route path="category" component={GoodslistComponent}>
             <IndexRoute component={categorysComponent}></IndexRoute>
             <Route path="/brand" component={BrandComponent}></Route>
@@ -78,6 +81,7 @@ export default (
         <Route path="brandsale" component={BrandSaleComponent}></Route>
         <Route path="epettop" component={ePetTopBarComponent}></Route>
         <Route path="topvideo" component={TopVideoComponent}></Route>
+        <Route path="orderDefail(/:orderId)" component={OrderDefail}></Route>
         
         
         <Route path="order" component={orderComponent}>
