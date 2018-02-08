@@ -1,0 +1,147 @@
+#orderDefail{
+    display: flex;
+    flex-direction: column;
+    header{
+        position: fixed;
+        z-index: 100;
+        top:0;
+        background: white;
+        width:100%;
+        height:.67rem;
+        border-bottom: .01rem solid rgb(224, 223, 223);
+        display: flex;
+        p{
+            flex:1;
+            height: .67rem;
+            line-height: .67rem;
+            text-align: center;
+            font-weight:bold;
+            font-size:.2rem;
+            span{
+                display: inline-block;
+                height: .67rem;
+                line-height: .67rem;
+            }
+        }
+        i:first-of-type{
+            position:absolute;
+            top:.1rem;
+            left:0;
+            font-size:.4rem;
+        }
+        i:last-of-type{
+            position:absolute;
+            top:.16rem;
+            right:0;
+            font-size:.3rem;
+            margin-right:.2rem;
+        }
+    }
+    .orderDefail{
+        flex:1;
+        margin-top:.67rem;
+        h3{
+             margin:.27rem .1rem;
+        }
+        >p{
+            margin:.27rem .1rem;
+        }
+        ul{
+            li{
+                border-top:.01rem solid rgb(224, 223, 223);
+                display: flex;
+                height: 2rem;
+                position:relative;
+                list-style:none;
+                .num1{
+                    span,input{
+                        float: left;
+                        z-index: 100;
+                        width:.5rem;
+                        height:.5rem;
+                        line-height:.5rem;
+                        margin-top:.13rem;
+                        text-align: center;
+                        font-size: 0.18rem;
+                        border:.01rem solid #ccc;
+                    }
+                    span{
+                        display: inline-block;
+                        background: pink;
+                    }
+                }
+                img{
+                    display: inline-block;
+                    width:1.5rem;
+                    height:1.5rem;
+                    margin:.25rem;
+                }
+                div{
+                    flex:1;
+                    display: inline-block;
+                    margin-top:.25rem;
+                    padding:0 .09rem;
+                    h3{
+                        font-size: .17rem;
+                        width:2rem;
+                        overflow:hidden;
+                         white-space:nowrap;
+                          text-overflow:ellipsis
+                    }
+                    .others{
+                        height:.4rem;
+                        line-height:.4rem;
+                        width:100%;
+                    }
+                    p{
+                        font-size: .17rem;
+                    }
+                    .price{
+                        color:red;
+                        font-size: .23rem;
+                        margin:.09rem 0;
+                    }
+                    .sell{
+                        color:#ccc;
+                        font-size: .2rem;
+                    }
+                }
+                .am-button{
+                    position: absolute;
+                    right:.27rem;
+                    bottom: .27rem;
+                    i{
+                        color:red;
+                        font-size:.37rem;
+                    }
+                }
+                
+            }
+        }
+    }
+    footer{
+        z-index: 102;
+        position: fixed;
+        bottom: 0;
+        width:100%;
+        height: .67rem;
+        line-height: .67rem;
+        display: flex;
+        .footerOrder{
+            flex:1;
+            text-align: center;
+            background: rgb(226, 225, 225);
+            span{
+                margin-right:.13rem;
+                color:red;
+                font-size: .2rem;
+            }
+        }
+        .footerOrder1{
+            flex:1;
+            text-align: center;
+            background: red;
+            color:white;
+        }
+    }
+}

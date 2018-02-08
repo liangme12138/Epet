@@ -25,7 +25,6 @@ class ProductsComponent extends React.Component{
             this.setState({ userId: JSON.parse(window.localStorage.getItem('userInfo'))[0].userId });
         }
         var val = this.props.router.params.val || this.props.productId;
-        console.log(val)
         if (val.indexOf('tab') != -1 || isNaN(val) == false){
             console.log(666)
             this.props.getProduct(val).then((res) => {
