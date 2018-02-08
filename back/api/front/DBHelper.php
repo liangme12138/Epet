@@ -1,11 +1,11 @@
 <?php
     function connect_oop() {
         // 配置参数
-         $servername = 'localhost';
-         $password = '';
-        // $servername = '10.3.136.55';
+        //  $servername = 'localhost';
+        //  $password = '';
+        $servername = '10.3.136.55';
         $username = 'root';
-        // $password = 'root';
+        $password = 'root';
         $database = 'pet';
         header('Access-Control-Allow-Origin:*');
         //连接数据库
