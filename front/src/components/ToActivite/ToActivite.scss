@@ -1,0 +1,163 @@
+.ToActivite {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    background: rgb(236, 251, 255);
+    .ToActivite-top {
+        background: #fff;
+        border-bottom: 0.01rem solid #ccc;
+        height: 0.67rem;
+        display: flex;
+        line-height: 0.67rem;
+        >h2 {
+            flex: 5;
+            text-align: center;
+            font-size: 0.24rem;
+        }
+        i {
+            flex: 1;
+            display: block;
+            font-size: 0.33rem;
+        }
+        i:first-child {
+            font-size: 0.47rem;
+        }
+        i:last-child {
+            padding-right: 0.13rem;
+            text-align: right;
+        }
+    }
+    .ToActivite-bottom {
+        overflow-x: hidden;
+        flex: 1;
+        .banner {
+            height: 2.47rem;
+            img {
+                display: block;
+                height: 2.47rem;
+                width: 100%;
+            }
+        }
+        .details {
+            background: #fff;
+            .details_pbmun {
+                display: flex;
+                padding: 0.13rem 0.67rem;
+                span {
+                    flex: 1;
+                    display: block;
+                    i {
+                        margin-right: 0.07rem;
+                    }
+                }
+            }
+            .details_author {
+                width: 80%;
+                margin: 0 auto;
+                background: rgb(252, 251, 251);
+                height: 1.07rem;
+                display: flex;
+                border-radius: 0.13rem;
+                img {
+                    display: block;
+                    width: 0.67rem;
+                    height: 0.67rem;
+                    margin: auto;
+                }
+                .author_info {
+                    flex: 1;
+                    padding: 0 0.2rem;
+                    padding-top: 0.13rem;
+                    p {
+                        height: 0.33rem;
+                        line-height: 0.33rem;
+                    }
+                }
+            }
+            .con_text {
+                padding: 0.33rem; //   width: 80%;
+                >p {
+                    padding: 0.07rem;
+                }
+                >span {
+                    display: block;
+                    color: rgb(24, 24, 230);
+                    height: 0.4rem;
+                    line-height: 0.4rem;
+                    padding-left: 0.13rem;
+                }
+                .img {
+                    padding: 0 1px;
+                    img {
+                        display: block;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .img {
+            padding: 0 1px;
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        .prds {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px 10px;
+            background: rgb(232, 190, 204);
+            li {
+                width: 365px;
+                padding: 0 10px;
+                padding-bottom: 20px;
+                .prd-Top {
+                    padding: 20px;
+                    background: #fff;
+                    img {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .prd-bottom {
+                    padding-bottom: 20px;
+                    background: #fff;
+                    p {
+                        padding: 0 30px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                    }
+                    >span {
+                        display: block;
+                        text-align: center;
+                    }
+                    .price {
+                        height: 50px;
+                        line-height: 50px;
+                        color: #ff4400;
+                        font-size: 36px;
+                        margin: 10px 0;
+                    }
+                    .Oprice {
+                        font-size: 24px;
+                        text-decoration: line-through;
+                        margin:10px 0;
+                    }
+                    .buyclass {
+                        background: #ff4400;
+                        width: 80%;
+                        height: 70px;
+                        line-height: 70px;
+                        border-radius: 5px;
+                        margin: 0px auto;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}

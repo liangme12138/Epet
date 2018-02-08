@@ -30,10 +30,25 @@
             li{
                 width: 50%;
                 height: 0.5333rem;
+                position: relative;
                 line-height: 0.5333rem;
                 float: left;
                 text-align: center;
                 font-size: 0.2133rem;
+                .icon-less{
+                    display: inline-block;
+                    height: 0.2667rem;
+                    position: absolute;
+                    top: 10px;
+                    line-height: 0.2667rem;
+                }
+                .icon-moreunfold{
+                    display: inline-block;
+                    height: 0.2667rem;
+                    position: absolute;
+                    top: 35px;
+                    line-height: 0.2667rem;
+                }
             }
         }
 
@@ -56,12 +71,19 @@
                 .t2{
                     color: #666;
                     padding-left: 0.2667rem;
+                    font-size: 0.16rem;
                 }
                 .discount{
+                    display: inline-block;
+                    width: 0.48rem;
+                    height: 0.2667rem;
+                    background: #f03e3e;
                     float: right;
-                    color: #f03e3e;
-                    font-size: 0.24rem;
-                    font-weight: bold;
+                    color: #fff;
+                    font-size: 0.16rem;
+                    text-align: center;
+                    line-height: 0.2667rem;
+                    border-radius: 0.0667rem;
                 }
             }
             .ePetMarking-details{
@@ -79,7 +101,7 @@
                 }
                 .ePetMarking-name{
                     line-height: 0.24rem;
-                    font-weight: bold;
+                    line-height: 0.3333rem;
                 }
                 .epetmarkingPrice{
                     margin-top: 0.2rem;
@@ -89,6 +111,9 @@
                     }
                     .price-ori{
                         padding-left: 0.2667rem;
+                        font-size: 0.16rem;
+                        color: #666;
+                        text-decoration: line-through;
                     }
                 }
                 .to-cart{
@@ -99,6 +124,7 @@
                     font-size: 0.2933rem;
                     float: right;
                     border: 1px solid #f03e3e;
+                    border-radius: 0.0667rem;
                 }
             }
         }

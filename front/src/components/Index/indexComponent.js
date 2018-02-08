@@ -3,24 +3,28 @@ import ReactDOM from 'react-dom';
 import { Router, Route, Link, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import * as IndexAction  from './indexAction';
-// import lazyload from '../../lazyload/lazyload.js';
-import LazyLoad from 'react-lazyload'
 import '../../sass/base.scss';
 import './index.scss';
 import rem from '../../utils/getRem.js';
+import { lxCarousel } from '../../utils/banner'
 // 下拉刷新
 // import { RefreshControl, ListView } from 'antd-mobile';
 rem.rem();
-// lazyload.lazyloaded();
 // import IndexSurpriseComponent from '../indexSurprise/indexSurpriseComponent';
-import HomeBastComponent from '../home/homeBestComponent'
+import HomeBastComponent from '../home/homeBestComponent';
+
 class IndexComponent extends React.Component{
     state={
+        imgUrl:[]
 
     }
     // 进入e宠团
     toEpetTeam(){
         hashHistory.push('epetteam')
+    }
+    // 进入品牌特卖
+    toBrandSale() {
+        hashHistory.push('brandsale');
     }
     // 进入宠国际
     toEpetInter(){
@@ -34,9 +38,26 @@ class IndexComponent extends React.Component{
     toEpetmarking() {
         hashHistory.push('epetmarking')
     }
+    // 萌宠联盟
+    topetalliance() {
+        hashHistory.push('petalliance')
+    }
+    brandMore() {
+        hashHistory.push('brandsale')
+    }
     
     componentDidMount() {
-        
+        this.props.getImg().then((res)=>{
+            // console.log(res)
+            res.map((item)=>{
+                this.state.imgUrl.push(item)
+            })
+            this.setState({imgUrl:this.state.imgUrl})
+        })
+        $('.carousel').lxCarousel({
+            imgs: ["../src/assets/img/navList/a745927376b596c2cb4685686af4d2ad.jpg", "../src/assets/img/navList/f106d8068e48bbb7cdbb6da829a1362a.jpg", "../src/assets/img/navList/81daec9ab76d65bc6a30e90f97b9a4ce.jpg", "../src/assets/img/navList/47f70eebdc4f7a3c4f3f81daf4f61748.jpg", "../src/assets/img/navList/cf0dfc1221504900fa9c3831dc7e3c69.jpg", "../src/assets/img/navList/280f12517e14a55ccbd358da770a119b.jpg", "../src/assets/img/navList/c766240b3a1c5229fad7ee776a5a555c.jpg", "../src/assets/img/navList/a745927376b596c2cb4685686af4d2ad.jpg"],
+            wufeng: true
+        })
     }
 
     render(){
@@ -44,7 +65,10 @@ class IndexComponent extends React.Component{
            <div id="index-1">
                 
                 <div className="banner-item-1">
-                    <img src="https://img2.epetbar.com/nowater/2018-01/29/14/a745927376b596c2cb4685686af4d2ad.jpg@!water" />
+                    <div className="carousel">
+
+                    </div>
+                    {/* <img src="https://img2.epetbar.com/nowater/2018-01/29/14/a745927376b596c2cb4685686af4d2ad.jpg@!water" /> */}
                 </div>
                 <div className="video-img">
                     <img src="https://img2.epetbar.com/nowater/2018-01/29/18/1bba61520c6e0f89abb16fe0705ccf5e.gif" />
@@ -57,7 +81,7 @@ class IndexComponent extends React.Component{
                                     <img src={require('../../assets/img/navList/1.jpg')}/>
                                 </i>
                             </li>
-                            <li>
+                            <li onClick={this.toBrandSale}>
                                 <i>
                                     <img src={require('../../assets/img/navList/2.jpg')}/>
                                 </i>
@@ -82,7 +106,7 @@ class IndexComponent extends React.Component{
                                     <img src={require('../../assets/img/navList/6.jpg')}/>
                                 </i>
                             </li>
-                            <li>
+                            <li onClick={this.topetalliance}>
                                 <i>
                                     <img src={require('../../assets/img/navList/7.jpg')}/>
                                 </i>
@@ -107,7 +131,7 @@ class IndexComponent extends React.Component{
                     <div className="new-people">
                             <img src={require('../../assets/img/navList/newPeople.gif')}/>
                     </div>
-                    <HomeBastComponent Img={['../src/assets/img/navList/11.jpg', '../src/assets/img/navList/12.jpg', '../src/assets/img/navList/13.jpg']}/>
+                    <HomeBastComponent Img={['../src/assets/img/navList/11.jpg', '../src/assets/img/navList/12.jpg', '../src/assets/img/navList/13.jpg']} active={["guide", "HighQuality", "toys"]}/>
                     <div className="eTeam">
                         <img src={require('../../assets/img/navList/14.jpg')}/>
                     </div>
@@ -132,45 +156,20 @@ class IndexComponent extends React.Component{
                     </div>
                     <div className="brandScale">
                         <img src={require('../../assets/img/navList/17.jpg')} className="brandImg"/>
-                        <img src={require('../../assets/img/navList/more.png')} className="brandMore"/>
+                        <img src={require('../../assets/img/navList/more.png')} className="brandMore" onClick={this.brandMore}/>
                     </div>
                     <div className="brandDetails-img">
                         <ul>
-                            <li>
-                                <img src={require('../lazyload.gif')} data-src={require('../../assets/img/navList/brandScale1.jpg')}/>
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale2.jpg')}/>
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale3.jpg')}/>
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale4.jpg')}/>
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale5.jpg')}/>
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale6.jpg')}/>
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale7.jpg')} />
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale8.jpg')} />
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale9.jpg')} />
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale10.jpg')} />
-                            </li>
-                            <li>
-                                <img src={require('../../assets/img/navList/brandScale11.jpg')} />
-                            </li>
+                            {
+                                this.state.imgUrl.map((item,idx)=>{
+                                    return <li key={idx}>
+                                        <img src={item.imgurl} />
+                                    </li>
+                                })
+                            }
                         </ul>
                     </div>
+
                     <div className="tiYanGuanLogo">
                         <img src={require('../../assets/img/navList/18.jpg')} className="tiYanGuanImg"/>
                         <img src={require('../../assets/img/navList/more.png')} className="tiYanGuanMore"/>
@@ -191,12 +190,11 @@ class IndexComponent extends React.Component{
 const mapToState = function (state) {
     console.log(state)
     return {
-        // dataset: state.collect.response || []
+        imgsrc: state.IndexReducer.imgres || []
     }
 }
 export default connect(mapToState, IndexAction)(IndexComponent)
-// 下拉加载
-/* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
+
 
 
 

@@ -1,9 +1,17 @@
 import {combineReducers} from 'redux';
 
-import index from '../components/Index/indexReducer';
+
+// import index from '../components/Index/indexReducer';
 import TabsReducer from'../components/dogFoodIndex/dogFoodIndexReducer';
+import category from '../components/category/categoryReducer'
+import product from '../components/productsComponent/productReducer'
+import defail from '../components/productDefail/defailComponentReducer'
+import IndexReducer from '../components/Index/indexReducer';
+import TabsReducer from '../components/dogFoodIndex/dogFoodIndexReducer';
 import MenuReducer from '../components/home/homeReducer';
 import CostumeReducer from '../components/dogCostumeIndex/dogCostumeIndexReducer';
+import GoodslistReducer from '../components/ePetTeam/ePetTeamReducer'
+import BrandSaleReducer from '../components/brandSale/brandSaleReducer'
 import loginReducer from '../components/login/loginReducer'
 import registerReducer from '../components/register/registerReducer'
 import healthcareReducer from '../components/HealthCareIndex/HealthCareIndexReducer';
@@ -14,11 +22,20 @@ import accountReducer from '../components/account/accountReducer'
 import mineReducer from '../components/mine/mineReducer'
 import addressReducer from '../components/address/addressReducer'
 import orderReducer from '../components/order/orderReducer'
+import cart from '../components/cartComponent/cartReducer'
+import ePetTopBarReducer from '../components/ePetTopBar/ePetTopBarReducer'
+import ActiveProduct from '../components/ToActivite/ToActiviteReducer';
+import EpetMarkReducer from '../components/ePetMarking/ePetMarkingReducer';
 export default combineReducers({
-    index,
+    category,
+    product,
+    defail,
+    IndexReducer,
     TabsReducer,
     MenuReducer,
     CostumeReducer,
+    GoodslistReducer,
+    BrandSaleReducer,
     loginReducer,
     registerReducer,
     healthcareReducer,
@@ -28,6 +45,11 @@ export default combineReducers({
     accountReducer,
     mineReducer,
     addressReducer,
-    orderReducer
-
+    orderReducer,
+    cart,
+    BeautyIndexReducer,
+    ePetTopBarReducer,
+    ActiveProduct,
+    EpetMarkReducer
+    // BeautyIndexReducer
 })

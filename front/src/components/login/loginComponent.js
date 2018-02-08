@@ -107,17 +107,18 @@ class Login extends React.Component{
         this.setState({code:e});
     }
     login2 = (e) => {
-        this.props.checkPhone("login.php", { phone2: this.state.phone});
-        if(this.state.code==this.state.checkcode){
-            this.props.router.push("/");    
+        this.props.checkPhone("login.php", { phone2: this.state.phone});  
+        if(this.state.code===this.state.checkcode){
+            // this.props.router.push("/");  
+            this.props.router.goBack(-1);  
         }
         else{
             Toast.info('动态密码验证输入错误', 1);
         }
     }
     goBack=(e)=>{
-        // this.props.router.goBack(-1);
-        this.props.router.push("/");
+        this.props.router.goBack(-1);
+        // this.props.router.push("/");
     }
     skipTo = (e) => {
         this.props.router.push("register");
