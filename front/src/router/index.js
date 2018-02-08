@@ -22,17 +22,12 @@ import EpetTeamComponent from '../components/ePetTeam/ePetTeamComponent';
 import Register from '../components/register/registerComponent';
 import Mine from '../components/mine/mineComponent';
 import Accounts from '../components/account/accountComponent';
-import EpetInterComponent from '../components/ePetInter/ePetInterComponent';
 import ePetTopBarComponent from '../components/ePetTopBar/ePetTopBarComponent';
 import ePetMarkingComponent from '../components/ePetMarking/ePetMarkingComponent';
-import orderComponent from '../components/order/orderComponent'
-import address from '../components/address/addressComponent'
-import allorder from '../components/order/allorder/allorderComponent'
-import evaluate from '../components/order/waitevaluate/evaluateComponnet'
-import waitpay from '../components/order/waitpay/payComponent'
-import takegoods from '../components/order/waittakegoods/takegoodsComponent'
-import editAddress from '../components/editAddress/editAddressComponent'
-import cart from '../components/cartComponent/cartComponent'
+import orderComponent from '../components/order/orderComponent';
+import address from '../components/address/addressComponent';
+import editAddress from '../components/editAddress/editAddressComponent';
+import cart from '../components/cartComponent/cartComponent';
 import collect from '../components/collect/collectComponent';
 import FakeComponent from '../components/specialist/fake/fakeComponent';
 import HighQualityComponent from '../components/specialist/HighQuality/HighQualityComponent';
@@ -53,7 +48,7 @@ import ApplawsComponent from '../components/applaws/applawsComponent';
 import NatureBridgeComponent from '../components/natureBridge/natureBridgeComponent';
 import MoshmComponent from '../components/moshm/moshmComponent';
 import UGfoodComponent from '../components/uGfood/uGfoodComponent';
-import MengbeiComponent from '../components/mengbei/mengbeiComponent';
+import MengbeiComponent from '../components/mengbei/mengbeiComponent';  
 import FarmFoodComponent from '../components/farmFood/farmFoodComponent';
 import PetinComponent from '../components/petin/petinComponent';
 import AncolComponent from '../components/ancol/ancolComponent';
@@ -66,7 +61,6 @@ export default (
             <Route path="/" component={IndexComponent}></Route>
             <Route path="dogfoodindex" component={DogFoodIndexComponent}></Route>
             <Route path="dogcostumeindex" component={DogCostumeIndexComponent}></Route>
-            <Route path="epetinter" component={EpetInterComponent}></Route>
             
             <Route path="healthcareindex" component={HealthCareIndexComponent}></Route>
             <Route path="snacktoysindex" component={SnackToysIndexComponent}></Route>
@@ -92,13 +86,7 @@ export default (
         <Route path="epetteam" component={EpetTeamComponent}></Route>
         <Route path="epetmarking" component={ePetMarkingComponent}></Route>
         <Route path="clothCity" component={ClothCityComponent}></Route>
-        <Route path="order(/:tab)" component={orderComponent}>       
-            <IndexRoute component={allorder} />
-            <Route path="allorder" component={allorder}></Route>
-            <Route path="waitpay" component={waitpay}></Route>
-            <Route path="takegoods" component={takegoods}></Route>
-            <Route path="evaluate" component={evaluate}></Route>
-        </Route>
+        <Route path="order(/:tab)" component={orderComponent}></Route>       
         <Route path="address" component={address}></Route>
         <Route path="editAddress(/:id/:rid)(/:uid)" component={editAddress}></Route>
         <Route path="collect" component={collect}></Route>

@@ -33,9 +33,6 @@ class Edit extends React.Component {
             })
         }
     }
-    componentDidUpdate(){
-    //    console.log(this.state.village)
-    }
     save=(e)=>{
         if (this.state.receiveId){
         var arr = [{linkMan: this.state.linkMan }, {phone: this.state.phone }, { village: (this.state.village).toString() }, { doorplate: this.state.doorplate },{ type: this.state.type }];

@@ -207,7 +207,6 @@ class DogFoodIndexComponent extends React.Component{
 }
 
 const mapToState = function (state) {
-    console.log('state', state.TabsReducer)
     return {
         AjaxTabState: state.TabsReducer.status,
         TabDate: state.TabsReducer.result1 || [],

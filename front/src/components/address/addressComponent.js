@@ -16,7 +16,9 @@ class AddresssComponent extends React.Component {
             this.setState({
                 userId: this.state.userInfo[0].userId
             })
-            this.props.getAddress('address.php', {userId: this.state.userInfo[0].userId})
+            this.props.getAddress('address.php', {userId: this.state.userInfo[0].userId}).then(res=>{
+                this.setState({dataset:res});
+            })
         }
         
     }
@@ -24,7 +26,9 @@ class AddresssComponent extends React.Component {
         this.props.delAddress('address.php', { receiveId: id }).then(res=> {
             if(res==true){
                 Toast.success('删除成功!!!', 1);
-                this.props.getAddress('address.php', { userId: this.state.userInfo[0].userId })
+                this.props.getAddress('address.php', { userId: this.state.userInfo[0].userId }).then(res => {
+                    this.setState({ dataset: res });
+                })
             }
             else{
                 Toast.fail('删除失败!!!', 1);
@@ -45,7 +49,8 @@ class AddresssComponent extends React.Component {
                 <form className="main">
                     <ul>
                     {   
-                        this.props.date.map((item,idx)=>{      
+                        this.state.dataset?
+                        this.state.dataset.map((item,idx)=>{      
                          return <li key={idx} >
                                     <div className="top">
                                         <p><span>{item.linkMan}</span><span>{item.phone}</span></p>
@@ -64,7 +69,7 @@ class AddresssComponent extends React.Component {
                                 
                             
                         })
-                       
+                       :''
                     }
                 </ul>
                 </form>

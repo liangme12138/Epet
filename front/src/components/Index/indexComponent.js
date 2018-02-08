@@ -28,7 +28,7 @@ class IndexComponent extends React.Component{
     }
     // 进入宠国际
     toEpetInter(){
-        hashHistory.push('epetinter')
+        hashHistory.push('guide')
     }
     // 进入潮品预售
     toEpettop() {
@@ -58,7 +58,7 @@ class IndexComponent extends React.Component{
     
     componentDidMount() {
         this.props.getImg().then((res)=>{
-            // console.log(res)
+            // console.log(res,'66666666')
             res.map((item)=>{
                 this.state.imgUrl.push(item)
             })
