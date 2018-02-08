@@ -2,11 +2,13 @@ import React from 'react';
 import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router';
 import Cookie from '../../utils/cookie';
 import './publicSearch.scss';
+import { Toast} from 'antd-mobile';
 export default class publicSearchComponent extends React.Component{
     state = {
         historySearch:[],
     }
     componentDidMount() {
+        
         // 获取搜索记录
         var historySearch = Cookie.get('historySearch');
         // console.log('historySearch', historySearch)
@@ -18,6 +20,7 @@ export default class publicSearchComponent extends React.Component{
     SearchBtn(){
         // 获取搜索框的值
         var searchName = this.refs.searchName.value;
+      
         if (searchName != ''){
             this.refs.searchName.value = '';
            
@@ -31,8 +34,11 @@ export default class publicSearchComponent extends React.Component{
             this.setState({ historySearch: arr});
             // 发起搜索的ajax请求
             // 。。。
+            // console.log(searchName);
+            this.props.router.push('/product/' + searchName);
         } else {
-            alert('aaa')
+            Toast.info('请输入要搜索的字段！', 2, null, false);
+            
         }
         
     }
@@ -65,16 +71,16 @@ export default class publicSearchComponent extends React.Component{
                 <div className="hot_search">
                     <span>热门搜索</span>
                     <ul onClick={this.hotSearch.bind(this)}>
-                        <li>洁齿骨</li>
-                        <li>棉垫</li>
-                        <li>发育室</li>
-                        <li>心丝虫</li>
-                        <li>狗狗玩具</li>
-                        <li>杀菌除臭</li>
-                        <li>比熊</li>
+                        <li>牛肉+三文鱼味</li>
+                        <li>补充营养</li>
+                        <li>美国麦德氏</li>
+                        <li>医仕高</li>
+                        <li>宝丽Petiy</li>
+                        <li>皇家royal</li>
+                        <li>羊奶粉</li>
                         <li>幼犬</li>
                         <li>益生菌</li>
-                        <li>卡比</li>
+                        <li>成犬粮</li>
                     </ul>
                 </div>
                 <div className="history_search">
