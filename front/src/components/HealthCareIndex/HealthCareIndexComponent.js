@@ -19,28 +19,10 @@ class HealthCareIndexComponent extends React.Component{
     }
     componentWillMount() {
         spinner.loadSpinner();
-        //ajax tab菜单数据
-        this.props.getTab().then(() => {
-            // console.log('aa', this.props.TabDate)
-            this.props.TabDate.forEach((item) => {
-                if (this.state.Tab.indexOf(item.tabImg1) == -1) {
-                    this.state.Tab.push(item.tabImg1);
-                    this.state.changeTab.push(item.tabImg2)
-                }
-            })
-            this.setState({ Tab: this.state.Tab })
-            this.setState({ changeTab: this.state.changeTab })
-            // console.log(' this.state.changeTab', this.state.changeTab)
-            // 封装函数
-            // this.toTabItem(1);
-            this.setState({ tabItems: action.TabItem(5, this.state.tabItems, this.props.TabDate) })
-            // console.log('tabItems', this.state.tabItems)
-            $('#tabs').find('li').eq(0).find('img').attr({ src: this.state.changeTab[0] })
-            spinner.closeSpinner();
-        }).catch(error => {
-            spinner.closeSpinner();
+        this.props.getIndexMenus().then(() => {
+            $('#tabs').find('li').eq(0).find('img').attr({ src: this.props.IndexMenus[0].tabImg2 });
         });
-
+        this.props.getTab('tabId5')
         // ajax 精选品牌数据
         this.props.getBigImg().then(() => {
             this.props.atvPrd.forEach((item) => {
@@ -69,15 +51,15 @@ class HealthCareIndexComponent extends React.Component{
         // 封装--详细请看tab.js文件
         this.setState({ tabItems: action.TabItem(id, this.state.tabItems, this.props.TabDate) })
     }
-    tabSmall(idx, eve) {
-        this.toTabItem((idx * 1 + 5), this.state.tabItems, this.props.TabDate);
-        for (let i = 0; i < this.state.Tab.length; i++) {
-            if (i != idx) {
-                // console.log($('#tabs').find('li').eq(i))
-                $('#tabs').find('li').eq(i).find('img').attr({ src: this.state.Tab[i] })
+    tabSmall(obj, eve) {
+        console.log(obj)
+        for (let i = 0; i < this.props.IndexMenus.length; i++) {
+            if (i != obj.idx) {
+                $('#tabs').find('li').eq(i).find('img').attr({ src: this.props.IndexMenus[i].tabImg1 })
             }
         }
-        $(eve.target).attr({ src: this.state.changeTab[idx] })
+        $(eve.target).attr({ src: this.props.IndexMenus[obj.idx].tabImg2 });
+        this.props.getTab(obj.tabId);
     }
     ToActivite(id) {
         this.props.router.push("/activite/" + id);
@@ -143,15 +125,15 @@ class HealthCareIndexComponent extends React.Component{
                 <div className="dogFoodMenu">
                     <ul id="tabs">
                         {
-                            this.state.Tab.map((item, idx) => {
-                                return <li key={idx} data-id={idx} onClick={this.tabSmall.bind(this, idx)}><img src={item} /></li>
+                            this.props.IndexMenus.map((item, idx) => {
+                                return <li key={idx} data-id={idx} onClick={this.tabSmall.bind(this, { idx: idx, tabId: item.tabId })}><img src={item.tabImg1} /></li>
                             })
                         }
                     </ul>
                     <div className="tabItems">
                         {
-                            this.state.tabItems.map((item, idx) => {
-                                return <div key={idx}><img src={item} /></div>
+                            this.props.TabDate.map((item, idx) => {
+                                return <div key={idx} ><img src={item.classifyImg} /></div>
                             })
                         }
                     </div>
@@ -217,7 +199,8 @@ const mapToState = function (state) {
         AjaxTabState: state.healthcareReducer.status,
         TabDate: state.healthcareReducer.result1 || [],
         atvPrd: state.healthcareReducer.result2 || [],
-        getDogFoodMenu: state.healthcareReducer.result3 || []
+        getDogFoodMenu: state.healthcareReducer.result3 || [],
+        IndexMenus: state.TabsReducer.result6 || []
     }
 }
 

@@ -3,7 +3,7 @@ import {combineReducers} from 'redux';
 import category from '../components/category/categoryReducer'
 import product from '../components/productsComponent/productReducer'
 import defail from '../components/productDefail/defailComponentReducer'
-import index from '../components/Index/indexReducer';
+import IndexReducer from '../components/Index/indexReducer';
 import TabsReducer from '../components/dogFoodIndex/dogFoodIndexReducer';
 import MenuReducer from '../components/home/homeReducer';
 import CostumeReducer from '../components/dogCostumeIndex/dogCostumeIndexReducer';
@@ -15,17 +15,25 @@ import healthcareReducer from '../components/HealthCareIndex/HealthCareIndexRedu
 import SnackToysReducer from '../components/SnackToysIndex/SnackToysIndexReducer';
 import goOutIndexReducer from '../components/goOutIndex/goOutIndexReducer';
 import BeautyIndexReducer from '../components/BeautyIndex/BeautyIndexReducer';
+import accountReducer from '../components/account/accountReducer'
+import mineReducer from '../components/mine/mineReducer'
+import addressReducer from '../components/address/addressReducer'
+import orderReducer from '../components/order/orderReducer'
 import cart from '../components/cartComponent/cartReducer'
 import ePetTopBarReducer from '../components/ePetTopBar/ePetTopBarReducer'
 import ActiveProduct from '../components/ToActivite/ToActiviteReducer';
-import orderReducer from '../components/orderDefailComponent/orderDefailReducer';
+import orderReducer1 from '../components/orderDefailComponent/orderDefailReducer';
 import payReducer from '../components/payComponent/payReducer';
 
+import EpetMarkReducer from '../components/ePetMarking/ePetMarkingReducer';
+import petAllianceReducer from '../components/petalliance/petallianceReducer';
+import topReducer from '../components/topVideo/topVideoReducer';
+import collectReducer from '../components/collect/collectReducer'
 export default combineReducers({
     category,
     product,
     defail,
-    index,
+    IndexReducer,
     TabsReducer,
     MenuReducer,
     CostumeReducer,
@@ -36,11 +44,20 @@ export default combineReducers({
     healthcareReducer,
     SnackToysReducer,
     goOutIndexReducer,
+    BeautyIndexReducer,
+    accountReducer,
+    mineReducer,
+    addressReducer,
+    orderReducer,
     cart,
     payReducer,
-    orderReducer,
+    orderReducer1,
     BeautyIndexReducer,
     ePetTopBarReducer,
-    ActiveProduct
-
+    ActiveProduct,
+    EpetMarkReducer,
+    petAllianceReducer,
+    topReducer,
+    collectReducer
+    // BeautyIndexReducer
 })

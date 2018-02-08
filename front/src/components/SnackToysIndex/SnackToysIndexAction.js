@@ -1,9 +1,18 @@
 
-export function getTab() {
+
+export function getTab(tabId) {
     return {
         url: 'indexTabs.php',
-        params: { state: 'dogFoodMenu', tabItem: 4 },
+        params: { state: 'dogFoodMenu', tabItem: tabId },
         types: ['requesting', 'tabrequested', 'requesterror']
+    }
+}
+
+export function getIndexMenus() {
+    return {
+        url: 'indexTabs.php',
+        params: { state: 'indexMenus', categoryId: 4 },
+        types: ['requesting', 'indexMenusrequested', 'requesterror']
     }
 }
 export function getBigImg() {

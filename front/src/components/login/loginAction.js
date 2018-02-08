@@ -5,10 +5,10 @@ export function login(_url,_params){
         types: ['loginRequesting', 'loginRequested', 'loginRequesterror']
     }
 }
-export function checkPhone(_url, _params) {
+export function checkPhone(_url,_params) {
     return {
-        url: _url,
+        url:_url,
         params: _params,
-        types: ['lRequesting', 'lRequested', 'lRequesterror']
+        types: ['loginRequesting', 'phoneRequested', 'loginRequesterror']
     }
 }

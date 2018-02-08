@@ -50,6 +50,7 @@
                 }
             }
             .bot{
+                display: flex;
                 color:#999999;
                 background:#FBFBFC;
                     .my-radio .am-radio {
@@ -62,10 +63,20 @@
                     }
                 }
                 .am-flexbox{
-                    span{
-                        margin-left: 0.27rem;
+                    width: 80%;
+                  
+                    a{
+                        span{
+                             margin:0.13rem;
+                        }
+                        
                     }
                 }
+                 .del{
+                        width: 20%;
+                        line-height:0.67rem;
+                        text-align:center;
+                    }
             }
         }
     }

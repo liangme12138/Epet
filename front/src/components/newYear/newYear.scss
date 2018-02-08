@@ -1,0 +1,103 @@
+.newYear{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .titleTop {
+        height: 0.6667rem;
+        background: #ffff;
+        text-align: center;
+        line-height: 0.6667rem;
+        border-bottom: 1px solid #666;
+        .titleTopLeft {
+            float: left;
+            font-size: 0.4rem;
+        }
+        h2 {
+            display: inline-block;
+            margin: 0 auto;
+            width: 70%;
+            font-weight: normal;
+            font-size: 0.24rem;
+        }
+    }
+    .newyear-main{
+        width: 100%;
+        .imgbox1{
+            height: 2.8933rem;
+            img{
+                display: block;
+                width: 100%;
+            }
+        }
+        .imgbox2 {
+            height: 2.1733rem;
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        .imgbox3 {
+            height: 2.3733rem;
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        .imgbox4 {
+            height: 1.76rem;
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        .imgbox5{
+            position: absolute;
+            right: 90px;
+            top: 1246px;
+        }
+        .imgbox6 {
+            height: 2.4133rem;
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        .imgbox7 {
+            height: 2.4533rem;
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        .imgbox8 {
+            height: 2.4533rem;
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        .imgbox9{
+            height: 5.2667rem;
+            position: relative;
+        }
+        .n1{
+            float: left;
+            position: absolute;
+            bottom: 460px;
+        }
+        .n2{
+            position: absolute;
+            left: 35%;
+            bottom: 460px;
+            
+        }
+        .n3 {
+            // float: right;
+            right: 0;
+            // display: block;
+            position: absolute;
+            bottom: 460px;
+        }
+    }
+    
+}

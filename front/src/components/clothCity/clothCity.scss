@@ -1,0 +1,96 @@
+.clothCity{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .titleTop {
+        height: 0.6667rem;
+        background: #ffff;
+        text-align: center;
+        line-height: 0.6667rem;
+        // border-bottom: 1px solid #666;
+        .titleTopLeft {
+            float: left;
+            font-size: 0.4rem;
+        }
+        h2 {
+            display: inline-block;
+            margin: 0 auto;
+            width: 70%;
+            font-weight: normal;
+            font-size: 0.24rem;
+        }
+    }
+    .imgbox1{
+        height: 5.76rem;
+        img{
+            display: block;
+            width: 100%;
+        }
+    }
+    .clothCity-main{
+        width: 100%;
+        background: #44A669;
+        .imgbox2{
+            height: 0.96rem;
+            img{
+                display: block;
+                width: 100%;
+            }
+        }
+        ul{
+            width: 100%;
+            li{
+                float: left;
+                width: 48%;
+                height: 4.4933rem;
+                padding-bottom: 0.16rem;
+                background: #ffff;
+                padding: 0 0.1333rem;
+                img{
+                    display: block;
+                    width: 100%;
+                    height: 2.4667rem;
+                    margin-top: 0.0667rem;
+                }
+                .name{
+                    font-size: 0.16rem;
+                    text-align: center;
+                    color: #333;
+                    line-height: 0.2667rem;
+                    margin-top: 0.1333rem;
+                }
+                span{
+                    display: block;
+                    font-size: 0.24rem;
+                    color: #ff4400;
+                    text-align: center;
+                    line-height: 0.2667rem;
+                }
+                .oriprice{
+                    font-size: 0.16rem;
+                    color: #999;
+                    margin-top: 0.08rem;
+                    margin-bottom: 0.08rem;
+                    text-align: center;
+                    text-decoration: line-through;
+                }
+                button{
+                    width: 1.96rem;
+                    height: 0.4667rem;
+                    margin: 0 auto;
+                    border: 0 none;
+                    background: #ff4400;
+                    color: #ffff;
+                    border-radius: 0.0667rem;
+                    
+                }
+            }
+            li:nth-child(n){
+                margin: 0.1rem 0.1rem 0.1rem 0;
+            }
+            li:nth-child(2n){
+                margin: 0.1re 0;
+            }
+        }
+    }
+}

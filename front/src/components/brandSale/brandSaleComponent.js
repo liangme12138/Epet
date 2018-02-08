@@ -36,7 +36,6 @@ class BrandSaleComponent extends React.Component{
     componentWillMount() {
         this.props.getType().then(res=>{
             spinner.closeSpinner();
-                
         }); 
     }
     componentDidMount() {

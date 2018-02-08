@@ -100,9 +100,9 @@ class OrderComponent extends React.Component {
 
 let mapToState = function (state) {
     return {
-        status: state.orderReducer.status,
-        result: state.orderReducer.result || [],
-        orderId: state.orderReducer.orderId || ''
+        status: state.orderReducer1.status,
+        result: state.orderReducer1.result || [],
+        orderId: state.orderReducer1.orderId || ''
     }
 }
 

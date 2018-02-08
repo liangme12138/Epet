@@ -1,4 +1,4 @@
-import spinner from '../spinner/spinner'
+import spinner from '../spinner/spinner';
 export default function BrandSaleReducer(state = {},action) {
     let newState = JSON.parse(JSON.stringify(state));
 
@@ -8,10 +8,12 @@ export default function BrandSaleReducer(state = {},action) {
             newState.status = 0;
             break;
         case 'bsrequested':
+            spinner.closeSpinner();
             newState.status = 1;
             newState.res = action.response;
             break;
         case 'requesterror':
+            spinner.closeSpinner();
             newState.status = -1;
             newState.res = action.response;
             break;
@@ -21,6 +23,7 @@ export default function BrandSaleReducer(state = {},action) {
             newState.res1 = newState.response;
             break;
         case 'getAllrequested':
+            spinner.closeSpinner();
             newState.status = 1;
             newState.res2 = newState.response;
             break;

@@ -3,7 +3,6 @@ import spinner from '../spinner/spinner'
 
 export default function TabsReducer(state = {}, action) {
     let newState = JSON.parse(JSON.stringify(state));
-    console.log(action)
     switch (action.type) {
         case 'requesting':
             spinner.loadSpinner();
@@ -44,6 +43,12 @@ export default function TabsReducer(state = {}, action) {
             newState.status = 1;
             newState.result5 = action.respones;
             break;
+        case 'indexMenusrequested':
+            spinner.closeSpinner();
+            newState.status = 1;
+            newState.result6 = action.respones;
+            break;
+            
     }
     return newState; 
 } 

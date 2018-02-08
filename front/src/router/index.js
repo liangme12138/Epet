@@ -27,10 +27,6 @@ import ePetTopBarComponent from '../components/ePetTopBar/ePetTopBarComponent';
 import ePetMarkingComponent from '../components/ePetMarking/ePetMarkingComponent';
 import orderComponent from '../components/order/orderComponent'
 import address from '../components/address/addressComponent'
-import allorder from '../components/order/allorder/allorderComponent'
-import evaluate from '../components/order/waitevaluate/evaluateComponnet'
-import waitpay from '../components/order/waitpay/payComponent'
-import takegoods from '../components/order/waittakegoods/takegoodsComponent'
 import editAddress from '../components/editAddress/editAddressComponent'
 import cart from '../components/cartComponent/cartComponent'
 import collect from '../components/collect/collectComponent';
@@ -48,6 +44,9 @@ import ToActiviteComponent from '../components/ToActivite/ToActiviteComponent';
 import TopVideoComponent from '../components/topVideo/topVideoComponent';
 import OrderDefail from '../components/orderDefailComponent/orderDefailComponent';
 import pay from '../components/payComponent/payComponent';
+import PetallianceComponent from '../components/petalliance/petallianceComponent';
+import ClothCityComponent from '../components/clothCity/clothCityComponent';
+import NewYearComponent from '../components/newYear/newYearComponent';
 
 export default (
     <div>
@@ -57,8 +56,6 @@ export default (
             <Route path="dogfoodindex" component={DogFoodIndexComponent}></Route>
             <Route path="dogcostumeindex" component={DogCostumeIndexComponent}></Route>
             <Route path="epetinter" component={EpetInterComponent}></Route>
-            <Route path="epetteam" component={EpetTeamComponent}></Route>
-            <Route path="epetmarking" component={ePetMarkingComponent}></Route>
             
             <Route path="healthcareindex" component={HealthCareIndexComponent}></Route>
             <Route path="snacktoysindex" component={SnackToysIndexComponent}></Route>
@@ -85,14 +82,15 @@ export default (
         
         
         <Route path="order" component={orderComponent}>
-            <IndexRoute component={allorder} />
-            <Route path="allorder" component={allorder}></Route>
-            <Route path="waitpay" component={waitpay}></Route>
-            <Route path="takegoods" component={takegoods}></Route>
-            <Route path="evaluate" component={evaluate}></Route>
+            
         </Route>
+        <Route path="petalliance" component={PetallianceComponent}></Route>
+        <Route path="epetteam" component={EpetTeamComponent}></Route>
+        <Route path="epetmarking" component={ePetMarkingComponent}></Route>
+        <Route path="clothCity" component={ClothCityComponent}></Route>
+        <Route path="order(/:tab)" component={orderComponent}></Route>       
         <Route path="address" component={address}></Route>
-        <Route path="editAddress" component={editAddress}></Route>
+        <Route path="editAddress(/:id/:rid)(/:uid)" component={editAddress}></Route>
         <Route path="collect" component={collect}></Route>
         <Route path="cart" component={cart}></Route>
         <Route path="fake" component={FakeComponent}></Route>
