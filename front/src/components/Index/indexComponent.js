@@ -52,6 +52,10 @@ class IndexComponent extends React.Component{
         hashHistory.push('topvideo')
     }
     
+    go() {
+        console.log(66666)
+    }
+    
     componentDidMount() {
         this.props.getImg().then((res)=>{
             // console.log(res)
@@ -165,7 +169,7 @@ class IndexComponent extends React.Component{
                         <img src={require('../../assets/img/navList/more.png')} className="brandMore" onClick={this.brandMore}/>
                     </div>
                     <div className="brandDetails-img">
-                        <ul>
+                        <ul onClick={this.go}>
                             {
                                 this.state.imgUrl.map((item,idx)=>{
                                     return <li key={idx}>

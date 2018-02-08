@@ -1,12 +1,13 @@
 import spinner from '../spinner/spinner';
-export default function ClothCityReducer(state = {},action){
+export default function petinReducer(state = {}, action) {
     let newState = JSON.parse(JSON.stringify(state));
+
     switch (action.type) {
         case 'requesting':
             spinner.loadSpinner();
             newState.status = 0;
             break;
-        case 'clothcityrequested':
+        case 'ptrequested':
             spinner.closeSpinner();
             newState.status = 1;
             newState.res = action.response;

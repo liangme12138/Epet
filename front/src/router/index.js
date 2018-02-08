@@ -49,6 +49,15 @@ import TopVideoComponent from '../components/topVideo/topVideoComponent';
 import PetallianceComponent from '../components/petalliance/petallianceComponent';
 import ClothCityComponent from '../components/clothCity/clothCityComponent';
 import NewYearComponent from '../components/newYear/newYearComponent';
+import ApplawsComponent from '../components/applaws/applawsComponent';
+import NatureBridgeComponent from '../components/natureBridge/natureBridgeComponent';
+import MoshmComponent from '../components/moshm/moshmComponent';
+import UGfoodComponent from '../components/uGfood/uGfoodComponent';
+import MengbeiComponent from '../components/mengbei/mengbeiComponent';
+import FarmFoodComponent from '../components/farmFood/farmFoodComponent';
+import PetinComponent from '../components/petin/petinComponent';
+import AncolComponent from '../components/ancol/ancolComponent';
+import QcComponent from '../components/qingcang/qingcangComponent';
 
 export default (
     <div>
@@ -105,7 +114,19 @@ export default (
         <Route path="/watch" component={WatchCompoent}></Route>
         <Route path="/scarce" component={ScarceComponent}></Route>
         <Route path="/activite(/:id)" component={ToActiviteComponent}></Route>
+        <Route path="newyear" component={NewYearComponent}></Route>
+        <Route path="applaws" component={ApplawsComponent}></Route>
+        <Route path="naturebridge" component={NatureBridgeComponent}></Route>
+        <Route path="moshm" component={MoshmComponent}></Route>
+        <Route path="ugfood" component={UGfoodComponent}></Route>
+        <Route path="mengbei" component={MengbeiComponent}></Route>
+        <Route path="farmfood" component={FarmFoodComponent}></Route>
+        <Route path="petin" component={PetinComponent}></Route>
+        <Route path="ancol" component={AncolComponent}></Route>
+        <Route path="qc" component={QcComponent}></Route>
         
-        
+
+
+        <scopedSlots>   </scopedSlots>
     </div>
 )
