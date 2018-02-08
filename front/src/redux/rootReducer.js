@@ -24,6 +24,9 @@ import orderReducer from '../components/order/orderReducer'
 import cart from '../components/cartComponent/cartReducer'
 import ePetTopBarReducer from '../components/ePetTopBar/ePetTopBarReducer'
 import ActiveProduct from '../components/ToActivite/ToActiviteReducer';
+import orderReducer1 from '../components/orderDefailComponent/orderDefailReducer';
+import payReducer from '../components/payComponent/payReducer';
+
 import EpetMarkReducer from '../components/ePetMarking/ePetMarkingReducer';
 import petAllianceReducer from '../components/petalliance/petallianceReducer';
 import topReducer from '../components/topVideo/topVideoReducer';
@@ -59,6 +62,8 @@ export default combineReducers({
     addressReducer,
     orderReducer,
     cart,
+    payReducer,
+    orderReducer1,
     BeautyIndexReducer,
     ePetTopBarReducer,
     ActiveProduct,

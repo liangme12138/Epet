@@ -1,4 +1,4 @@
-#cart{
+#orderDefail{
     display: flex;
     flex-direction: column;
     header{
@@ -37,37 +37,14 @@
             margin-right:.2rem;
         }
     }
-    .publicMenu2{
-        position: relative;
-        z-index: 100;
-        top:.67rem;
-        background: white;
-        width:100%;
-        .menus_cen{
-            position:static;
-            border-top:0;
-        }
-        .headerNum{
-            width:.2rem;
-            height:.2rem;
-            line-height:.2rem;
-            font-size: .14rem;
-            border-radius:50%;
-            text-align: center;
-            background: red;
-            color:white;
-            position: absolute;
-            right:32%;
-            top:0;
-        }
-    }
-    .cartgoods{
-        margin-top:.58rem;
+    .orderDefail{
         flex:1;
-        margin-bottom: .7rem;
-        .am-checkbox{
-            top:40%;
-            width:.67rem;
+        margin-top:.67rem;
+        h3{
+             margin:.27rem .1rem;
+        }
+        >p{
+            margin:.27rem .1rem;
         }
         ul{
             li{
@@ -150,16 +127,17 @@
         height: .67rem;
         line-height: .67rem;
         display: flex;
-        .footerCart{
+        .footerOrder{
             flex:1;
             text-align: center;
             background: rgb(226, 225, 225);
             span{
+                margin-right:.13rem;
                 color:red;
-                font-size: .27rem;
+                font-size: .2rem;
             }
         }
-        .footerCart1{
+        .footerOrder1{
             flex:1;
             text-align: center;
             background: red;

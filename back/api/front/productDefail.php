@@ -13,8 +13,6 @@
             $sql =  "DELETE FROM collect where userId = '$userId' and goodId = '$goodId' ";
         }else if($state == "collect"){
             $sql =  "select * from collect where userId = '$userId' and goodId = '$goodId'";
-        }else if($state == "cart"){
-            $sql =  "SELECT COUNT(*) as count FROM car where userId = '$userId'";
             $result = query_oop($sql);
             if($result){
                 echo json_encode($result, JSON_UNESCAPED_UNICODE);
@@ -22,8 +20,37 @@
                 echo "fail";
             }
             return;
-        }if($state == "addcar"){
-            $sql = "insert into car (userId,goodId,count,checkedstatus) VALUES ($userId,$goodId,$count,'$status')";
+        }else if($state == "cart"){
+            $sql =  "SELECT * FROM car where userId = '$userId'";
+            $result = query_oop($sql);
+            if($result){
+                echo json_encode($result, JSON_UNESCAPED_UNICODE);
+            }else{
+                echo "fail";
+            }
+            return;
+        }else if($state == "addcar"){
+            $sql =  "select * from car where userId = '$userId' and goodId = '$goodId'";
+            $result = query_oop($sql);
+            if($result){
+                $count = $result[0]['count'] + $count;
+                $sql1 = "UPDATE car SET count = '$count' WHERE userId = '$userId' and goodId = '$goodId' ";
+                $result1 = excute_oop($sql1);
+                if($result1){
+                    echo 'ok';
+                }else{
+                    echo "fail";
+                }
+            }else{
+                $sql1 = "insert into car (userId,goodId,count,checkedstatus) VALUES ($userId,$goodId,$count,'$status')";
+                $result1 = excute_oop($sql1);
+                if($result1){
+                    echo 'ok';
+                }else{
+                    echo "fail";
+                }
+            }
+            return;
         }
         $result = excute_oop($sql);
         if($result){
