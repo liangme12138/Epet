@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
 
-import category from '../components/category/categoryReducer'
-import product from '../components/productsComponent/productReducer'
-import defail from '../components/productDefail/defailComponentReducer'
+
+// import index from '../components/Index/indexReducer';
+import category from '../components/category/categoryReducer';
+import product from '../components/productsComponent/productReducer';
+import defail from '../components/productDefail/defailComponentReducer';
 import IndexReducer from '../components/Index/indexReducer';
 import TabsReducer from '../components/dogFoodIndex/dogFoodIndexReducer';
 import MenuReducer from '../components/home/homeReducer';
@@ -28,6 +30,16 @@ import payReducer from '../components/payComponent/payReducer';
 import EpetMarkReducer from '../components/ePetMarking/ePetMarkingReducer';
 import petAllianceReducer from '../components/petalliance/petallianceReducer';
 import topReducer from '../components/topVideo/topVideoReducer';
+import ClothCityReducer from '../components/clothCity/clothCityReducer';
+import NatureBridgeReducer from '../components/natureBridge/natureBridgeReducer';
+import moshmReducer from '../components/moshm/moshmReducer';
+import UgfoodReducer from '../components/uGfood/uGfoodReducer';
+import MengbeiReducer from '../components/mengbei/mengbeiReducer';
+import farmFoodReducer from '../components/farmFood/farmFoodReducer';
+import petinReducer from '../components/petin/petinReducer';
+import ancolReducer from '../components/ancol/ancolReducer';
+import qcReducer from '../components/qingcang/qingcangReducer';
+
 import collectReducer from '../components/collect/collectReducer'
 export default combineReducers({
     category,
@@ -58,6 +70,15 @@ export default combineReducers({
     EpetMarkReducer,
     petAllianceReducer,
     topReducer,
+    ClothCityReducer,
+    NatureBridgeReducer,
+    moshmReducer,
+    UgfoodReducer,
+    MengbeiReducer,
+    farmFoodReducer,
+    petinReducer,
+    ancolReducer,
+    qcReducer,
     collectReducer
     // BeautyIndexReducer
 })

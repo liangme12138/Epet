@@ -2,15 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
+import * as clothCityActions from './clothCityAction';
 import './clothCity.scss';
 
-export default class ClothCityComponent extends React.Component{
+class ClothCityComponent extends React.Component{
     state = {
-
+        clothdata:[]
     }
 
     componentDidMount() {
-
+        this.props.getCloth().then((res)=>{
+            // console.log(res)
+            res.map((item)=>{
+                this.state.clothdata.push(item)
+            })
+            this.setState({clothdata:this.state.clothdata})
+        })
+    }
+    back(){
+        window.history.back()
     }
     render() {
         return(
@@ -27,24 +37,26 @@ export default class ClothCityComponent extends React.Component{
                         <img src="../src/assets/img/navList/m2.jpg"/>
                     </div>
                     <ul>
-                        <li>
-                            <img src="../src/assets/img/navList/cloth1.jpg" />
-                            <p className="name">2017年新款 宠趣 印花不倒绒奶狗背心 蓝色兔子XXS号</p>
-                            <span>￥5.00</span>
-                            <p className="oriprice">原价：￥6.44</p>
-                            <button>立即购买</button>
-                        </li>
-                        <li>
-
-
-                        </li>
-                        <li></li>
-                        <li></li>
+                        {
+                            this.state.clothdata.map((item,idx)=>{
+                                return <li key={idx}>
+                                    <img src={item.imgurl} />
+                                    <p className="name">{item.title}</p>
+                                    <span>￥{item.curprice}</span>
+                                    <p className="oriprice">原价：￥{item.oriprice}</p>
+                                    <button>{item.state}</button>
+                                </li>
+                            })
+                        }
                     </ul>
-                
                 </div>
-
             </div>
         )
     }
 }
+const mapToState = function (state) {
+    return {
+        cloth: state.ClothCityReducer.res || [],
+    }
+}
+export default connect(mapToState, clothCityActions)(ClothCityComponent);

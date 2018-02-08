@@ -28,7 +28,7 @@ class IndexComponent extends React.Component{
     }
     // 进入宠国际
     toEpetInter(){
-        hashHistory.push('epetinter')
+        hashHistory.push('guide')
     }
     // 进入潮品预售
     toEpettop() {
@@ -52,9 +52,13 @@ class IndexComponent extends React.Component{
         hashHistory.push('topvideo')
     }
     
+    go() {
+        console.log(66666)
+    }
+    
     componentDidMount() {
         this.props.getImg().then((res)=>{
-            // console.log(res)
+            // console.log(res,'66666666')
             res.map((item)=>{
                 this.state.imgUrl.push(item)
             })
@@ -165,7 +169,7 @@ class IndexComponent extends React.Component{
                         <img src={require('../../assets/img/navList/more.png')} className="brandMore" onClick={this.brandMore}/>
                     </div>
                     <div className="brandDetails-img">
-                        <ul>
+                        <ul onClick={this.go}>
                             {
                                 this.state.imgUrl.map((item,idx)=>{
                                     return <li key={idx}>

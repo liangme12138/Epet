@@ -1,7 +1,7 @@
 export function getImg() {
     return {
         url: 'getIndexImg.php',
-        methods:'post',
+        methods:'get',
         types: ['requesting', 'getImgrequested','requesterror']
     }
 }
