@@ -10,6 +10,15 @@
     if($state){
         if($state == "del"){
             $sql =  "DELETE FROM car where userId = '$userId' and goodId = '$goodId' ";
+        }else if($state == "address"){
+            $sql = "select * from address WHERE userId = '$userId' and type = 'true'";
+            $result = query_oop($sql);
+            if($result){
+                echo 'ok';
+            }else{
+                echo "fail";
+            }
+            return;
         }else if($state == "check"){
             $sql = "select * from car WHERE userId = '$userId'";
             $result = query_oop($sql);

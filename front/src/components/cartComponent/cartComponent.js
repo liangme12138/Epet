@@ -89,9 +89,17 @@ class CartComponent extends React.Component{
                 }
             }
         }
-        this.props.orderCart(this.state.userId, data, orderId).then(res=>{
-            this.props.router.push("/orderDefail/" + orderId);
-        });
+        // 判断用户是否有默认地址
+        this.props.getAddress(this.state.userId,'address').then(res=>{
+            if(res == 'ok'){
+                // 添加order订单并跳转
+                this.props.orderCart(this.state.userId, data, orderId).then(res=>{
+                    this.props.router.push("/orderDefail/" + orderId);
+                });
+            }else{
+                this.props.router.push("/editAddress/" + this.state.userId + "/" + this.state.data[0].receiveId);
+            }
+        })
     }
     checked(val,event){
         if (event.target.className == 'am-checkbox-input'){

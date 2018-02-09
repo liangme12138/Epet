@@ -38,3 +38,11 @@ export function orderCart(userId, goodsid,orderId) {
         params: { userId: userId, goodsid: goodsid, orderId: orderId}
     }
 }
+// 查询是否已有地址
+export function getAddress(userId, state) {
+    return {
+        types: ['requestingCart8', 'requestedCart8', 'requesterrorCart8'],
+        url: 'carts.php',
+        params: { userId: userId, state: state }
+    }
+}
