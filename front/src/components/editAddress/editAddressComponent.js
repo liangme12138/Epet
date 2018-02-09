@@ -109,7 +109,7 @@ class Edit extends React.Component {
                         title="选择地区"
                         extra={this.state.village}
                         value={this.state.village}
-                        onChange={v => this.setState({village: v })}
+                        onChange={v =>this.setState({village: v })}
                     >
                         <List.Item arrow="horizontal" >所在地区</List.Item>
                     </Picker>
