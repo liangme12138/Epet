@@ -13,7 +13,6 @@ export default class OrderlistComponent extends React.Component {
     render(){  
         return(
             <div id="sm_orderlist">
-             { this.props.data?
                     <ul>
                     {
                         this.props.data.map((item,idx)=>{ 
@@ -34,13 +33,6 @@ export default class OrderlistComponent extends React.Component {
                     }
                       
                     </ul>
-                    :
-                    <div id="sm_nodata">
-                        <img src="../../src/assets/img/nodata.png" alt="" />
-                        <p>你还没有任何订单</p>
-                    </div>
-                      
-             }
             </div>   
              
             

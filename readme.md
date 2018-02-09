@@ -11,5 +11,7 @@
       岑婷霜和梁么负责.
 
 
-要修改baseUrl和DBHelper文件哦
+要修改baseUrl和DBHelper文件哦！！！
+首先要npm install 哦
+再npm start开启服务哦
 
