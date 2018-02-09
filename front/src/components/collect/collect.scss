@@ -54,6 +54,7 @@
         .ePetMarking-list{
             width: 100%;
             margin-top: 0.1333rem;
+            height:1.85rem;
             margin-top:0.13rem;
             background: #ffff;
             .ePetMarking-title{
@@ -138,4 +139,7 @@
             color:#999999;
         }
 
+    }
+    .tab2{
+        display: none;
     }

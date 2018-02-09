@@ -4,8 +4,8 @@ import './orderList.scss'
 
 export default class OrderlistComponent extends React.Component {
     state={
-        status: ['','去付款','确认收货','去评价'],
-        text:['','等待付款','等待收货','等待评价']
+        status: ['去付款','确认收货','去评价'],
+        text:['等待付款','等待收货','等待评价']
     }
     render(){  
         return(

@@ -85,7 +85,7 @@ export default (
         <Route path="brandsale" component={BrandSaleComponent}></Route>
         <Route path="epettop" component={ePetTopBarComponent}></Route>
         <Route path="topvideo" component={TopVideoComponent}></Route>
-        <Route path="orderDefail(/:orderId)" component={OrderDefail}></Route>
+        <Route path="orderDefail(/:userId/:orderId)" component={OrderDefail}></Route>
         
         
         <Route path="order" component={orderComponent}>

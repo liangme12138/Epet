@@ -4,7 +4,7 @@
     $userId = isset($_GET['userId']) ? $_GET['userId'] : '';
     $collectId = isset($_GET['collectId']) ? $_GET['collectId'] : '';
     if($userId){
-         $sql="select c.collectId,i.ImgUrl,p.Price,p.goodName from collect c ,product p , productimg i where c.userId='$userId' and p.goodId=c.goodId and p.goodId=i.goodId";
+         $sql="select c.collectId,i.ImgUrl,p.Price,p.goodName,p.goodId from collect c ,product p , productimg i where c.userId='$userId' and p.goodId=c.goodId and p.goodId=i.goodId";
          $result =query_oop($sql); 
     }
     else if($collectId){

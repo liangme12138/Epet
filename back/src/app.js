@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import configStore from './redux/configStore';
-import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
-import './sass/antd.css';
-import router from './router/index';
-const store = configStore();
-
+import {Router,Route,hashHistory} from 'react-router';
+import routes from './routers/routes';
+import store from './store/configStore';
+import 'antd/dist/antd.css';
+import './sass/_base.scss';
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={hashHistory} routes={router}/>
-    </Provider>,
-    document.getElementById('app')
+        <Router history={hashHistory} routes={routes}></Router>
+    </Provider>
+    ,document.getElementById('app')
 )

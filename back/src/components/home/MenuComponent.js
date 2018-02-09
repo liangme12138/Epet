@@ -13,7 +13,7 @@ export default class MenuComponent extends React.Component {
                   title={<span><Icon type="appstore" /><span>商品管理</span></span>}
                 >
                     <Menu.Item key="3"><Link to='/goodList'>商品列表</Link></Menu.Item>
-                    <Menu.Item key="4"  className={this.props.permission ? 'menushow' : 'menuhidden'}><Link to='/goods_add'>添加商品</Link></Menu.Item>
+                    <Menu.Item key="4" className={this.props.permission ? 'menushow' : 'menuhidden'}><Link to='/addgood'>添加商品</Link></Menu.Item>
                 </SubMenu>
 
               

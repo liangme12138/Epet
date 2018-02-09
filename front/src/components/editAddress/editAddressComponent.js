@@ -10,10 +10,6 @@ class Edit extends React.Component {
         pickerValue: [],
         receiveId: this.props.params.rid,
         userId:this.props.params.uid,
-        village:[],
-        linkMan:'',
-        phone: '',
-        doorplate: '',
         type:false
     };
     goBack = (e) => {
@@ -24,7 +20,7 @@ class Edit extends React.Component {
         if(this.state.receiveId){
             this.props.editAddress('address.php',{editId:this.state.receiveId}).then(res=>{
                this.setState({
-                village: [res[0].village],
+                village: res[0].village.split(','),
                 linkMan: res[0].linkMan,
                 phone: res[0].phone,
                 doorplate: res[0].doorplate,
@@ -39,7 +35,7 @@ class Edit extends React.Component {
                 this.props.updataAddress('address.php', { data: JSON.stringify(arr), receiveId2: this.state.receiveId }).then(res=>{
                 if(res==true){
                         Toast.success('修改成功!!!', 1,()=>{
-                            this.props.router.push('address'); 
+                            this.props.router.goBack(-1);
                         }); 
                                 
                 }
@@ -78,7 +74,7 @@ class Edit extends React.Component {
             this.props.addAddress('address.php', { newdata:JSON.stringify(data)}).then(res => {
                 if (res == true) {
                     Toast.success('添加成功!!!', 1, () => {
-                        this.props.router.push('address');
+                        this.props.router.goBack(-1);
                     });
                 }
             })

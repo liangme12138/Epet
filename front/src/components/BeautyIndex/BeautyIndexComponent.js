@@ -173,7 +173,7 @@ class BeautyIndexComponent extends React.Component {
 }
 
 const mapToState = function (state) {
-  console.log('state', state.BeautyIndexReducer.result1)
+  // console.log('state', state.BeautyIndexReducer.result1)
   return {
     AjaxTabState: state.BeautyIndexReducer.status,
     TabDate: state.BeautyIndexReducer.result1 || [],

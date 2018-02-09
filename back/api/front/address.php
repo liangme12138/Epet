@@ -45,6 +45,7 @@
         $arr=changeArr($newdata);
         $key=implode(',',$arr[0]);
         $value=substr(json_encode($arr[1],JSON_UNESCAPED_UNICODE),1,-1);//去除[]
+        
         $sql = "insert into address($key) values($value)";
         $result =excute_oop($sql); 
     }
@@ -53,6 +54,9 @@
         $arrKey=array();
          $arrValue=array();
          foreach($address as $key =>$val){
+             if($key == 'type'){
+                $val = 'true';
+            }
              $arrKey[]=$key;
               $arrValue[]=$val;
         }

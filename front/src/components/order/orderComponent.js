@@ -13,15 +13,16 @@ class OrderComponent extends React.Component{
         if (this.state.userId) {
             var  status=0;
             if (this.state.tabNum =="waitpay"){
-                status=1;
+                status=0;
             }
             else if (this.state.tabNum =="takegoods"){
-                status=2;
+                status=1;
             }
             else if (this.state.tabNum == "evaluate"){
-                status = 3;
+                status = 2;
             }
             this.props.allorder('order.php', { userId: this.state.userId,status:status}).then(res => {
+                this.count(res);
                 this.setState({ dataset: res })
             })
         }
@@ -33,26 +34,43 @@ class OrderComponent extends React.Component{
             $(e.target).parent('li').addClass('active').siblings('li').removeClass('active');
             if (text =="全部订单"){ 
                 this.props.allorder('order.php', { userId: this.state.userId }).then(res => {
+                    this.count(res);
                     this.setState({ dataset: res })
                 })
             }
             else if (text == "待付款"){
-                this.props.waitpay('order.php', { userId: this.state.userId,status:1}).then(res => {
+                this.props.waitpay('order.php', { userId: this.state.userId,status:0}).then(res => {
+                    this.count(res);
                     this.setState({ dataset: res })
                 })
             }
             else if (text == "待收货"){
-                this.props.takegoods('order.php', { userId: this.state.userId,status:2}).then(res => {
+                this.props.takegoods('order.php', { userId: this.state.userId,status:1}).then(res => {
+                    this.count(res);
                 this.setState({ dataset: res })
              })
             }
             else if (text == "待评价") {
-                this.props.evaluate('order.php', { userId: this.state.userId, status:3 }).then(res => {
+                this.props.evaluate('order.php', { userId: this.state.userId, status:2 }).then(res => {
+                    this.count(res);
                     this.setState({ dataset: res })
                 })
             }
             
         }    
+    }
+    count(res){
+        if (res) {
+            for (var i = 0; i < res.length; i++) {
+                for (var j = i + 1; j < res.length; j++) {
+                    if (res[i].goodId == res[j].goodId) {
+                        res[i].count = res[j].count * 1 + res[i].count * 1;
+                        res.splice(j, 1);
+                        j--;
+                    }
+                }
+            }
+        }
     }
     goBack = (e) => {
         this.props.router.push('mine');
@@ -85,6 +103,7 @@ class OrderComponent extends React.Component{
     }
 }
 const mapToState = function (state) {
+    
     return {
         type: state.orderReducer.type,
         information: state.orderReducer.info || []

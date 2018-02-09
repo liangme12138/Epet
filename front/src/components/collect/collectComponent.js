@@ -47,6 +47,10 @@ class Collect extends React.Component {
     goBack = (e) => {
         this.props.router.goBack(-1);
     }
+    toDefail(val){
+        this.props.router.push('defail/'+val);
+
+    }
     render(){
         return(
              <div id="sm_collect">
@@ -62,7 +66,7 @@ class Collect extends React.Component {
                     {
                        this.state.dataset?
                             this.state.dataset.map((item, idx) => {
-                    return  <div className="ePetMarking-list" key={idx}>
+                    return  <div className="ePetMarking-list" key={idx} onClick={this.toDefail.bind(this,item.goodId)}>
                             <div className="ePetMarking-details">
                                 <div className="epetmarkingImg">
                                     <img src={item.ImgUrl} />

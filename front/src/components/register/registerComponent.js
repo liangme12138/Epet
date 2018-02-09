@@ -103,6 +103,7 @@ class Register extends React.Component {
 
     }
     goBack = (e) => {
+        clearInterval(this.state.timer);
         this.props.router.goBack(-1);
     }
     render(){
