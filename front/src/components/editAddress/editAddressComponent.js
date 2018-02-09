@@ -35,7 +35,7 @@ class Edit extends React.Component {
                 this.props.updataAddress('address.php', { data: JSON.stringify(arr), receiveId2: this.state.receiveId }).then(res=>{
                 if(res==true){
                         Toast.success('修改成功!!!', 1,()=>{
-                            this.props.router.push('address'); 
+                            this.props.router.goBack(-1);
                         }); 
                                 
                 }
@@ -74,7 +74,7 @@ class Edit extends React.Component {
             this.props.addAddress('address.php', { newdata:JSON.stringify(data)}).then(res => {
                 if (res == true) {
                     Toast.success('添加成功!!!', 1, () => {
-                        this.props.router.push('address');
+                        this.props.router.goBack(-1);
                     });
                 }
             })
@@ -109,7 +109,7 @@ class Edit extends React.Component {
                         title="选择地区"
                         extra={this.state.village}
                         value={this.state.village}
-                        onChange={v => this.setState({village: v })}
+                        onChange={v =>this.setState({village: v })}
                     >
                         <List.Item arrow="horizontal" >所在地区</List.Item>
                     </Picker>

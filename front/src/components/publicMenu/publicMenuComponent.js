@@ -28,7 +28,7 @@ export default class publicMenu extends React.Component{
                     <li onClick={this.cart2.bind(this)}>
                         <Button onClick={this.state.userId == '' ? () => alert('我的萌宠', '亲！请先登录!', [
                             { text: '继续逛逛', onPress: () => console.log(), style: 'default' },
-                            { text: '去登录', onPress: () => this.props.router.push("/login"), style: { fontWeight: 'bold' } },
+                        { text: '去登录', onPress: () => hashHistory.push("/login"), style: { fontWeight: 'bold' } },
                     ]) : ''}
                         ><i className="iconfont icon-cart"></i><span>购物车</span></Button>
                     </li>

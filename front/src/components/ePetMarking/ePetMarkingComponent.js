@@ -92,7 +92,9 @@ class ePetMarkingComponent extends React.Component{
         $('.priDown').css(this.state.domStyle)
     }
 
-
+    toDetails(val) {
+        this.props.router.push('defail/' + val)
+    }
 
    
     render() {
@@ -123,7 +125,7 @@ class ePetMarkingComponent extends React.Component{
                             <span className="t2">{item.deadline}</span>
                             <span className="discount">{item.discount}折</span>
                         </p>
-                        <div className="ePetMarking-details">
+                        <div className="ePetMarking-details" onClick={this.toDetails.bind(this,item.goodsid)}>
                             <div className="epetmarkingImg">
                                 <img src={item.imgurl}/>
                             </div>

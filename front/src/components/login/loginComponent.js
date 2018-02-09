@@ -146,10 +146,12 @@ class Login extends React.Component{
         }
     }
     goBack=(e)=>{
+        clearInterval(this.state.timer);
         this.props.router.goBack(-1);
         // this.props.router.push("/");
     }
     skipTo = (e) => {
+        clearInterval(this.state.timer);
         this.props.router.push("register");
     }
     render(){

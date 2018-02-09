@@ -68,8 +68,7 @@ class DogCostumeIndexComponent extends React.Component{
         return (
             <div className="dogCostume">
                 <div className="banner-item-3">
-                    <img src="https://img2.epetbar.com/nowater/2018-01/22/16/16acd5a53c17914bb26723a799680f51.jpg" />
-
+    
                     {/* <img src="https://img2.epetbar.com/nowater/2018-01/22/16/16acd5a53c17914bb26723a799680f51.jpg" /> */}
                     <div className="carousel">
 

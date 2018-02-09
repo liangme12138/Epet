@@ -52,7 +52,6 @@ class SnackToysIndexComponet extends React.Component{
         this.setState({ tabItems: action.TabItem(id, this.state.tabItems, this.props.TabDate) })
     }
     tabSmall(obj, eve) {
-        console.log(obj)
         for (let i = 0; i < this.props.IndexMenus.length; i++) {
             if (i != obj.idx) {
                 $('#tabs').find('li').eq(i).find('img').attr({ src: this.props.IndexMenus[i].tabImg1 })
@@ -67,11 +66,9 @@ class SnackToysIndexComponet extends React.Component{
         this.props.router.push("/activite/" + id);
     }
     godefail(val) {
-        console.log('val', val)
         this.props.router.push("/defail/" + val);
     }
     clickMenu(id, event) {
-        console.log(event.target.tagName);
         $('.dogfoodMenuUL li span').removeClass('active');
         event.target.classList.toggle('active');
 
@@ -198,7 +195,6 @@ class SnackToysIndexComponet extends React.Component{
 }
 
 const mapToState = function (state) {
-    console.log('state', state.SnackToysReducer.result3)
     return {
         AjaxTabState: state.SnackToysReducer.status,
         TabDate: state.SnackToysReducer.result1 || [],

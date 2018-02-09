@@ -2,7 +2,6 @@
 
 export default function TabsReducer(state = {}, action) {
     let newState = JSON.parse(JSON.stringify(state));
-    console.log('TabsReducer', action.respones)
     switch (action.type) {
         case 'requesting':
             newState.status = 0;

@@ -27,7 +27,7 @@ class DefailComponent extends React.Component{
             })
             // 获取购物车商品数量
             this.props.cartDefail(val,'cart').then(res=>{
-                if (res[0].count != 0){
+                if (res[0].count){
                     var count = 0;
                     for(var i=0;i<res.length;i++){
                         count += res[i].count*1
@@ -72,7 +72,6 @@ class DefailComponent extends React.Component{
         this.setState({ num: val.target.value})
     }
     check(event){
-        console.log(this.props.goodId)
         if(this.state.userId){
             if (event.target.parentNode.className == 'favorites'){
                 $('.icon-favoritesfilling').toggleClass('active');
@@ -115,10 +114,10 @@ class DefailComponent extends React.Component{
                         this.props.result.map((item,idx)=>{
                             return(
                                 <div key={idx}>
-                                    <img src={item.ImgUrl || item.goodImgUrl} alt=""/>
-                                    <p>{item.goodName}</p>
-                                    <p>{item.describe}</p>
-                                    <p><span>{'￥' + item.Price}</span><del>{'￥' + item.originPrice}</del></p>
+                                    <img src={item.ImgUrl || item.goodImgUrl || item.imgurl} alt=""/>
+                                    <p>{item.goodName || item.name}</p>
+                                    <p>{item.describe || []}</p>
+                                    <p><span>￥{(item.Price) || item.curPrice}</span><del>￥{ item.originPrice || item.oriPrice}</del></p>
                                     <div>
                                         <p>购买数量：</p>
                                         <p onClick={this.add.bind(this)}><span>-</span><input type="text" onChange={this.change.bind(this)} className="num"/><span>+</span></p>
@@ -167,7 +166,6 @@ class DefailComponent extends React.Component{
 }
 
 let mapToState = function (state) {
-    console.log(state.defail)
     return {
         status: state.defail.status,
         result: state.defail.result || [],

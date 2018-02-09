@@ -58,7 +58,7 @@ class AddresssComponent extends React.Component {
                                     </div>
                                     <div className="bot">
                                         <Flex style={{ padding: '0.2rem' }}>
-                                            <Flex.Item >
+                                            <Flex.Item>
                                          <Radio className="my-radio" name="address" checked={item.type}>默认地址</Radio>
                                             </Flex.Item>
                                      <Link to={{pathname:"editAddress/"+item.userId+"/"+item.receiveId}}><span><i className="iconfont icon-evaluate"></i>编辑</span></Link>      

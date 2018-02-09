@@ -7,19 +7,19 @@ import './order.scss'
 class OrderComponent extends React.Component{
     state={
         tabNum:this.props.params.tab,
-         userId: (JSON.parse(window.localStorage.getItem('userInfo')))[0].userId || '',
+        userId: JSON.parse(window.localStorage.getItem('userInfo'))?(JSON.parse(window.localStorage.getItem('userInfo')))[0].userId :'',
     }
     componentWillMount() {
         if (this.state.userId) {
             var  status=0;
             if (this.state.tabNum =="waitpay"){
-                status=1;
+                status=0;
             }
             else if (this.state.tabNum =="takegoods"){
-                status=2;
+                status=1;
             }
             else if (this.state.tabNum == "evaluate"){
-                status = 3;
+                status = 2;
             }
             this.props.allorder('order.php', { userId: this.state.userId,status:status}).then(res => {
                 this.setState({ dataset: res })
@@ -37,17 +37,17 @@ class OrderComponent extends React.Component{
                 })
             }
             else if (text == "待付款"){
-                this.props.waitpay('order.php', { userId: this.state.userId,status:1}).then(res => {
+                this.props.waitpay('order.php', { userId: this.state.userId,status:0}).then(res => {
                     this.setState({ dataset: res })
                 })
             }
             else if (text == "待收货"){
-                this.props.takegoods('order.php', { userId: this.state.userId,status:2}).then(res => {
+                this.props.takegoods('order.php', { userId: this.state.userId,status:1}).then(res => {
                 this.setState({ dataset: res })
              })
             }
             else if (text == "待评价") {
-                this.props.evaluate('order.php', { userId: this.state.userId, status:3 }).then(res => {
+                this.props.evaluate('order.php', { userId: this.state.userId, status:2 }).then(res => {
                     this.setState({ dataset: res })
                 })
             }
@@ -78,7 +78,15 @@ class OrderComponent extends React.Component{
                     </li>
                 </ul>
                 <div className="main">
-                        <List data={this.state.dataset}></List>                 
+                {
+                    this.state.dataset? <List data={this.state.dataset}></List>
+                     :
+                    <div id="sm_nodata">
+                        <img src="../../src/assets/img/nodata.png" alt="" />
+                        <p>你还没有任何订单</p>
+                    </div>   
+                }
+                                     
                 </div>
             </div>
         )

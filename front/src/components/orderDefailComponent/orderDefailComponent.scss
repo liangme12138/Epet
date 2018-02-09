@@ -40,6 +40,7 @@
     .orderDefail{
         flex:1;
         margin-top:.67rem;
+        margin-bottom:.77rem;
         h3{
              margin:.27rem .1rem;
         }
@@ -50,7 +51,7 @@
             li{
                 border-top:.01rem solid rgb(224, 223, 223);
                 display: flex;
-                height: 2rem;
+                // height: 2rem;
                 position:relative;
                 list-style:none;
                 .num1{

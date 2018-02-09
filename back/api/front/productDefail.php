@@ -15,7 +15,7 @@
             $sql =  "select * from collect where userId = '$userId' and goodId = '$goodId'";
             $result = query_oop($sql);
             if($result){
-                echo json_encode($result, JSON_UNESCAPED_UNICODE);
+                echo 'ok';
             }else{
                 echo "fail";
             }
@@ -70,7 +70,13 @@
             if($result1){
                 echo json_encode($result1, JSON_UNESCAPED_UNICODE);
             }else{
-                echo "fail";
+                $sql2 = "select * from epetmarking1 where epetmarking1.goodsid = '$goodId'";
+                $result2 = query_oop($sql2);
+                if($result2){
+                    echo json_encode($result2, JSON_UNESCAPED_UNICODE);
+                }else{
+                    echo "fail";
+                }
             }
         }
     }

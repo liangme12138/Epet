@@ -26,7 +26,6 @@ class ProductsComponent extends React.Component{
         }
         var val = this.props.router.params.val || this.props.productId;
         if (val.indexOf('tab') != -1 || isNaN(val) == false){
-            console.log(666)
             this.props.getProduct(val).then((res) => {
                 var arr = ['全部'];
                 res.forEach(item => {

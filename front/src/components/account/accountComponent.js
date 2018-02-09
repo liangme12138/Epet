@@ -12,11 +12,11 @@ const gender = [{ label: "男", value:"男"},{label:"女",value:"女"}]
 const animal = [{ label: "哈士奇", value: "哈士奇" }, { label: "藏獒", value: "藏獒" }, { label: "贵宾犬", value: "贵宾犬" }, { label: "松狮", value: "松狮" }, { label: "边境牧羊犬", value: "边境牧羊犬" }, { label: "吉娃娃", value: "吉娃娃" }, { label: "秋田犬", value: "秋田犬" }, { label: "博美犬", value: "博美犬" }, { label: "蝴蝶犬", value: "蝴蝶犬" }, { label: "法国斗牛犬", value: "法国斗牛犬" }, { label: "萨摩耶犬", value: "萨摩耶犬" }, { label: "巴哥犬", value: "巴哥犬" }, { label: "西高地白梗", value: "西高地白梗" }, { label: "卷毛比雄犬", value: "卷毛比雄犬" }, { label: "纽芬兰犬", value: "纽芬兰犬" }, { label: "阿拉斯加雪橇犬", value: "阿拉斯加雪橇犬" }]
 class Account extends React.Component {
     state = {
-        userInfo: JSON.parse(window.localStorage.getItem('userInfo'))||[],
+        userInfo: JSON.parse(window.localStorage.getItem('userInfo')) ? JSON.parse(window.localStorage.getItem('userInfo')):[],
         headImg: '../../src/assets/img/headImg/1.jpg'
     };
     componentWillMount(){
-        if (this.state.userInfo.length>0){
+        if(this.state.userInfo.length>0){
             this.setState({
                 // 获取用户（对象）
                 userId: this.state.userInfo[0].userId,

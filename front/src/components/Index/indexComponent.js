@@ -15,7 +15,9 @@ import HomeBastComponent from '../home/homeBestComponent';
 
 class IndexComponent extends React.Component{
     state={
-        imgUrl:[]
+        imgUrl:[],
+        way: ['clothCity', 'applaws', 'naturebridge', 'moshm', 'ugfood','mengbei',
+            'farmfood', 'petin', 'ancol','qc']
 
     }
     // 进入e宠团
@@ -53,7 +55,9 @@ class IndexComponent extends React.Component{
     }
     
     go() {
-        console.log(66666)
+        var len = $('.ul').length;
+        console.log(len)
+
     }
     
     componentDidMount() {
@@ -169,11 +173,13 @@ class IndexComponent extends React.Component{
                         <img src={require('../../assets/img/navList/more.png')} className="brandMore" onClick={this.brandMore}/>
                     </div>
                     <div className="brandDetails-img">
-                        <ul onClick={this.go}>
+                        <ul onClick={this.go} className="ul">
                             {
+                                
                                 this.state.imgUrl.map((item,idx)=>{
                                     return <li key={idx}>
-                                        <img src={item.imgurl} />
+                                            <Link to = {{pathname:this.state.way[idx]}}>
+                                        <img src={item.imgurl} /></Link>
                                     </li>
                                 })
                             }
@@ -198,7 +204,6 @@ class IndexComponent extends React.Component{
 
 
 const mapToState = function (state) {
-    console.log(state)
     return {
         imgsrc: state.IndexReducer.imgres || []
     }

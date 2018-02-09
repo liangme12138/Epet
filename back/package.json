@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --progress --colors",
-    "start": "webpack-dev-server --devtool eval --progress --host 10.3.135.254 --open --port 3002 --colors --content-base ./"
+    "start": "webpack-dev-server --devtool eval --progress --open --port 3035 --host 10.3.136.122 --colors --content-base ./"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -19,7 +19,6 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.9.0",
     "image-webpack-loader": "^3.3.0",
-    "material-ui": "^0.18.1",
     "node-sass": "^4.5.0",
     "progress-bar-webpack-plugin": "^1.9.3",
     "react": "^15.5.4",

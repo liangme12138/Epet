@@ -195,7 +195,7 @@ class  GoOutIndexComponent extends React.Component{
 }
 
 const mapToState = function (state) {
-    console.log('state', state.goOutIndexReducer)
+    // console.log('state', state.goOutIndexReducer)
   return {
     AjaxTabState: state.goOutIndexReducer.status,
     TabDate: state.goOutIndexReducer.result1 || [],

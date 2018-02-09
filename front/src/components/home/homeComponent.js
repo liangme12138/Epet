@@ -6,7 +6,7 @@ import * as HomeAction from './homeAction';
 import { connect } from 'react-redux';
 class HomeComponent extends React.Component{
     ToComponent(event){
-        console.log(event.target.getAttribute('data-path'))
+        // console.log(event.target.getAttribute('data-path'))
         if (event.target.tagName == 'LI'){
             $(event.target).closest('li').css({ 'border-bottom': '1px solid rgb(2, 105, 2)', color: 'rgb(2, 105, 2)' }).siblings('li').css({border:'none',color:'#333'})
         }

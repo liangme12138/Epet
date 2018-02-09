@@ -8,8 +8,8 @@ import './orderDefailComponent.scss'
 class OrderComponent extends React.Component {
     state = {
         data : [],
-        num:'',
-        money1:'',
+        num:0,
+        money1:0,
         userId:''
     }
     componentWillMount(){
@@ -29,8 +29,8 @@ class OrderComponent extends React.Component {
                         }
                     }
                 }
-                var money1 = '';
-                var num = '';
+                var money1 = 0;
+                var num = 0;
                 if (res.length == 1) {
                     money1 += res[0].Price * 1 * res[0].count * 1;
                     num += res[0].count * 1;
@@ -56,7 +56,7 @@ class OrderComponent extends React.Component {
 
     }
     goaddress(){
-        this.props.router.push("/editAddress/" + this.state.userId);
+        this.props.router.push("/editAddress/" + this.state.userId + "/" + this.state.data[0].receiveId);
     }
     render(){
         return(

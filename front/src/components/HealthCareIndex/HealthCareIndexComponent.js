@@ -52,7 +52,6 @@ class HealthCareIndexComponent extends React.Component{
         this.setState({ tabItems: action.TabItem(id, this.state.tabItems, this.props.TabDate) })
     }
     tabSmall(obj, eve) {
-        console.log(obj)
         for (let i = 0; i < this.props.IndexMenus.length; i++) {
             if (i != obj.idx) {
                 $('#tabs').find('li').eq(i).find('img').attr({ src: this.props.IndexMenus[i].tabImg1 })
@@ -65,7 +64,6 @@ class HealthCareIndexComponent extends React.Component{
         this.props.router.push("/activite/" + id);
     }
     godefail(val) {
-        console.log('val', val)
         this.props.router.push("/defail/" + val);
     }
     renderUserMessage() {
@@ -107,7 +105,6 @@ class HealthCareIndexComponent extends React.Component{
         }
     }
     clickMenu(id, event) {
-        console.log(event.target.tagName);
         $('.dogfoodMenuUL li span').removeClass('active');
         event.target.classList.toggle('active');
 
@@ -194,7 +191,6 @@ class HealthCareIndexComponent extends React.Component{
 }
 
 const mapToState = function (state) {
-    console.log('state', state.healthcareReducer.result3)
     return {
         AjaxTabState: state.healthcareReducer.status,
         TabDate: state.healthcareReducer.result1 || [],

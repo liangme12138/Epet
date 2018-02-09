@@ -5,7 +5,7 @@
     $status = isset($_GET['status']) ? $_GET['status'] : "";
     if($userId){
         $sql = "SELECT product.goodId,`order`.orderId,`order`.`status`,product.goodName,product.Price,productimg.ImgUrl,`order`.time FROM product INNER JOIN ordergoods on product.goodId = ordergoods.goodId INNER JOIN `order` on ordergoods.orderId = `order`.orderId INNER JOIN productimg on productimg.goodId = product.goodId WHERE `order`.userId = '$userId' ";
-        if($status){
+        if($status||$status=='0'){
             $sql.="and `order`.status='$status'";
         }
         // var_dump($sql);

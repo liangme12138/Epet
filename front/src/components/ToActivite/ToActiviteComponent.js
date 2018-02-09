@@ -10,7 +10,6 @@ class ToActiviteComponent extends React.Component {
     }
     componentWillMount() {
         spinner.loadSpinner();
-        console.log('id', this.props.params.id)
         this.props.getAtvPrd(this.props.params.id).then(()=>{
             spinner.closeSpinner();
         }).catch(error => {
@@ -56,7 +55,6 @@ class ToActiviteComponent extends React.Component {
 }
 
 const mapToState = function (state) {
-    console.log('state', state.ActiveProduct.result2)
     return {
         data1: state.ActiveProduct.result1 || [],
         data2: state.ActiveProduct.result2 || [],
