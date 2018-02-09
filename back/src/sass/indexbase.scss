@@ -1,0 +1,203 @@
+.Activites {
+    >h2 {
+        height: 0.7rem;
+        background: #fff;
+        padding: 0.2rem 0;
+        img {
+            display: block;
+            margin: auto;
+        }
+    }
+    .Activite {
+        .ActiviteItem {
+            .ActiviteImg {
+                height: 2.13rem;
+                border-top: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+                img {
+                    display: block;
+                    height: 2.13rem;
+                }
+            }
+            .ActiviteGoods {
+                display: flex;
+                width: 100%;
+                overflow-y: hidden;
+                background: #fff;
+                border-top: 0.02rem solid #aaaaaa;
+                border-bottom: 0.01rem solid #aaa;
+                flex-wrap: nowrap;
+                li {
+                    // flex: 30%;
+                    margin-top: 0.13rem; // float: left;
+                    width: 1.47rem;
+                    height: 1.73rem;
+                    border-right: 0.01rem solid #eee;
+                    .goodImg {
+                        height: 1rem;
+                        width: 1.47rem;
+                        img {
+                            display: block;
+                            height: 1rem;
+                            margin: auto;
+                        }
+                    }
+                    .goodmsg {
+                        width: 100%;
+                        >p {
+                            padding: 0 0.13rem;
+                            color: #666;
+                            font-size: 0.19rem;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 2;
+                            font-size: 0.16rem;
+                        }
+                        span {
+                            display: block;
+                            color: red;
+                            text-align: center;
+                            height: 0.27rem;
+                            line-height: 0.27rem;
+                        }
+                    }
+                    h3,
+                    span {
+                        display: block;
+                        width: 1.47rem;
+                        text-align: center;
+                        font-size: 0.18rem;
+                    }
+                    h3 {
+                        margin-top: 0.67rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.products {
+    background: #fff;
+    .productsMask {
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        background: rgba(0, 0, 0, .5);
+        z-index: 2;
+    }
+    ul {
+        li {
+            border-top: .01rem solid rgb(224, 223, 223);
+            display: flex;
+            height: 2rem;
+            position: relative;
+            img {
+                display: inline-block;
+                width: 1.5rem;
+                height: 1.5rem;
+                margin: .25rem;
+            }
+            div {
+                flex: 1;
+                display: inline-block;
+                margin-top: .25rem;
+                padding: 0 .09rem;
+                h3 {
+                    font-size: .17rem;
+                }
+                .others {
+                    height: .4rem;
+                    line-height: .4rem;
+                    width: 100%;
+                }
+                p {
+                    font-size: .17rem;
+                }
+                .price {
+                    color: red;
+                    font-size: .23rem;
+                    margin: .09rem 0;
+                }
+                .sell {
+                    color: #ccc;
+                    font-size: .2rem;
+                }
+            }
+            .am-button {
+                position: absolute;
+                right: .27rem;
+                bottom: .27rem;
+                i {
+                    color: red;
+                    font-size: .37rem;
+                }
+            }
+        }
+    }
+}
+
+.dogfoodMenu {
+    // height: 60px;
+    background: #fff;
+    .dogfoodMenuUL {
+        width: 100%;
+        display: inline;
+        white-space: nowrap;
+        overflow-x: scroll;
+        float: left;
+        border-bottom: 1px solid #eee;
+        li {
+            display: inline-block;
+            padding: 0 0.17rem;
+            span {
+                display: block; // padding: 0 30px;
+                margin: 20px 0;
+                padding: 6px 30px;
+                border: 1px solid red;
+                border-radius: 15px; // background: rgb(240, 236, 236);
+            }
+        } // li:first-child {
+        //     span {
+        //         background: rgb(240, 236, 236);
+        //     }
+        // }
+    }
+}
+
+.active {
+    background: #ccc;
+}
+
+.DataError {
+    width: 100%;
+    background: #fff;
+    img {
+        display: block;
+        width: 206px;
+        height: 230px;
+        margin: 20px auto;
+    }
+    p {
+        text-align: center;
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+} 
+    .carousel{position:relative;width:30000px;height:300px;margin:0 auto;}
+    .carousel ul{position:absolute;top:0;left:0;}
+    .carousel ul li{float: left;}
+    .carousel img{display: block;}
+    .carousel .next,.carousel .prev{position:absolute;left:0;top:50%;transform: translate(0,-50%);padding:10px 5px;width:30px;height:50px;line-height:50px;background-color: rgba(0,0,0,.3);text-align:center;color:#fff;cursor:pointer;}
+    .carousel .next{left:auto;right:0;}
+    .page{position: absolute;right:15px;bottom:15px;}
+    .page span{display:inline-block;margin:0 5px;width:30px;height:30px;line-height:30px;text-align:center;background-color:#efefef;border-radius:50%;cursor:pointer;}
+    .page span.active{background-color:#f60;color:#fff;}

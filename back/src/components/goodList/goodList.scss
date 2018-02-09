@@ -1,0 +1,53 @@
+// 
+.goodslist {
+    // width: 100%;
+    overflow-y: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+    tr {
+        width: 100%;
+        border-bottom: 1px solid #777;
+        th {
+            font-weight: bold;
+            padding: 10px;
+            font-size: 14px; // width: 8%;
+            text-align: center;
+        }
+        td {
+            padding: 8px 0;
+            font-size: 12px; // width: 8%;
+            // text-align: center;
+            img {
+                display: block;
+                width: 50px;
+                height: 50px;
+            }
+        }
+        .operation {
+            width: 12%;
+            .edit,
+            .del {
+                margin: 0 18px;
+            }
+        }
+    }
+}
+
+.IMG {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.listHeader {
+    float: right;
+    margin-top: 4px;
+    margin-right: 10px;
+}
+
+.ant-table-pagination {
+    margin-right: 10px;
+    margin-bottom: 20px;
+}

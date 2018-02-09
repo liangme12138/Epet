@@ -7,6 +7,9 @@ export default class OrderlistComponent extends React.Component {
         status: ['去付款','确认收货','去评价'],
         text:['等待付款','等待收货','等待评价']
     }
+    cancel(id,e){
+        Toast.loading('服务器繁忙,数据请求中!', 2);
+    }
     render(){  
         return(
             <div id="sm_orderlist">

@@ -41,18 +41,18 @@ class IndexComponent extends React.Component{
         hashHistory.push('epetmarking')
     }
     // 萌宠联盟
-    topetalliance() {
-        hashHistory.push('petalliance')
-    }
+    // topetalliance() {
+    //     hashHistory.push('petalliance')
+    // }
     brandMore() {
         hashHistory.push('brandsale')
     }
     toNewYear() {
         hashHistory.push('newyear')
     }
-    toTopVideo() {
-        hashHistory.push('topvideo')
-    }
+    // toTopVideo() {
+    //     hashHistory.push('topvideo')
+    // }
     
     go() {
         var len = $('.ul').length;
@@ -120,7 +120,7 @@ class IndexComponent extends React.Component{
                                     <img src={require('../../assets/img/navList/6.jpg')}/>
                                 </i>
                             </li>
-                            <li onClick={this.topetalliance}>
+                            <li>
                                 <i>
                                     <img src={require('../../assets/img/navList/7.jpg')}/>
                                 </i>
