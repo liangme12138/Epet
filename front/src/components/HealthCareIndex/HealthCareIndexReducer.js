@@ -2,7 +2,6 @@
 import spinner from '../spinner/spinner'
 export default function TabsReducer(state = {}, action) {
     let newState = JSON.parse(JSON.stringify(state));
-    // console.log(action)
     switch (action.type) {
         case 'requesting':
             spinner.loadSpinner();
